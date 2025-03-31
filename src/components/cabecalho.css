@@ -1,0 +1,29 @@
+.cabecalho {
+    background-color: #77af51;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .logo-esquerda {
+    height: 50px;
+  }
+  
+  /* Esconder a logo da esquerda em telas menores que 600px */
+  @media (max-width: 600px) {
+    .logo-esquerda {
+      display: none;
+    }
+  }
+  
+  .logo-meio {
+    height: 40px;
+    text-align: center;
+    color: white;
+  }
+  
+  .perfil-icon {
+    color: white;
+  }
+  

@@ -1,6 +1,7 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Box } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Menu, MenuItem, Box } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import "../components/cabecalho.css"; // Importa o CSS
 
 const NavbarFinancas = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -15,32 +16,30 @@ const NavbarFinancas = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#77af51" }}>
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+    <AppBar position="static">
+      <Toolbar className="cabecalho">
         {/* Logo à esquerda */}
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box>
           <img
-            src="/images/logo-dinheirinho-letra-branca.png"
+            src="../images/logo-feasy-branco.svg"
             alt="logo"
-            style={{ height: 50 }}
+            className="logo-esquerda"
           />
         </Box>
 
         {/* Título Central */}
         <Box textAlign="center">
           <img
-            src="/images/logo-dinheirinho-letra-branca.png"
+            src="../images/logo-feasy-branco.svg"
             alt="logo"
-            style={{ height: 40 }}
+            className="logo-meio"
           />
-          <Typography variant="h6" sx={{ color: "white" }}>
-            Finanças Pessoais
-          </Typography>
+          <h6 className="logo-meio">Finanças Pessoais</h6>
         </Box>
 
         {/* Menu Perfil */}
         <Box>
-          <IconButton onClick={handleMenu} color="inherit">
+          <IconButton onClick={handleMenu} className="perfil-icon">
             <AccountCircle />
           </IconButton>
           <Menu
