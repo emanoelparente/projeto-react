@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import NavbarFinancas from './components/cabecalho';
+import SaldoAtual from './components/saldoConta';
 
 function App() {
   return (
     <div className="App">
       <NavbarFinancas></NavbarFinancas>
+      <SaldoAtual></SaldoAtual>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
