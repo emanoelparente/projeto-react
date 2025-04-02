@@ -40,7 +40,7 @@ const NavbarFinancas = () => {
                 {/* Menu Perfil */}
                 <Box>
                     <IconButton onClick={handleMenu} className="perfil-icon">
-                        <AccountCircle className="perfil-icon-size" />
+                        <AccountCircle sx={{ fontSize: 40, color: "white" }} />
                     </IconButton>
                     <Menu
                         anchorEl={anchorEl}
