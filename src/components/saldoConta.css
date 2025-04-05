@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+.saldo-container {
+    background-color: #d4a373;
+    margin-top: 3%;
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+  
+  .saldo-label {
+    background-color: #f54387;
+    padding-top: 5px;
+    text-align: left;
+    
+  }
+  
+  .saldo-valores {
+    display: flex;
+    justify-content: space-between;
+    background-color: #a2d2ff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    padding-left: 10%;
+  }
+  
+
+  /* Até 1000px */
+@media (max-width: 1000px) {
+    .saldo-container {
+      padding-left: 30%;
+      padding-right: 30%;
+    }
+  }
+  
+  /* Até 800px */
+  @media (max-width: 800px) {
+    .saldo-container {
+      padding-left: 25%;
+      padding-right: 25%;
+    }
+  }
+  
+  /* Até 600px */
+  @media (max-width: 600px) {
+    .saldo-container {
+      padding-left: 20%;
+      padding-right: 20%;
+    }
+  }
+  
+  /* Até 500px */
+  @media (max-width: 500px) {
+    .saldo-container {
+      padding-left: 15%;
+      padding-right: 15%;
+    }
+  }
+  
+  /* Até 300px */
+  @media (max-width: 300px) {
+    .saldo-container {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+  }

@@ -1,33 +1,19 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import "../components/saldoConta.css";
 
 const SaldoAtual = ({ saldo }) => {
     return (
-        <Box
-        sx={{
-            backgroundColor: "#d4a373",
-            marginTop: "5%",
-          }}>
-        
-
-            {/* Label */}
-            <Box sx={{ backgroundColor: "#ffc8dd", padding: "8px 0" }}>
+        <Box className="saldo-container">
+            <Box className="saldo-label">
                 <Typography variant="h6" color="textPrimary">
                     Saldo atual
                 </Typography>
             </Box>
-
-            {/* Saldo */}
-            <Box
-                sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    backgroundColor: "#a2d2ff",
-                    padding: "8px 0"
-                }}
-            >
-
-                <Typography variant="h5" color="textPrimary">R$</Typography>
+            <Box className="saldo-valores">
+                <Typography variant="h5" color="textPrimary">
+                    R$
+                </Typography>
                 <Typography variant="h5" color="textPrimary" textAlign="right">
                     {saldo}
                 </Typography>
