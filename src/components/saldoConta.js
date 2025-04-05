@@ -6,15 +6,15 @@ const SaldoAtual = ({ saldo }) => {
     return (
         <Box className="saldo-container">
             <Box className="saldo-label">
-                <Typography variant="h6" color="textPrimary">
+                <Typography variant="h6">
                     Saldo atual
                 </Typography>
             </Box>
             <Box className="saldo-valores">
-                <Typography variant="h5" color="textPrimary">
+                <Typography variant="h5">
                     R$
                 </Typography>
-                <Typography variant="h5" color="textPrimary" textAlign="right">
+                <Typography variant="h5" textAlign="right">
                     {saldo}
                 </Typography>
             </Box>

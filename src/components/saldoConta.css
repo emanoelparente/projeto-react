@@ -7,23 +7,24 @@
 
 
 .saldo-container {
-    background-color: #d4a373;
+    background-color: #d4a37300;
     margin-top: 3%;
     padding-left: 30%;
     padding-right: 30%;
   }
   
   .saldo-label {
-    background-color: #f54387;
+    background-color: #f5438700;
     padding-top: 5px;
     text-align: left;
+    color: #48673A;
     
   }
   
   .saldo-valores {
     display: flex;
     justify-content: space-between;
-    background-color: #a2d2ff;
+    background-color: #77AF51;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -32,6 +33,7 @@
     padding-bottom: 3%;
     padding-top: 3%;
     padding-left: 10%;
+    color: white;
   }
   
 
