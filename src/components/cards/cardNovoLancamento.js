@@ -1,51 +1,21 @@
+// components/cards/CardNovoLancamento.js
 import React from "react";
-import { Box, Card, CardHeader, CardContent } from "@mui/material";
+import CardAcaoBase from "./cardAcaoBase";
 
-const CardNovoLancamento = ({ onClick }) => {
+const CardNovoLancamento = () => {
+  const handleClick = () => {
+    console.log("Novo lançamento clicado!");
+    // aqui você pode abrir modal, redirecionar etc.
+  };
+
   return (
-    <Box
-      id="cardLancamento"
-      onClick={onClick}
-      sx={{
-        cursor: "pointer",
-        backgroundColor: "transparent",
-        width: "100%",
-        maxWidth: 300, // ajuste opcional
-        margin: "0 auto",
-      }}
-    >
-      <Card elevation={3} sx={{ backgroundColor: "transparent" }}>
-        <CardHeader
-          title="Novo lançamento"
-          sx={{
-            backgroundColor: "#5D8165",
-            color: "white",
-            textAlign: "center",
-            padding: "3%",
-            borderTopLeftRadius: "5px",
-            borderTopRightRadius: "5px",
-          }}
-        />
-        <CardContent
-          sx={{
-            backgroundColor: "#C0D7C5",
-            display: "flex",
-            justifyContent: "center",
-            padding: 0,
-            border: "1px solid #5D8165",
-            borderTop: "none",
-            borderBottomLeftRadius: "5px",
-            borderBottomRightRadius: "5px",
-          }}
-        >
-          <img
-            src="../images/novo-lancamento.svg"
-            alt="Novo lançamento"
-            style={{ width: 60, height: 60 }}
-          />
-        </CardContent>
-      </Card>
-    </Box>
+    <CardAcaoBase
+      titulo="Novo lançamento"
+      corHeader="#5D8165"
+      corBody="#C0D7C5"
+      iconeSrc="../images/novo-lancamento.svg"
+      onClick={handleClick}
+    />
   );
 };
 

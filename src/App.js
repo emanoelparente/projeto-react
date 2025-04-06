@@ -1,20 +1,18 @@
 
-import logo from './logo.svg';
 import './App.css';
 import NavbarFinancas from './components/cabecalho';
 import SaldoAtual from './components/saldoConta';
 import CardNovoLancamento from './components/cards/cardNovoLancamento';
+import CardDividaPagar from './components/cards/cardDividasPagar';
+import CardAcaoBase from './components/cards/cardAcaoBase';
+import CardExtratoFinanceiro from './components/cards/cardExtratoFinanceiro';
+import CardOrcamentoMensal from './components/cards/cardOrcamentoMensal';
+import CardValoresReceber from './components/cards/cardValoresReceber';
+import CardRelatorios from './components/cards/cardRelatorios';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 
 function App() {
-
-  const handleNovoLancamentoClick = () => {
-    console.log("Novo lançamento clicado!");
-    // ou navega, abre modal, etc.
-  };
-
-
 
   return (
     <ThemeProvider theme={theme}>
@@ -22,30 +20,13 @@ function App() {
         <NavbarFinancas />
         <SaldoAtual />
         <div className="card-container">
-          <CardNovoLancamento onClick={handleNovoLancamentoClick} />
-          <CardNovoLancamento onClick={handleNovoLancamentoClick} />
-          <CardNovoLancamento onClick={handleNovoLancamentoClick} />
-          <CardNovoLancamento onClick={handleNovoLancamentoClick} />
-          <CardNovoLancamento onClick={handleNovoLancamentoClick} />
-          <CardNovoLancamento onClick={handleNovoLancamentoClick} />
-          <CardNovoLancamento onClick={handleNovoLancamentoClick} />
-          {/* Adicione quantos cards quiser */}
+          <CardNovoLancamento/>
+          <CardDividaPagar/>
+          <CardExtratoFinanceiro/>
+          <CardOrcamentoMensal/>
+          <CardValoresReceber/>
+          <CardRelatorios/>
         </div>
-
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and aaaaggg save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
       </div>
     </ThemeProvider>
   );
