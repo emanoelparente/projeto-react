@@ -21,7 +21,7 @@ const CardNovoLancamento = ({ onClick }) => {
             backgroundColor: "#5D8165",
             color: "white",
             textAlign: "center",
-            padding: "5%",
+            padding: "3%",
             borderTopLeftRadius: "5px",
             borderTopRightRadius: "5px",
           }}
@@ -41,7 +41,7 @@ const CardNovoLancamento = ({ onClick }) => {
           <img
             src="../images/novo-lancamento.svg"
             alt="Novo lançamento"
-            style={{ width: 80, height: 80 }}
+            style={{ width: 60, height: 60 }}
           />
         </CardContent>
       </Card>
