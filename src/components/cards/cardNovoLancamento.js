@@ -1,12 +1,9 @@
-// components/cards/CardNovoLancamento.js
 import React from "react";
 import CardAcaoBase from "./cardAcaoBase";
+import { useModal } from "../../context/modalContext";
 
 const CardNovoLancamento = () => {
-  const handleClick = () => {
-    console.log("Novo lançamento clicado!");
-    // aqui você pode abrir modal, redirecionar etc.
-  };
+  const { abrirModal } = useModal();
 
   return (
     <CardAcaoBase
@@ -14,7 +11,7 @@ const CardNovoLancamento = () => {
       corHeader="#5D8165"
       corBody="#C0D7C5"
       iconeSrc="../images/novo-lancamento.svg"
-      onClick={handleClick}
+      onClick={abrirModal}
     />
   );
 };
