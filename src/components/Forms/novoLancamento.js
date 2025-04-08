@@ -74,15 +74,18 @@ const NovoLancamento = () => {
           </ToggleButtonGroup>
 
           <FormControl fullWidth sx={{ mb: 2 }}>
-            <InputLabel>
-              {tipo === "Receita"
-                ? "Categoria de receita"
-                : "Categoria de despesa"}
+            <InputLabel
+              id="categoria-label"
+              sx={{ backgroundColor: "white", px: 0.5 }}
+            >
+              {tipo === "Receita" ? "Categoria de receita" : "Categoria de despesa"}
             </InputLabel>
+
             <Select
+              labelId="categoria-label"
               value={categoria}
               onChange={(e) => setCategoria(e.target.value)}
-              label="Categoria"
+              label={tipo === "Receita" ? "Categoria de receita" : "Categoria de despesa"}
             >
               {tipo === "Receita" ? (
                 <>
@@ -100,6 +103,7 @@ const NovoLancamento = () => {
               )}
             </Select>
           </FormControl>
+
 
           <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel>Forma</InputLabel>
