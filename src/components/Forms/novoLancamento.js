@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CategoriaAutocomplete from "../Forms/categoriaAutocomplete";
 import {
   Modal,
   Box,
@@ -73,37 +74,11 @@ const NovoLancamento = () => {
             <ToggleButton value="Despesa">Despesa</ToggleButton>
           </ToggleButtonGroup>
 
-          <FormControl fullWidth sx={{ mb: 2 }}>
-            <InputLabel
-              id="categoria-label"
-              sx={{ backgroundColor: "white", px: 0.5 }}
-            >
-              {tipo === "Receita" ? "Categoria de receita" : "Categoria de despesa"}
-            </InputLabel>
-
-            <Select
-              labelId="categoria-label"
-              value={categoria}
-              onChange={(e) => setCategoria(e.target.value)}
-              label={tipo === "Receita" ? "Categoria de receita" : "Categoria de despesa"}
-            >
-              {tipo === "Receita" ? (
-                <>
-                  <MenuItem value="Salário">Salário</MenuItem>
-                  <MenuItem value="Empréstimo">Empréstimo</MenuItem>
-                  <MenuItem value="Investimento">Investimento</MenuItem>
-                </>
-              ) : (
-                <>
-                  <MenuItem value="Alimentação">Alimentação</MenuItem>
-                  <MenuItem value="Saúde">Saúde</MenuItem>
-                  <MenuItem value="Lazer">Lazer</MenuItem>
-                  <MenuItem value="Educação">Educação</MenuItem>
-                </>
-              )}
-            </Select>
-          </FormControl>
-
+          <CategoriaAutocomplete
+            tipo={tipo}
+            categoria={categoria}
+            setCategoria={setCategoria}
+          />
 
           <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel>Forma</InputLabel>
