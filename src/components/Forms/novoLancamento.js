@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CategoriaAutocomplete from "../Forms/categoriaAutocomplete";
 import { NumericFormat } from "react-number-format";
+import { useEffect } from "react"; // certifique-se de importar isso
 
 import {
   Modal,
@@ -40,6 +41,17 @@ const NovoLancamento = () => {
   const handleCloseSnackbar = () => {
     setMensagemAberta(false);
   };
+
+  useEffect(() => {
+    if (modalAberto) {
+      setTipo("Receita");
+      setCategoria("");
+      setForma("");
+      setData("");
+      setValor("");
+      setDescricao("");
+    }
+  }, [modalAberto]);
 
   return (
     <>
