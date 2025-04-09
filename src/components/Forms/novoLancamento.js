@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CategoriaAutocomplete from "../Forms/categoriaAutocomplete";
+import { NumericFormat } from "react-number-format";
+
 import {
   Modal,
   Box,
@@ -80,6 +82,8 @@ const NovoLancamento = () => {
             setCategoria={setCategoria}
           />
 
+
+
           <FormControl fullWidth sx={{ mb: 2 }}>
             <InputLabel>Forma</InputLabel>
             <Select
@@ -105,12 +109,22 @@ const NovoLancamento = () => {
             sx={{ mb: 2 }}
           />
 
-          <TextField
+          <NumericFormat
+            customInput={TextField}
             fullWidth
             label="Valor"
             value={valor}
-            onChange={(e) => setValor(e.target.value)}
+            onValueChange={(values) => {
+              setValor(values.value); // só número puro
+            }}
+            thousandSeparator="."
+            decimalSeparator=","
+            prefix="R$ "
+            decimalScale={2}
+            fixedDecimalScale
+            allowNegative={false}
             sx={{ mb: 2 }}
+            required
           />
 
           <TextField
