@@ -83,6 +83,7 @@ const NovoLancamento = () => {
             onChange={(e, val) => val && setTipo(val)}
             fullWidth
             sx={{ mb: 2 }}
+            
           >
             <ToggleButton value="Receita">Receita</ToggleButton>
             <ToggleButton value="Despesa">Despesa</ToggleButton>
@@ -92,6 +93,7 @@ const NovoLancamento = () => {
             tipo={tipo}
             categoria={categoria}
             setCategoria={setCategoria}
+            
           />
 
 
@@ -119,6 +121,7 @@ const NovoLancamento = () => {
             value={data}
             onChange={(e) => setData(e.target.value)}
             sx={{ mb: 2 }}
+            required
           />
 
           <NumericFormat
@@ -145,6 +148,7 @@ const NovoLancamento = () => {
             value={descricao}
             onChange={(e) => setDescricao(e.target.value)}
             sx={{ mb: 3 }}
+            required
           />
 
           <Stack direction="row" justifyContent="space-between">
