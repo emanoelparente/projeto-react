@@ -93,12 +93,13 @@ const NovoLancamento = () => {
             tipo={tipo}
             categoria={categoria}
             setCategoria={setCategoria}
+            required
             
           />
 
 
 
-          <FormControl fullWidth sx={{ mb: 2 }}>
+          <FormControl fullWidth sx={{ mb: 2 }} required>
             <InputLabel>Forma</InputLabel>
             <Select
               value={forma}

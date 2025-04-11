@@ -1,28 +1,24 @@
-// components/Forms/CategoriaAutocomplete.js
-import React from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
-const categoriasReceita = ["Salário", "Empréstimo", "Investimento"];
-const categoriasDespesa = ["Alimentação", "Saúde", "Lazer", "Educação"];
-
-const CategoriaAutocomplete = ({ tipo, categoria, setCategoria }) => {
-  const opcoes = tipo === "Receita" ? categoriasReceita : categoriasDespesa;
-  const label = tipo === "Receita" ? "Categoria de receita" : "Categoria de despesa";
+const CategoriaAutocomplete = ({ tipo, categoria, setCategoria, required }) => {
+  const opcoesReceita = ["Salário", "Empréstimo", "Investimento"];
+  const opcoesDespesa = ["Alimentação", "Saúde", "Lazer", "Educação"];
+  const opcoes = tipo === "Receita" ? opcoesReceita : opcoesDespesa;
 
   return (
     <Autocomplete
-      fullWidth
-      freeSolo
       options={opcoes}
       value={categoria}
-      onChange={(event, newValue) => setCategoria(newValue)}
-      onInputChange={(event, newInputValue) => setCategoria(newInputValue)}
+      onChange={(e, val) => setCategoria(val || "")}
       renderInput={(params) => (
         <TextField
           {...params}
-          label={label}
+          label={tipo === "Receita" ? "Categoria de receita" : "Categoria de despesa"}
+          required={required}
+          name="categoria"
         />
       )}
+      fullWidth
       sx={{ mb: 2 }}
     />
   );
