@@ -2,39 +2,64 @@
 import './App.css';
 import NavbarFinancas from './components/cabecalho';
 import SaldoAtual from './components/saldoConta';
+
 import CardNovoLancamento from './components/cards/cardNovoLancamento';
-import CardDividaPagar from './components/cards/cardDividasPagar';
-import CardAcaoBase from './components/cards/cardAcaoBase';
+import CardDividasPagar from './components/cards/cardDividasPagar';
 import CardExtratoFinanceiro from './components/cards/cardExtratoFinanceiro';
 import CardOrcamentoMensal from './components/cards/cardOrcamentoMensal';
 import CardValoresReceber from './components/cards/cardValoresReceber';
 import CardRelatorios from './components/cards/cardRelatorios';
-import { ThemeProvider } from '@mui/material/styles';
+
 import NovoLancamento from './components/Forms/novoLancamento';
-import { ModalProvider } from './context/modalContext'; // se criou esse contexto
+
+import ExtratoFinanceiro from './pages/extratoFinanceiro';
+import DividasPagar from './pages/dividasPagar';
+import ValoresReceber from './pages/valoresReceber';
+import OrcamentoMensal from './pages/orcamentoMensal';
+import Relatorios from './pages/relatorios';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import { ModalProvider } from './context/modalContext';
 import theme from './theme';
 
 function App() {
-
   return (
     <ThemeProvider theme={theme}>
       <ModalProvider>
-        <div className="App">
+        <Router>
           <NavbarFinancas />
-          <SaldoAtual />
-          <div className="card-container">
-            <CardNovoLancamento/>
-            <NovoLancamento />
-            <CardDividaPagar/>
-            <CardExtratoFinanceiro/>
-            <CardOrcamentoMensal/>
-            <CardValoresReceber/>
-            <CardRelatorios/>
-          </div>
-        </div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <SaldoAtual />
+                  <div className="card-container">
+                    <CardNovoLancamento />
+                    <NovoLancamento />
+                    <CardDividasPagar />
+                    <CardExtratoFinanceiro />
+                    <CardOrcamentoMensal />
+                    <CardValoresReceber />
+                    <CardRelatorios />
+                  </div>
+                </>
+              }
+            />
+            <Route path="/extrato-financeiro" element={<ExtratoFinanceiro />} />
+            <Route path="/dividas-pagar" element={<DividasPagar />} />
+            <Route path="/valores-a-receber" element={<ValoresReceber />} />
+            <Route path="/relatorios" element={<Relatorios />} />
+            <Route path="/orcamento-mensal" element={<OrcamentoMensal />} />
+
+            {/* Adicione mais rotas aqui conforme necessário */}
+          </Routes>
+        </Router>
       </ModalProvider>
     </ThemeProvider>
   );
 }
 
 export default App;
+

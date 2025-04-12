@@ -1,14 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CardAcaoBase from "./cardAcaoBase";
 
-const CardDividasPagar = ({ onClick }) => (
+const CardDividasPagar = () => {
+  const navigate = useNavigate();
+
+  const irParaDividas = () => {
+    navigate("/dividas-pagar"); // ou a rota que você configurou para dividasPagar.js
+  };
+
+  return (
     <CardAcaoBase
-      titulo="Dividas a pagar"
+      titulo="Dívidas a Pagar"
       corHeader="#E37373"
       corBody="#FFF2F2"
       iconeSrc="../images/dividas-pagar.svg"
-      onClick={onClick}
+      onClick={irParaDividas}
     />
   );
+};
 
 export default CardDividasPagar;

@@ -2,6 +2,8 @@ import React from "react";
 import { AppBar, Toolbar, IconButton, Menu, MenuItem, Box } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import "../components/cabecalho.css"; // Importa o CSS
+import { Link } from "react-router-dom";
+
 
 const NavbarFinancas = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -20,12 +22,16 @@ const NavbarFinancas = () => {
             <Toolbar className="cabecalho">
                 {/* Logo à esquerda */}
                 <Box>
-                    <img
-                        src="../images/logo-feasy-branco.svg"
-                        alt="logo"
-                        className="logo-esquerda"
-                    />
+                    <Link to="/">
+                        <img
+                            src="../images/logo-feasy-branco.svg"
+                            alt="logo"
+                            className="logo-esquerda"
+                            style={{ cursor: "pointer" }} // opcional, só pra indicar que é clicável
+                        />
+                    </Link>
                 </Box>
+
 
                 {/* Título Central */}
                 <Box textAlign="center">
