@@ -73,7 +73,7 @@ const NovoLancamento = () => {
           }}
         >
           <Typography variant="h6" component="h2" sx={{ mb: 2 }}>
-            Novo lançamento
+            Novo Lançamento
           </Typography>
 
           <Typography variant="subtitle2">Tipo de Lançamento</Typography>
