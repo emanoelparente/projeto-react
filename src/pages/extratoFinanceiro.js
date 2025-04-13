@@ -1,7 +1,12 @@
+import SaldoAtual from '../components/saldoConta';
+
 const ExtratoFinanceiro = () => {
-    return <div>Extrato Financeiro</div>;
-  };
-  
-  export default ExtratoFinanceiro;
-  
+    return(
+        <SaldoAtual />
+    );
+
+};
+
+export default ExtratoFinanceiro;
+
 

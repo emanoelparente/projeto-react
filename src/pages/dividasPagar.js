@@ -1,5 +1,8 @@
+import SaldoAtual from '../components/saldoConta';
 const DividasPagar = () => {
-    return <div>Dividas a pagar</div>;
+    return (
+        <SaldoAtual/>
+    );
   };
   
   export default DividasPagar;
