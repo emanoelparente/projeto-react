@@ -43,7 +43,7 @@ const ExtratoFinanceiro = () => {
   };
 
   return (
-    <Box p={3} maxWidth="1200px" mx="auto">
+    <Box p={3} maxWidth="85%" mx="auto">
   <SaldoAtual />
 
   <FiltroSelecaoDatas
