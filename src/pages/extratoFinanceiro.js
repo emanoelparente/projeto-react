@@ -4,6 +4,11 @@ import FiltroSelecaoDatas from '../components/filtroSelecaoDatas';
 import ModalEdicaoLancamento from '../components/Forms/modalEdicaoLancamento';
 import { useModal } from '../context/modalContext'; // ajuste o caminho se necessário
 
+import NovoLancamento from '../components/Forms/novoLancamento';
+import { Fab } from '@mui/material';
+import { Add } from '@mui/icons-material';
+
+
 
 import {
     Box, Typography, Table, TableBody, TableCell, TableContainer,
@@ -50,7 +55,7 @@ const ExtratoFinanceiro = () => {
         setDadosLancamento(lancamento);  // Seta os dados da receita que será editada
         abrirModal(); // <-- abre o modal!
     };
-    
+
 
     const apagarReceita = (id) => {
         setReceitas(receitas.filter((r) => r.id !== id));
@@ -112,7 +117,24 @@ const ExtratoFinanceiro = () => {
             {dadosLancamento && (
                 <ModalEdicaoLancamento dadosLancamento={dadosLancamento} onSalvar={atualizarLancamento} />
             )}
+
+            <NovoLancamento /> {/* Modal de novo lançamento sempre montado, controlado via context */}
+
+            <Fab
+                color="primary"
+                aria-label="add"
+                onClick={abrirModal}
+                sx={{
+                    position: 'fixed',
+                    bottom: 16,
+                    right: 16,
+                }}
+            >
+                <Add />
+            </Fab>
+
         </Box>
+
     );
 };
 
