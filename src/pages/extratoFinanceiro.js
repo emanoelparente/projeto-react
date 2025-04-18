@@ -3,6 +3,8 @@ import SaldoAtual from '../components/saldoConta';
 import FiltroSelecaoDatas from '../components/filtroSelecaoDatas';
 import ModalEdicaoLancamento from '../components/Forms/modalEdicaoLancamento';
 import { useModal } from '../context/modalContext'; // ajuste o caminho se necessário
+import Divider from '@mui/material/Divider';
+
 
 import NovoLancamento from '../components/Forms/novoLancamento';
 import { Fab } from '@mui/material';
@@ -112,6 +114,44 @@ const ExtratoFinanceiro = () => {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <Divider sx={{ my: 4 }} />
+                <Typography variant="h6" gutterBottom>Despesas</Typography>
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Data</TableCell>
+                                <TableCell>Categoria</TableCell>
+                                <TableCell>Forma de Recebimento</TableCell>
+                                <TableCell>Descrição</TableCell>
+                                <TableCell>Valor</TableCell>
+                                <TableCell>Ações</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {receitas.map((item) => (
+                                <TableRow key={item.id}>
+                                    <TableCell>{item.data}</TableCell>
+                                    <TableCell>{item.categoria}</TableCell>
+                                    <TableCell>{item.formaRecebimento}</TableCell>
+                                    <TableCell>{item.descricao}</TableCell>
+                                    <TableCell>R$ {item.valor.toFixed(2)}</TableCell>
+                                    <TableCell>
+                                        <IconButton onClick={() => editarReceita(item.id)} color="primary"><Edit /></IconButton>
+                                        <IconButton onClick={() => apagarReceita(item.id)} color="error"><Delete /></IconButton>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                            {receitas.length === 0 && (
+                                <TableRow>
+                                    <TableCell colSpan={6} align="center">Nenhuma receita encontrada.</TableCell>
+                                </TableRow>
+                            )}
+                        </TableBody>
+                    </Table>
+                </TableContainer>            
+
+
             </Box>
 
             {dadosLancamento && (
