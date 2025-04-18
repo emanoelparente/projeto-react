@@ -82,7 +82,7 @@ const ExtratoFinanceiro = () => {
                 <Typography
                     variant="h6"
                     gutterBottom
-                    sx={{ backgroundColor: '#a7c957', padding: '8px', borderRadius: '4px' }}
+                    sx={{ padding: '8px', borderRadius: '4px' }}
                 >
                     Receitas
                 </Typography>
@@ -90,14 +90,15 @@ const ExtratoFinanceiro = () => {
                     <Table>
                         <TableHead>
                             <TableRow sx={{ backgroundColor: '#b5e48c'}}>
-                                <TableCell>Data</TableCell>
-                                <TableCell>Categoria</TableCell>
-                                <TableCell>Forma de Recebimento</TableCell>
-                                <TableCell>Descrição</TableCell>
-                                <TableCell>Valor</TableCell>
-                                <TableCell>Ações</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold' }}>Data</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold' }}>Categoria</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold' }}>Forma de Recebimento</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold' }}>Descrição</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold' }}>Valor</TableCell>
+                                <TableCell sx={{ fontWeight: 'bold' }}>Ações</TableCell>
                             </TableRow>
                         </TableHead>
+
                         <TableBody>
                             {receitas.map((item) => (
                                 <TableRow key={item.id}>
@@ -125,7 +126,7 @@ const ExtratoFinanceiro = () => {
                 <Typography
                     variant="h6"
                     gutterBottom
-                    sx={{ backgroundColor: '#f07167', padding: '8px', borderRadius: '4px' }}
+                    sx={{ padding: '8px', borderRadius: '4px' }}
                 >
                     Despesas
                 </Typography>
@@ -133,7 +134,7 @@ const ExtratoFinanceiro = () => {
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
-                            <TableRow sx={{ backgroundColor: '#ffdab9'}}>
+                            <TableRow sx={{ backgroundColor: '#ffdab9' }}>
                                 <TableCell>Data</TableCell>
                                 <TableCell>Categoria</TableCell>
                                 <TableCell>Forma de Recebimento</TableCell>
