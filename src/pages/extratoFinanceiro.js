@@ -79,11 +79,17 @@ const ExtratoFinanceiro = () => {
             />
 
             <Box mt={4}>
-                <Typography variant="h6" gutterBottom>Receitas</Typography>
+                <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{ backgroundColor: '#a7c957', padding: '8px', borderRadius: '4px' }}
+                >
+                    Receitas
+                </Typography>
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
-                            <TableRow>
+                            <TableRow sx={{ backgroundColor: '#b5e48c'}}>
                                 <TableCell>Data</TableCell>
                                 <TableCell>Categoria</TableCell>
                                 <TableCell>Forma de Recebimento</TableCell>
@@ -115,11 +121,19 @@ const ExtratoFinanceiro = () => {
                     </Table>
                 </TableContainer>
                 <Divider sx={{ my: 4 }} />
-                <Typography variant="h6" gutterBottom>Despesas</Typography>
+
+                <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{ backgroundColor: '#f07167', padding: '8px', borderRadius: '4px' }}
+                >
+                    Despesas
+                </Typography>
+
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
-                            <TableRow>
+                            <TableRow sx={{ backgroundColor: '#ffdab9'}}>
                                 <TableCell>Data</TableCell>
                                 <TableCell>Categoria</TableCell>
                                 <TableCell>Forma de Recebimento</TableCell>
@@ -149,7 +163,7 @@ const ExtratoFinanceiro = () => {
                             )}
                         </TableBody>
                     </Table>
-                </TableContainer>            
+                </TableContainer>
 
 
             </Box>
