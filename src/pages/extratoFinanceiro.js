@@ -38,6 +38,23 @@ const ExtratoFinanceiro = () => {
             descricao: 'Produto X',
             valor: 500,
         },
+        {
+            id: 1,
+            data: '2025-04-01',
+            categoria: 'Venda',
+            formaRecebimento: 'Pix',
+            descricao: 'Produto X',
+            valor: 500,
+        },
+        {
+            id: 1,
+            data: '2025-04-01',
+            categoria: 'Venda',
+            formaRecebimento: 'Pix',
+            descricao: 'Produto X',
+            valor: 500,
+        },
+      
         // Adicione mais receitas mockadas conforme necessário
     ]);
 
@@ -68,6 +85,12 @@ const ExtratoFinanceiro = () => {
         setReceitas(receitas.map((r) => (r.id === dadosAtualizados.id ? dadosAtualizados : r)));
     };
 
+    const estiloCabecalhoTabela = (corTexto = '#000', caseTexto = 'uppercase') => ({
+        fontWeight: 'bold',
+        color: corTexto,
+        textTransform: caseTexto, // 'uppercase', 'lowercase', 'capitalize'
+    });
+
     return (
         <Box p={3} maxWidth="85%" mx="auto">
             <SaldoAtual />
@@ -82,14 +105,19 @@ const ExtratoFinanceiro = () => {
                 <Typography
                     variant="h6"
                     gutterBottom
-                    sx={{ padding: '8px', borderRadius: '4px' }}
+                    sx={{ padding: '8px', borderRadius: '4px', color: "#386641", backgroundColor: '#b5e48c' }}
                 >
-                    Receitas
+                    RECEITAS
                 </Typography>
                 <TableContainer component={Paper}>
+
+
                     <Table>
                         <TableHead>
-                            <TableRow sx={{ backgroundColor: '#b5e48c'}}>
+                            <TableRow sx={{
+                                backgroundColor: '#e9ecef',
+                                '& th': estiloCabecalhoTabela('#386641', 'uppercase'),
+                            }}>
                                 <TableCell sx={{ fontWeight: 'bold' }}>Data</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold' }}>Categoria</TableCell>
                                 <TableCell sx={{ fontWeight: 'bold' }}>Forma de Recebimento</TableCell>
@@ -126,15 +154,18 @@ const ExtratoFinanceiro = () => {
                 <Typography
                     variant="h6"
                     gutterBottom
-                    sx={{ padding: '8px', borderRadius: '4px' }}
+                    sx={{ padding: '8px', borderRadius: '4px', color: "#9d0208", backgroundColor: '#fcb1a6' }}
                 >
-                    Despesas
+                    DESPESAS
                 </Typography>
 
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
-                            <TableRow sx={{ backgroundColor: '#ffdab9' }}>
+                            <TableRow sx={{
+                                backgroundColor: '#e9ecef',
+                                '& th': estiloCabecalhoTabela('#9d0208', 'uppercase'),
+                            }}>
                                 <TableCell>Data</TableCell>
                                 <TableCell>Categoria</TableCell>
                                 <TableCell>Forma de Recebimento</TableCell>
