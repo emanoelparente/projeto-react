@@ -1,22 +1,34 @@
 import React, { useState } from 'react';
+
+// Componentes personalizados
 import SaldoAtual from '../components/saldoConta';
 import FiltroSelecaoDatas from '../components/filtroSelecaoDatas';
 import ModalEdicaoLancamento from '../components/Forms/modalEdicaoLancamento';
-import { useModal } from '../context/modalContext'; // ajuste o caminho se necessário
-import Divider from '@mui/material/Divider';
-
-
 import NovoLancamento from '../components/Forms/novoLancamento';
-import { Fab } from '@mui/material';
-import { Add } from '@mui/icons-material';
 
+// Contexto
+import { useModal } from '../context/modalContext'; // ajuste o caminho se necessário
 
+// MUI - Ícones
+import { Add, Edit, Delete, ExpandLess, ExpandMore } from '@mui/icons-material';
 
+// MUI - Componentes
 import {
-    Box, Typography, Table, TableBody, TableCell, TableContainer,
-    TableHead, TableRow, Paper, IconButton
+    Box,
+    Typography,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    IconButton,
+    Fab,
+    Divider,
+    Collapse
 } from '@mui/material';
-import { Edit, Delete } from '@mui/icons-material';
+
 
 
 
@@ -54,7 +66,7 @@ const ExtratoFinanceiro = () => {
             descricao: 'Produto X',
             valor: 500,
         },
-      
+
         // Adicione mais receitas mockadas conforme necessário
     ]);
 
@@ -91,6 +103,11 @@ const ExtratoFinanceiro = () => {
         textTransform: caseTexto, // 'uppercase', 'lowercase', 'capitalize'
     });
 
+    const [mostrarReceitas, setMostrarReceitas] = useState(true);
+    const [mostrarDespesas, setMostrarDespesas] = useState(true);
+
+
+
     return (
         <Box p={3} maxWidth="85%" mx="auto">
             <SaldoAtual />
@@ -102,101 +119,129 @@ const ExtratoFinanceiro = () => {
             />
 
             <Box mt={4}>
-                <Typography
-                    variant="h6"
-                    gutterBottom
-                    sx={{ padding: '8px', borderRadius: '4px', color: "#386641", backgroundColor: '#b5e48c' }}
-                >
-                    RECEITAS
-                </Typography>
-                <TableContainer component={Paper}>
 
-
-                    <Table>
-                        <TableHead>
-                            <TableRow sx={{
-                                backgroundColor: '#e9ecef',
-                                '& th': estiloCabecalhoTabela('#386641', 'uppercase'),
-                            }}>
-                                <TableCell sx={{ fontWeight: 'bold' }}>Data</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold' }}>Categoria</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold' }}>Forma de Recebimento</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold' }}>Descrição</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold' }}>Valor</TableCell>
-                                <TableCell sx={{ fontWeight: 'bold' }}>Ações</TableCell>
-                            </TableRow>
-                        </TableHead>
-
-                        <TableBody>
-                            {receitas.map((item) => (
-                                <TableRow key={item.id}>
-                                    <TableCell>{item.data}</TableCell>
-                                    <TableCell>{item.categoria}</TableCell>
-                                    <TableCell>{item.formaRecebimento}</TableCell>
-                                    <TableCell>{item.descricao}</TableCell>
-                                    <TableCell>R$ {item.valor.toFixed(2)}</TableCell>
-                                    <TableCell>
-                                        <IconButton onClick={() => editarReceita(item.id)} color="primary"><Edit /></IconButton>
-                                        <IconButton onClick={() => apagarReceita(item.id)} color="error"><Delete /></IconButton>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                            {receitas.length === 0 && (
-                                <TableRow>
-                                    <TableCell colSpan={6} align="center">Nenhuma receita encontrada.</TableCell>
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <Divider sx={{ my: 4 }} />
 
                 <Typography
                     variant="h6"
                     gutterBottom
-                    sx={{ padding: '8px', borderRadius: '4px', color: "#9d0208", backgroundColor: '#fcb1a6' }}
+                    onClick={() => setMostrarReceitas(!mostrarReceitas)}
+                    sx={{
+                        padding: '8px',
+                        borderRadius: '4px',
+                        color: '#386641',
+                        backgroundColor: '#d3f4c7',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        userSelect: 'none'
+                    }}
                 >
-                    DESPESAS
+                    RECEITAS {mostrarReceitas ? <ExpandLess /> : <ExpandMore />}
                 </Typography>
 
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableHead>
-                            <TableRow sx={{
-                                backgroundColor: '#e9ecef',
-                                '& th': estiloCabecalhoTabela('#9d0208', 'uppercase'),
-                            }}>
-                                <TableCell>Data</TableCell>
-                                <TableCell>Categoria</TableCell>
-                                <TableCell>Forma de Recebimento</TableCell>
-                                <TableCell>Descrição</TableCell>
-                                <TableCell>Valor</TableCell>
-                                <TableCell>Ações</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {receitas.map((item) => (
-                                <TableRow key={item.id}>
-                                    <TableCell>{item.data}</TableCell>
-                                    <TableCell>{item.categoria}</TableCell>
-                                    <TableCell>{item.formaRecebimento}</TableCell>
-                                    <TableCell>{item.descricao}</TableCell>
-                                    <TableCell>R$ {item.valor.toFixed(2)}</TableCell>
-                                    <TableCell>
-                                        <IconButton onClick={() => editarReceita(item.id)} color="primary"><Edit /></IconButton>
-                                        <IconButton onClick={() => apagarReceita(item.id)} color="error"><Delete /></IconButton>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                            {receitas.length === 0 && (
-                                <TableRow>
-                                    <TableCell colSpan={6} align="center">Nenhuma receita encontrada.</TableCell>
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                <Collapse in={mostrarReceitas}>
+                    <TableContainer component={Paper}>
 
+
+                        <Table>
+                            <TableHead>
+                                <TableRow sx={{
+                                    backgroundColor: '#e9ecef',
+                                    '& th': estiloCabecalhoTabela('#495057', 'uppercase'),
+                                }}>
+                                    <TableCell sx={{ fontWeight: 'bold' }}>Data</TableCell>
+                                    <TableCell sx={{ fontWeight: 'bold' }}>Categoria</TableCell>
+                                    <TableCell sx={{ fontWeight: 'bold' }}>Forma de Recebimento</TableCell>
+                                    <TableCell sx={{ fontWeight: 'bold' }}>Descrição</TableCell>
+                                    <TableCell sx={{ fontWeight: 'bold' }}>Valor</TableCell>
+                                    <TableCell sx={{ fontWeight: 'bold' }}>Ações</TableCell>
+                                </TableRow>
+                            </TableHead>
+
+                            <TableBody>
+                                {receitas.map((item) => (
+                                    <TableRow key={item.id}>
+                                        <TableCell>{item.data}</TableCell>
+                                        <TableCell>{item.categoria}</TableCell>
+                                        <TableCell>{item.formaRecebimento}</TableCell>
+                                        <TableCell>{item.descricao}</TableCell>
+                                        <TableCell>R$ {item.valor.toFixed(2)}</TableCell>
+                                        <TableCell>
+                                            <IconButton onClick={() => editarReceita(item.id)} color="primary"><Edit /></IconButton>
+                                            <IconButton onClick={() => apagarReceita(item.id)} color="error"><Delete /></IconButton>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                                {receitas.length === 0 && (
+                                    <TableRow>
+                                        <TableCell colSpan={6} align="center">Nenhuma receita encontrada.</TableCell>
+                                    </TableRow>
+                                )}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    <Divider sx={{ my: 4 }} />
+                </Collapse>
+
+                <Typography
+                    variant="h6"
+                    gutterBottom
+                    onClick={() => setMostrarDespesas(!mostrarDespesas)}
+                    sx={{
+                        padding: '8px',
+                        borderRadius: '4px',
+                        color: "#9d0208",
+                        backgroundColor: '#fcb1a6',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        userSelect: 'none'
+                    }}
+                >
+                    DESPESAS {mostrarDespesas ? <ExpandLess /> : <ExpandMore />}
+                </Typography>
+
+                <Collapse in={mostrarDespesas}>
+                    <TableContainer component={Paper}>
+                        <Table>
+                            <TableHead>
+                                <TableRow sx={{
+                                    backgroundColor: '#e9ecef',
+                                    '& th': estiloCabecalhoTabela('#495057', 'uppercase'),
+                                }}>
+                                    <TableCell>Data</TableCell>
+                                    <TableCell>Categoria</TableCell>
+                                    <TableCell>Forma de Recebimento</TableCell>
+                                    <TableCell>Descrição</TableCell>
+                                    <TableCell>Valor</TableCell>
+                                    <TableCell>Ações</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {receitas.map((item) => (
+                                    <TableRow key={item.id}>
+                                        <TableCell>{item.data}</TableCell>
+                                        <TableCell>{item.categoria}</TableCell>
+                                        <TableCell>{item.formaRecebimento}</TableCell>
+                                        <TableCell>{item.descricao}</TableCell>
+                                        <TableCell>R$ {item.valor.toFixed(2)}</TableCell>
+                                        <TableCell>
+                                            <IconButton onClick={() => editarReceita(item.id)} color="primary"><Edit /></IconButton>
+                                            <IconButton onClick={() => apagarReceita(item.id)} color="error"><Delete /></IconButton>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                                {receitas.length === 0 && (
+                                    <TableRow>
+                                        <TableCell colSpan={6} align="center">Nenhuma receita encontrada.</TableCell>
+                                    </TableRow>
+                                )}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Collapse>
 
             </Box>
 
