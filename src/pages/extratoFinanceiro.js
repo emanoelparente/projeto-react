@@ -7,266 +7,126 @@ import ModalEdicaoLancamento from '../components/Forms/modalEdicaoLancamento';
 import NovoLancamento from '../components/Forms/novoLancamento';
 
 // Contexto
-import { useModal } from '../context/modalContext'; // ajuste o caminho se necessário
+import { useModal } from '../context/modalContext';
 
-// MUI - Ícones
-import { Add, Edit, Delete, ExpandLess, ExpandMore } from '@mui/icons-material';
-
-// MUI - Componentes
+// MUI
 import {
-    Box,
-    Typography,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-    Paper,
-    IconButton,
-    Fab,
-    Divider,
-    Collapse
+  Box, Typography, TableContainer, Paper, Divider,
+  Collapse, Fab, Dialog, DialogTitle, DialogContent,
+  DialogActions, Button
 } from '@mui/material';
+import { Add, ExpandLess, ExpandMore } from '@mui/icons-material';
 
+// Ícones de ação estão importados no componente TabelaLancamentos
 
-
-
+// Componente de tabela reutilizável
+import TabelaLancamentos from '../components/tabelaLancamentos';
 
 const ExtratoFinanceiro = () => {
-    const { abrirModal } = useModal(); // <-- pega do contexto
-    const [filtros, setFiltros] = useState({
-        dataInicial: '',
-        dataFinal: '',
-        tipo: '',
-    });
+  const { abrirModal } = useModal();
+  const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
 
-    const [receitas, setReceitas] = useState([
-        {
-            id: 1,
-            data: '2025-04-01',
-            categoria: 'Venda',
-            formaRecebimento: 'Pix',
-            descricao: 'Produto X',
-            valor: 500,
-        },
-        {
-            id: 1,
-            data: '2025-04-01',
-            categoria: 'Venda',
-            formaRecebimento: 'Pix',
-            descricao: 'Produto X',
-            valor: 500,
-        },
-        {
-            id: 1,
-            data: '2025-04-01',
-            categoria: 'Venda',
-            formaRecebimento: 'Pix',
-            descricao: 'Produto X',
-            valor: 500,
-        },
+  const [receitas, setReceitas] = useState([
+    { id: 1, data: '2025-04-01', categoria: 'Venda', formaRecebimento: 'Pix', descricao: 'Produto X', valor: 500 },
+  ]);
 
-        // Adicione mais receitas mockadas conforme necessário
-    ]);
+  const [despesas, setDespesas] = useState([
+    { id: 2, data: '2025-04-02', categoria: 'Compra', formaRecebimento: 'Cartão', descricao: 'Fornecedor Y', valor: 200 },
+  ]);
 
-    const [dadosLancamento, setDadosLancamento] = useState(null);  // Estado para armazenar os dados do lançamento a ser editado
+  const [dadosLancamento, setDadosLancamento] = useState(null);
+  const [mostrarReceitas, setMostrarReceitas] = useState(true);
+  const [mostrarDespesas, setMostrarDespesas] = useState(true);
+  const [idParaExcluir, setIdParaExcluir] = useState(null);
 
-    const handleFiltroChange = (e) => {
-        setFiltros({ ...filtros, [e.target.name]: e.target.value });
-    };
+  const editarLancamento = (item) => {
+    setDadosLancamento(item);
+    abrirModal();
+  };
 
-    const aplicarFiltro = () => {
-        console.log('Aplicando filtro:', filtros);
-        // Aqui você pode filtrar os dados de receitas
-    };
+  const confirmarExclusao = (id) => {
+    setIdParaExcluir(id);
+  };
 
-    const editarReceita = (id) => {
-        const lancamento = receitas.find((r) => r.id === id);
-        setDadosLancamento(lancamento);  // Seta os dados da receita que será editada
-        abrirModal(); // <-- abre o modal!
-    };
+  const excluirLancamento = () => {
+    setReceitas(receitas.filter(r => r.id !== idParaExcluir));
+    setDespesas(despesas.filter(d => d.id !== idParaExcluir));
+    setIdParaExcluir(null);
+  };
 
+  const atualizarLancamento = (dadosAtualizados) => {
+    const atualizador = (lista) =>
+      lista.map((item) => (item.id === dadosAtualizados.id ? dadosAtualizados : item));
 
-    const apagarReceita = (id) => {
-        setReceitas(receitas.filter((r) => r.id !== id));
-    };
+    setReceitas(atualizador(receitas));
+    setDespesas(atualizador(despesas));
+  };
 
-    const atualizarLancamento = (dadosAtualizados) => {
-        // Atualize a receita com os dados modificados no estado
-        setReceitas(receitas.map((r) => (r.id === dadosAtualizados.id ? dadosAtualizados : r)));
-    };
+  const estiloTitulo = (corTexto, corFundo) => ({
+    padding: '8px', borderRadius: '4px', color: corTexto,
+    backgroundColor: corFundo, cursor: 'pointer',
+    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+    userSelect: 'none'
+  });
 
-    const estiloCabecalhoTabela = (corTexto = '#000', caseTexto = 'uppercase') => ({
-        fontWeight: 'bold',
-        color: corTexto,
-        textTransform: caseTexto, // 'uppercase', 'lowercase', 'capitalize'
-    });
+  return (
+    <Box p={3} maxWidth="85%" mx="auto">
+      <SaldoAtual />
+      <FiltroSelecaoDatas filtros={filtros} onChange={(e) => setFiltros({ ...filtros, [e.target.name]: e.target.value })} onBuscar={() => console.log(filtros)}/>
 
-    const [mostrarReceitas, setMostrarReceitas] = useState(true);
-    const [mostrarDespesas, setMostrarDespesas] = useState(true);
+      {/* RECEITAS */}
+      <Box mt={4}>
+        <Typography variant="h6" gutterBottom onClick={() => setMostrarReceitas(!mostrarReceitas)} sx={estiloTitulo('#386641', '#d3f4c7')}>
+          RECEITAS {mostrarReceitas ? <ExpandLess /> : <ExpandMore />}
+        </Typography>
+        <Collapse in={mostrarReceitas}>
+          <TabelaLancamentos
+            dados={receitas}
+            corCabecalho="#386641"
+            tipo="receita"
+            onEditar={editarLancamento}
+            onExcluir={confirmarExclusao}
+          />
+          <Divider sx={{ my: 4 }} />
+        </Collapse>
 
+        {/* DESPESAS */}
+        <Typography variant="h6" gutterBottom onClick={() => setMostrarDespesas(!mostrarDespesas)} sx={estiloTitulo('#9d0208', '#fcb1a6')}>
+          DESPESAS {mostrarDespesas ? <ExpandLess /> : <ExpandMore />}
+        </Typography>
+        <Collapse in={mostrarDespesas}>
+          <TabelaLancamentos
+            dados={despesas}
+            corCabecalho="#9d0208"
+            tipo="despesa"
+            onEditar={editarLancamento}
+            onExcluir={confirmarExclusao}
+          />
+        </Collapse>
+      </Box>
 
+      {dadosLancamento && (
+        <ModalEdicaoLancamento dadosLancamento={dadosLancamento} onSalvar={atualizarLancamento} />
+      )}
 
-    return (
-        <Box p={3} maxWidth="85%" mx="auto">
-            <SaldoAtual />
+      <NovoLancamento />
 
-            <FiltroSelecaoDatas
-                filtros={filtros}
-                onChange={handleFiltroChange}
-                onBuscar={aplicarFiltro}
-            />
+      {/* FAB */}
+      <Fab color="primary" aria-label="add" onClick={abrirModal} sx={{ position: 'fixed', bottom: 16, right: 16 }}>
+        <Add />
+      </Fab>
 
-            <Box mt={4}>
-
-
-                <Typography
-                    variant="h6"
-                    gutterBottom
-                    onClick={() => setMostrarReceitas(!mostrarReceitas)}
-                    sx={{
-                        padding: '8px',
-                        borderRadius: '4px',
-                        color: '#386641',
-                        backgroundColor: '#d3f4c7',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        userSelect: 'none'
-                    }}
-                >
-                    RECEITAS {mostrarReceitas ? <ExpandLess /> : <ExpandMore />}
-                </Typography>
-
-                <Collapse in={mostrarReceitas}>
-                    <TableContainer component={Paper}>
-
-
-                        <Table>
-                            <TableHead>
-                                <TableRow sx={{
-                                    backgroundColor: '#e9ecef',
-                                    '& th': estiloCabecalhoTabela('#495057', 'uppercase'),
-                                }}>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Data</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Categoria</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Forma de Recebimento</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Descrição</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Valor</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Ações</TableCell>
-                                </TableRow>
-                            </TableHead>
-
-                            <TableBody>
-                                {receitas.map((item) => (
-                                    <TableRow key={item.id}>
-                                        <TableCell>{item.data}</TableCell>
-                                        <TableCell>{item.categoria}</TableCell>
-                                        <TableCell>{item.formaRecebimento}</TableCell>
-                                        <TableCell>{item.descricao}</TableCell>
-                                        <TableCell>R$ {item.valor.toFixed(2)}</TableCell>
-                                        <TableCell>
-                                            <IconButton onClick={() => editarReceita(item.id)} color="primary"><Edit /></IconButton>
-                                            <IconButton onClick={() => apagarReceita(item.id)} color="error"><Delete /></IconButton>
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
-                                {receitas.length === 0 && (
-                                    <TableRow>
-                                        <TableCell colSpan={6} align="center">Nenhuma receita encontrada.</TableCell>
-                                    </TableRow>
-                                )}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                    <Divider sx={{ my: 4 }} />
-                </Collapse>
-
-                <Typography
-                    variant="h6"
-                    gutterBottom
-                    onClick={() => setMostrarDespesas(!mostrarDespesas)}
-                    sx={{
-                        padding: '8px',
-                        borderRadius: '4px',
-                        color: "#9d0208",
-                        backgroundColor: '#fcb1a6',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        userSelect: 'none'
-                    }}
-                >
-                    DESPESAS {mostrarDespesas ? <ExpandLess /> : <ExpandMore />}
-                </Typography>
-
-                <Collapse in={mostrarDespesas}>
-                    <TableContainer component={Paper}>
-                        <Table>
-                            <TableHead>
-                                <TableRow sx={{
-                                    backgroundColor: '#e9ecef',
-                                    '& th': estiloCabecalhoTabela('#495057', 'uppercase'),
-                                }}>
-                                    <TableCell>Data</TableCell>
-                                    <TableCell>Categoria</TableCell>
-                                    <TableCell>Forma de Recebimento</TableCell>
-                                    <TableCell>Descrição</TableCell>
-                                    <TableCell>Valor</TableCell>
-                                    <TableCell>Ações</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {receitas.map((item) => (
-                                    <TableRow key={item.id}>
-                                        <TableCell>{item.data}</TableCell>
-                                        <TableCell>{item.categoria}</TableCell>
-                                        <TableCell>{item.formaRecebimento}</TableCell>
-                                        <TableCell>{item.descricao}</TableCell>
-                                        <TableCell>R$ {item.valor.toFixed(2)}</TableCell>
-                                        <TableCell>
-                                            <IconButton onClick={() => editarReceita(item.id)} color="primary"><Edit /></IconButton>
-                                            <IconButton onClick={() => apagarReceita(item.id)} color="error"><Delete /></IconButton>
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
-                                {receitas.length === 0 && (
-                                    <TableRow>
-                                        <TableCell colSpan={6} align="center">Nenhuma receita encontrada.</TableCell>
-                                    </TableRow>
-                                )}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </Collapse>
-
-            </Box>
-
-            {dadosLancamento && (
-                <ModalEdicaoLancamento dadosLancamento={dadosLancamento} onSalvar={atualizarLancamento} />
-            )}
-
-            <NovoLancamento /> {/* Modal de novo lançamento sempre montado, controlado via context */}
-
-            <Fab
-                color="primary"
-                aria-label="add"
-                onClick={abrirModal}
-                sx={{
-                    position: 'fixed',
-                    bottom: 16,
-                    right: 16,
-                }}
-            >
-                <Add />
-            </Fab>
-
-        </Box>
-
-    );
+      {/* Diálogo de confirmação */}
+      <Dialog open={!!idParaExcluir} onClose={() => setIdParaExcluir(null)}>
+        <DialogTitle>Confirmar Exclusão</DialogTitle>
+        <DialogContent>Tem certeza que deseja excluir este lançamento?</DialogContent>
+        <DialogActions>
+          <Button onClick={() => setIdParaExcluir(null)}>Cancelar</Button>
+          <Button onClick={excluirLancamento} color="error">Excluir</Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
+  );
 };
 
 export default ExtratoFinanceiro;
