@@ -1,0 +1,46 @@
+/* filtroSelecaoDatas.css */
+/* filtroSelecaoDatas.css */
+
+.filtro-wrapper {
+  width: 100%;
+}
+
+.filtro-container {
+  padding-top: 1%;
+  background-color: #ced4da;
+  border-radius: 8px;
+}
+
+.filtro-item {
+  flex-basis: 20%;
+  min-width: 250px;
+  padding: 8px;
+}
+
+.filtro-full-width {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .filtro-item {
+    flex-basis: 100% !important;
+    width: 100% !important;
+    padding: 8px 0;
+  }
+
+  .saldo-topo {
+    display: none !important; /* Oculta o saldo em telas menores que 901px */
+  }
+
+  .data-inicial {
+    order: 2;
+  }
+
+  .data-final {
+    order: 3;
+  }
+
+  .botao-pesquisar {
+    order: 4;
+  }
+}

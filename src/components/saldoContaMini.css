@@ -1,0 +1,21 @@
+.saldo-box {
+    background-color: #77AF51;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 100%;
+    padding-top: 6%;
+    padding-bottom: 10px;
+    gap: 8px;
+  }
+  
+  @media (max-width: 900px) {
+    .saldo-box {
+      padding-top: 1%;
+    }
+  }
+
+  
+  

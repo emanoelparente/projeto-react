@@ -1,0 +1,17 @@
+/* tabelaLancamentos.css */
+
+@media (max-width: 715px) {
+    .col-descricao,
+    .col-acoes {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 520px) {
+    .col-descricao,
+    .col-acoes,
+    .col-forma {
+      display: none;
+    }
+  }
+  

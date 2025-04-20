@@ -4,6 +4,7 @@ import {
     TableRow, Paper, IconButton, Tooltip
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
+import '../components/tabelaLancamentos.css';
 
 const TabelaLancamentos = ({ dados, corCabecalho = '#000', tipo = '', onEditar, onExcluir }) => {
     const estiloCabecalho = {
@@ -19,15 +20,14 @@ const TabelaLancamentos = ({ dados, corCabecalho = '#000', tipo = '', onEditar, 
                     <TableRow sx={{ backgroundColor: '#f1f1f1' }}>
                         <TableCell sx={estiloCabecalho}>Data</TableCell>
                         <TableCell sx={estiloCabecalho}>Categoria</TableCell>
-                        <TableCell sx={estiloCabecalho}>
+                        <TableCell sx={estiloCabecalho} className="col-forma">
                             {tipo === 'receita' ? 'Forma de Recebimento' : 'Forma de Pagamento'}
                         </TableCell>
-                        <TableCell sx={estiloCabecalho}>Descrição</TableCell>
+                        <TableCell sx={estiloCabecalho} className="col-descricao">Descrição</TableCell>
                         <TableCell sx={estiloCabecalho}>Valor</TableCell>
-                        <TableCell sx={estiloCabecalho} align="center">Ações</TableCell>
+                        <TableCell sx={estiloCabecalho} align="center" className="col-acoes">Ações</TableCell>
                     </TableRow>
                 </TableHead>
-
 
                 <TableBody>
                     {dados.length > 0 ? (
@@ -35,10 +35,10 @@ const TabelaLancamentos = ({ dados, corCabecalho = '#000', tipo = '', onEditar, 
                             <TableRow key={item.id}>
                                 <TableCell>{item.data}</TableCell>
                                 <TableCell>{item.categoria}</TableCell>
-                                <TableCell>{item.formaRecebimento}</TableCell>
-                                <TableCell>{item.descricao}</TableCell>
+                                <TableCell className="col-forma">{item.formaRecebimento}</TableCell>
+                                <TableCell className="col-descricao">{item.descricao}</TableCell>
                                 <TableCell>R$ {item.valor.toFixed(2)}</TableCell>
-                                <TableCell align="center">
+                                <TableCell align="center" className="col-acoes">
                                     <Tooltip title="Editar">
                                         <IconButton color="primary" onClick={() => onEditar(item)}>
                                             <Edit />
@@ -64,3 +64,5 @@ const TabelaLancamentos = ({ dados, corCabecalho = '#000', tipo = '', onEditar, 
 };
 
 export default TabelaLancamentos;
+
+/*Quero que em telas menores que 715px seja visivel apenas Data, categoria, forma e valor. E menor que do que 520px seja visivel apenas Data, categoria e valor. Os demais dados devem estar escondindos mas disponíveis para ver utilizando o colapse. Caso seja necessário me informe para que eu crie um documento chamado tabelaLancamento.css */
