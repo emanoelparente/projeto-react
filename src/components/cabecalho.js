@@ -1,67 +1,105 @@
-import React from "react";
-import { AppBar, Toolbar, IconButton, Menu, MenuItem, Box } from "@mui/material";
+// NavbarFinancas.js
+import React, { useState, useEffect, useRef } from "react";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Menu,
+  MenuItem,
+  Box,
+  useMediaQuery,
+} from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import "../components/cabecalho.css"; // Importa o CSS
-import { Link } from "react-router-dom";
-
+import MenuIcon from "@mui/icons-material/Menu";
+import HomeIcon from "@mui/icons-material/Home";
+import { Link, useLocation } from "react-router-dom";
+import "../components/cabecalho.css";
 
 const NavbarFinancas = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const logoRef = useRef(null);
+  const location = useLocation();
+  const isMobile = useMediaQuery("(max-width:600px)");
 
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+  useEffect(() => {
+    if (logoRef.current) logoRef.current.blur();
+  }, []);
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+  const handleMenu = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
-    return (
-        <AppBar position="static">
-            <Toolbar className="cabecalho">
-                {/* Logo à esquerda */}
-                <Box>
-                    <Link to="/">
-                        <img
-                            src="../images/logo-feasy-branco.svg"
-                            alt="logo"
-                            className="logo-esquerda"
-                            style={{ cursor: "pointer" }} // opcional, só pra indicar que é clicável
-                        />
-                    </Link>
-                </Box>
+  const titulosPorRota = {
+    "/": "Financas pessoais",
+    "/extrato-financeiro": "Extrato financeiro",
+    "/dividas-pagar": "Dívidas a pagar",
+    "/valores-a-receber": "Valores a receber",
+    "/relatorios": "Relatórios",
+    "/orcamento-mensal": "Orçamento mensal",
+  };
 
+  const titulo = titulosPorRota[location.pathname] || "";
+  const isHome = location.pathname === "/";
 
-                {/* Título Central */}
-                <Box textAlign="center">
-                    <img
-                        src="../images/logo-feasy-branco.svg"
-                        alt="logo"
-                        className="logo-meio"
-                    />
-                    <h1>Finanças pessoais</h1>
-                </Box>
+  return (
+    <AppBar position="static">
+      <Toolbar className="cabecalho">
+        {/* Lado esquerdo */}
+        <Box className="left-box">
+          {isHome ? (
+            <Link to="/">
+              <img
+                ref={logoRef}
+                src="../images/logo-feasy-branco.svg"
+                alt="logo"
+                className="logo-esquerda"
+              />
+            </Link>
+          ) : (
+            <Link to="/">
+              <HomeIcon className="home-icon" />
+            </Link>
+          )}
+        </Box>
 
-                {/* Menu Perfil */}
-                <Box>
-                    <IconButton onClick={handleMenu} className="perfil-icon">
-                        <AccountCircle sx={{ fontSize: 40, color: "white" }} />
-                    </IconButton>
-                    <Menu
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleClose}
-                        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                        transformOrigin={{ vertical: "top", horizontal: "right" }}>
-                        <MenuItem onClick={handleClose}>Configurações</MenuItem>
-                        <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                        <MenuItem onClick={() => (window.location.href = "/logout")}>Sair</MenuItem>
-                    </Menu>
-                </Box>
-            </Toolbar>
-        </AppBar>
-    );
+        {/* Título central */}
+        <Box className="center-box">
+          <h1 className="titulo-central-texto">{titulo}</h1>
+        </Box>
+
+        {/* Lado direito - menu */}
+        <Box className="right-box">
+          <IconButton onClick={handleMenu} className="perfil-icon">
+            {isMobile ? (
+              <MenuIcon className="icone" />
+            ) : (
+              <AccountCircle className="icone" />
+            )}
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            anchorOrigin={{ vertical: "top", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            <MenuItem onClick={handleClose}>Configurações</MenuItem>
+            <MenuItem onClick={handleClose}>Perfil</MenuItem>
+            <MenuItem onClick={() => (window.location.href = "/logout")}>
+              Sair
+            </MenuItem>
+          </Menu>
+        </Box>
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default NavbarFinancas;
+
+
+
+
+
+
+/**import "../components/cabecalho.css"; */

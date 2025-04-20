@@ -17,7 +17,7 @@ const FiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
         <div className="filtro-wrapper">
             {isMobile && (
                 <Button onClick={() => setOpen(!open)} variant="outlined" fullWidth sx={{ mb: 1 }}>
-                    {open ? 'Esconder filtros' : 'Mostrar filtros'}
+                    {open ? 'Esconder filtros' : 'Filtrar por data'}
                 </Button>
             )}
 

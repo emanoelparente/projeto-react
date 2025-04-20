@@ -1,50 +1,70 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 * {
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 .cabecalho {
-    background-color: #77af51;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-  }
-  
-  .logo-esquerda {
-    height: 30px;
-    margin-top: 10px;
-  }
-  
-  /* Esconder a logo da esquerda em telas menores que 600px */
-  @media (max-width: 600px) {
-    .logo-esquerda {
-      display: none;
-    }
-  }
+  background-color: #77af51;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
 
-  @media (min-width: 600px) {
-    .logo-meio {
-      display: none;
-    }
-  }
-  
-  .logo-meio {
-    height: 30px;
-    text-align: center;
-    color: white;
-    margin-top: 20px;
-  }
-  
-  
-  h1{
-    font-weight: 400;
-    font-size: 25px;
-    margin-top: 0%;
-    margin-bottom: 0%;
+.logo-esquerda {
+  height: 30px;
+  display: block;
+  border: none;
+  outline: none;
+}
 
-  }
+.logo-esquerda:focus {
+  outline: none;
+  box-shadow: none;
+}
 
- 
+.home-icon {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.icone {
+  font-size: 35px;
+  color: white;
+}
+
+.titulo-central-box {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.titulo-central-texto {
+  font-weight: 400;
+  font-size: 25px;
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .cabecalho {
+    padding: 15px 10px;
+  }
+  .titulo-central-texto {
+    font-size: 1.3rem;
+  }
+  .icone {
+    font-size: 30px;
+  }
+  .home-icon {
+    font-size: 26px;
+  }
+}
+
+.esquerda-box {
+  display: flex;
+  align-items: center;
+}
