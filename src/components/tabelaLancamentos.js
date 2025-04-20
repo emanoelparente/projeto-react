@@ -4,7 +4,7 @@ import {
     TableRow, Paper, IconButton, Tooltip
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
-import '../components/tabelaLancamentos.css';
+import './tabelaLancamentos.css'; // Importando o CSS
 
 const TabelaLancamentos = ({ dados, corCabecalho = '#000', tipo = '', onEditar, onExcluir }) => {
     const estiloCabecalho = {
@@ -64,5 +64,3 @@ const TabelaLancamentos = ({ dados, corCabecalho = '#000', tipo = '', onEditar, 
 };
 
 export default TabelaLancamentos;
-
-/*Quero que em telas menores que 715px seja visivel apenas Data, categoria, forma e valor. E menor que do que 520px seja visivel apenas Data, categoria e valor. Os demais dados devem estar escondindos mas disponíveis para ver utilizando o colapse. Caso seja necessário me informe para que eu crie um documento chamado tabelaLancamento.css */
