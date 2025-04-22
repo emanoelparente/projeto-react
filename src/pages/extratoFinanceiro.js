@@ -15,7 +15,7 @@ import {
     Collapse, Fab, Dialog, DialogTitle, DialogContent,
     DialogActions, Button
 } from '@mui/material';
-import { Add, ExpandLess, ExpandMore } from '@mui/icons-material';
+import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 
 // Ícones de ação estão importados no componente TabelaLancamentos
 
@@ -131,6 +131,11 @@ const ExtratoFinanceiro = () => {
             {/* FAB */}
             <Fab color="primary" aria-label="add" onClick={abrirModal} sx={{ position: 'fixed', bottom: 16, right: 16 }}>
                 <Add />
+            </Fab>
+
+            {/* Botão FAB de filtro */}
+            <Fab color="secondary" aria-label="filter" onClick={() => console.log("Abrir filtros")} sx={{ position: 'fixed', bottom: 86, right: 16 }}>
+                <FilterList />
             </Fab>
 
             {/* Diálogo de confirmação */}
