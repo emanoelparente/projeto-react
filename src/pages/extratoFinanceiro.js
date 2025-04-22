@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 // Componentes personalizados
 import SaldoAtual from '../components/saldoConta';
+
 import FiltroSelecaoDatas from '../components/filtroSelecaoDatas';
 import ModalEdicaoLancamento from '../components/Forms/modalEdicaoLancamento';
 import NovoLancamento from '../components/Forms/novoLancamento';
@@ -22,7 +23,9 @@ import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 // Componente de tabela reutilizável
 import TabelaLancamentos from '../components/tabelaLancamentos';
 
-const ExtratoFinanceiro = () => {
+
+
+const ExtratoFinanceiro = () => { 
     const { abrirModal } = useModal();
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
 
@@ -69,6 +72,7 @@ const ExtratoFinanceiro = () => {
         userSelect: 'none'
     });
 
+    
     return (
         <Box p={3} maxWidth="85%" mx="auto">
 
@@ -138,7 +142,8 @@ const ExtratoFinanceiro = () => {
                 <FilterList />
             </Fab>
 
-            {/* Diálogo de confirmação */}
+
+            {/* Diálogo de confirmaçãooo */}
             <Dialog open={!!idParaExcluir} onClose={() => setIdParaExcluir(null)}>
                 <DialogTitle>Confirmar Exclusão</DialogTitle>
                 <DialogContent>Tem certeza que deseja excluir este lançamento?</DialogContent>
