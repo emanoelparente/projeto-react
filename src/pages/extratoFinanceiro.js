@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 // Componentes personalizados
 import SaldoAtual from '../components/saldoConta';
+import FiltroSelecaoLancamentos from '../components/filtroSelecaoLancamentos';
+
 
 import FiltroSelecaoDatas from '../components/filtroSelecaoDatas';
 import ModalEdicaoLancamento from '../components/Forms/modalEdicaoLancamento';
@@ -25,7 +27,7 @@ import TabelaLancamentos from '../components/tabelaLancamentos';
 
 
 
-const ExtratoFinanceiro = () => { 
+const ExtratoFinanceiro = () => {
     const { abrirModal } = useModal();
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
 
@@ -72,7 +74,11 @@ const ExtratoFinanceiro = () => {
         userSelect: 'none'
     });
 
-    
+    const [filtroDialogAberto, setFiltroDialogAberto] = useState(false);
+    const [filtrosAvancados, setFiltrosAvancados] = useState({});
+
+
+
     return (
         <Box p={3} maxWidth="85%" mx="auto">
 
@@ -138,9 +144,15 @@ const ExtratoFinanceiro = () => {
             </Fab>
 
             {/* Botão FAB de filtro */}
-            <Fab color="secondary" aria-label="filter" onClick={() => console.log("Abrir filtros")} sx={{ position: 'fixed', bottom: 86, right: 16 }}>
+            <Fab
+                color="secondary"
+                aria-label="filter"
+                onClick={() => setFiltroDialogAberto(true)}
+                sx={{ position: 'fixed', bottom: 86, right: 16 }}
+            >
                 <FilterList />
             </Fab>
+
 
 
             {/* Diálogo de confirmaçãooo */}
@@ -152,6 +164,13 @@ const ExtratoFinanceiro = () => {
                     <Button onClick={excluirLancamento} color="error">Excluir</Button>
                 </DialogActions>
             </Dialog>
+
+            <FiltroSelecaoLancamentos
+                aberto={filtroDialogAberto}
+                onFechar={() => setFiltroDialogAberto(false)}
+                onAplicar={(filtros) => setFiltrosAvancados(filtros)}
+            />
+
         </Box>
     );
 };
