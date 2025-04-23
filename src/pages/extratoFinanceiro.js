@@ -146,7 +146,7 @@ const ExtratoFinanceiro = () => {
             {/* Diálogo de confirmaçãooo */}
             <Dialog open={!!idParaExcluir} onClose={() => setIdParaExcluir(null)}>
                 <DialogTitle>Confirmar Exclusão</DialogTitle>
-                <DialogContent>Tem certeza que deseja excluir este lançament?</DialogContent>
+                <DialogContent>Tem certeza que deseja excluir este lançamento?</DialogContent>
                 <DialogActions>
                     <Button onClick={() => setIdParaExcluir(null)}>Cancelar</Button>
                     <Button onClick={excluirLancamento} color="error">Excluir</Button>
