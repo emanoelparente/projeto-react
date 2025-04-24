@@ -57,8 +57,6 @@ const FiltroSelecaoLancamentos = ({ aberto, onFechar, onAplicar }) => {
                         </Select>
                     </FormControl>
 
-                    
-
                 </Box>
             </DialogContent>
             <DialogActions>
