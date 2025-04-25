@@ -47,10 +47,10 @@ const DetalhesCollapseMobile = ({ item, tipo, onEditar, onExcluir, expanded, onT
     );
 };
 
-const TabelaLancamentos = ({ dados, corCabecalho = '#000', tipo = '', onEditar, onExcluir }) => {
-    const estiloCabecalho = {
+const TabelaLancamentos = ({ dados, corHeader = '#000', tipo = '', onEditar, onExcluir }) => {
+    const estiloHeader = {
         fontWeight: 'bold',
-        color: corCabecalho,
+        color: corHeader,
         textTransform: 'uppercase',
     };
 
@@ -67,14 +67,14 @@ const TabelaLancamentos = ({ dados, corCabecalho = '#000', tipo = '', onEditar, 
                 {!isMobile && (
                     <TableHead>
                         <TableRow sx={{ backgroundColor: '#f1f1f1' }}>
-                            <TableCell sx={estiloCabecalho}>Data</TableCell>
-                            <TableCell sx={estiloCabecalho}>Categoria</TableCell>
-                            <TableCell sx={estiloCabecalho} className="col-forma">
+                            <TableCell sx={estiloHeader}>Data</TableCell>
+                            <TableCell sx={estiloHeader}>Categoria</TableCell>
+                            <TableCell sx={estiloHeader} className="col-forma">
                                 {tipo === 'receita' ? 'Forma de Recebimento' : 'Forma de Pagamento'}
                             </TableCell>
-                            <TableCell sx={estiloCabecalho} className="col-descricao">Descrição</TableCell>
-                            <TableCell sx={estiloCabecalho}>Valor</TableCell>
-                            <TableCell sx={estiloCabecalho} align="center" className="col-acoes">Ações</TableCell>
+                            <TableCell sx={estiloHeader} className="col-descricao">Descrição</TableCell>
+                            <TableCell sx={estiloHeader}>Valor</TableCell>
+                            <TableCell sx={estiloHeader} align="center" className="col-acoes">Ações</TableCell>
                         </TableRow>
                     </TableHead>
                 )}

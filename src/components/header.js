@@ -13,7 +13,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link, useLocation } from "react-router-dom";
-import "../components/cabecalho.css";
+import "../components/header.css";
 
 const NavbarFinancas = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -43,7 +43,7 @@ const NavbarFinancas = () => {
 
   return (
     <AppBar position="static">
-      <Toolbar className="cabecalho">
+      <Toolbar className="header">
         {/* Lado esquerdo */}
         <Box className="left-box">
           {isHome ? (
@@ -102,4 +102,4 @@ export default NavbarFinancas;
 
 
 
-/**import "../components/cabecalho.css"; */
+/**import "../components/header.css"; */

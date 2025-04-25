@@ -1,6 +1,6 @@
 
 import './App.css';
-import NavbarFinancas from './components/cabecalho';
+import NavbarFinancas from './components/header';
 import SaldoAtual from './components/saldoConta';
 
 import CardNovoLancamento from './components/cards/cardNovoLancamento';
@@ -10,7 +10,7 @@ import CardOrcamentoMensal from './components/cards/cardOrcamentoMensal';
 import CardValoresReceber from './components/cards/cardValoresReceber';
 import CardRelatorios from './components/cards/cardRelatorios';
 
-import NovoLancamento from './components/Forms/novoLancamento';
+import ModalNovoLancamento from './components/Forms/modalNovoLancamento';
 
 import ExtratoFinanceiro from './pages/extratoFinanceiro';
 import DividasPagar from './pages/dividasPagar';
@@ -37,7 +37,7 @@ function App() {
                   <SaldoAtual />
                   <div className="card-container">
                     <CardNovoLancamento />
-                    <NovoLancamento />
+                    <ModalNovoLancamento />
                     <CardDividasPagar />
                     <CardExtratoFinanceiro />
                     <CardOrcamentoMensal />

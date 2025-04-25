@@ -20,7 +20,7 @@ import {
 } from "@mui/material";
 import { useModal } from "../../context/modalContext";
 
-const NovoLancamento = () => {
+const ModalNovoLancamento = () => {
   const { modalAberto, fecharModal } = useModal();
 
   const [tipo, setTipo] = useState("Receita");
@@ -173,4 +173,4 @@ const NovoLancamento = () => {
   );
 };
 
-export default NovoLancamento;
+export default ModalNovoLancamento;

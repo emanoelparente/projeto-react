@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-.cabecalho {
+.header {
   background-color: #77af51;
   display: flex;
   justify-content: space-between;
@@ -50,7 +50,7 @@
 }
 
 @media (max-width: 600px) {
-  .cabecalho {
+  .header {
     padding: 15px 10px;
   }
   .titulo-central-texto {

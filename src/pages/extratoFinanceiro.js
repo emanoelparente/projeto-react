@@ -7,7 +7,7 @@ import FiltroSelecaoLancamentos from '../components/filtroSelecaoLancamentos';
 
 import FiltroSelecaoDatas from '../components/filtroSelecaoDatas';
 import ModalEdicaoLancamento from '../components/Forms/modalEdicaoLancamento';
-import NovoLancamento from '../components/Forms/novoLancamento';
+import ModalNovoLancamento from '../components/Forms/modalNovoLancamento';
 
 // Contexto
 import { useModal } from '../context/modalContext';
@@ -104,7 +104,7 @@ const ExtratoFinanceiro = () => {
                 <Collapse in={mostrarReceitas}>
                     <TabelaLancamentos
                         dados={receitas}
-                        corCabecalho="#386641"
+                        corHeader="#386641"
                         tipo="receita"
                         onEditar={editarLancamento}
                         onExcluir={confirmarExclusao}
@@ -123,7 +123,7 @@ const ExtratoFinanceiro = () => {
                 <Collapse in={mostrarDespesas}>
                     <TabelaLancamentos
                         dados={despesas}
-                        corCabecalho="#9d0208"
+                        corHeader="#9d0208"
                         tipo="despesa"
                         onEditar={editarLancamento}
                         onExcluir={confirmarExclusao}
@@ -136,7 +136,7 @@ const ExtratoFinanceiro = () => {
                 <ModalEdicaoLancamento dadosLancamento={dadosLancamento} onSalvar={atualizarLancamento} />
             )}
 
-            <NovoLancamento />
+            <ModalNovoLancamento />
 
             {/* FAB */}
             <Fab color="primary" aria-label="add" onClick={abrirModal} sx={{ position: 'fixed', bottom: 16, right: 16 }}>
