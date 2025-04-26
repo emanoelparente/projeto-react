@@ -12,7 +12,7 @@ import CardRelatorios from './components/cards/cardRelatorios';
 
 import ModalNovoLancamento from './components/Forms/modalNovoLancamento';
 
-import ExtratoFinanceiro from './pages/extratoFinanceiro';
+import ExtratoFinanceiroPage from './features/extratoFinanceiro/ExtratoFinanceiroPage';
 import DividasPagar from './pages/dividasPagar';
 import ValoresReceber from './pages/valoresReceber';
 import OrcamentoMensal from './pages/orcamentoMensal';
@@ -47,7 +47,7 @@ function App() {
                 </>
               }
             />
-            <Route path="/extrato-financeiro" element={<ExtratoFinanceiro />} />
+            <Route path="/extrato-financeiro" element={<ExtratoFinanceiroPage />} />
             <Route path="/dividas-pagar" element={<DividasPagar />} />
             <Route path="/valores-a-receber" element={<ValoresReceber />} />
             <Route path="/relatorios" element={<Relatorios />} />

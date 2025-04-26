@@ -7,7 +7,7 @@ const CardExtratoFinanceiro = () => {
   const navigate = useNavigate();
 
   const irParaExtrato = () => {
-    navigate("/extrato-financeiro"); // ou a rota que você configurou para extratoFinanceiro.js
+    navigate("/extrato-financeiro"); // ou a rota que você configurou para ExtratoFinanceiroPage.js
   };
 
   return (

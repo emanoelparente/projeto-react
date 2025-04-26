@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
 // Componentes personalizados
-import SaldoAtual from '../components/saldoConta';
-import FiltroSelecaoLancamentos from '../components/filtroSelecaoLancamentos';
+import SaldoAtual from '../../components/saldoConta';
+import FiltroSelecaoLancamentos from '../../components/filtroSelecaoLancamentos';
 
 
-import FiltroSelecaoDatas from '../components/filtroSelecaoDatas';
-import ModalEdicaoLancamento from '../components/Forms/modalEdicaoLancamento';
-import ModalNovoLancamento from '../components/Forms/modalNovoLancamento';
+import FiltroSelecaoDatas from '../../components/filtroSelecaoDatas';
+import ModalEdicaoLancamento from '../../components/Forms/modalEdicaoLancamento';
+import ModalNovoLancamento from '../../components/Forms/modalNovoLancamento';
 
 // Contexto
-import { useModal } from '../context/modalContext';
+import { useModal } from '../../context/modalContext';
 
 // MUI
 import {
@@ -23,11 +23,11 @@ import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 // Ícones de ação estão importados no componente TabelaLancamentos
 
 // Componente de tabela reutilizável
-import TabelaLancamentos from '../components/tabelaLancamentos';
+import TabelaLancamentos from '../../components/tabelaLancamentos';
 
 
 
-const ExtratoFinanceiro = () => {
+const ExtratoFinanceiroPage = () => {
     const { abrirModal } = useModal();
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
 
@@ -175,4 +175,4 @@ const ExtratoFinanceiro = () => {
     );
 };
 
-export default ExtratoFinanceiro;
+export default ExtratoFinanceiroPage;
