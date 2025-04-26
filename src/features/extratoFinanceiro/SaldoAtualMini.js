@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Box, Typography } from "@mui/material";
-import './saldoContaMini.css';
+import '../../styles/SaldoAtualMini.css';
 
 const SaldoAtualMini = ({ saldo }) => {
     return (
