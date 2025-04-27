@@ -5,7 +5,7 @@ import SaldoAtual from './components/saldoConta';
 
 import CardNovoLancamento from './components/cards/cardNovoLancamento';
 import CardDividasPagar from './components/cards/cardDividasPagar';
-import CardExtratoFinanceiro from './components/cards/cardExtratoFinanceiro';
+import CardExtratoFinanceiro from './features/extratoFinanceiro/CardExtratoFinanceiro';
 import CardOrcamentoMensal from './components/cards/cardOrcamentoMensal';
 import CardValoresReceber from './components/cards/cardValoresReceber';
 import CardRelatorios from './components/cards/cardRelatorios';
