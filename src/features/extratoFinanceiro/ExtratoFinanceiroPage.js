@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 // Componentes personalizados
 import SaldoAtual from '../../components/saldoConta';
-import FiltroSelecaoLancamentos from '../../components/filtroSelecaoLancamentos';
+import FiltroSelecaoLancamentos from './filtroSelecaoLancamentos';
 
 
-import FiltroSelecaoDatas from '../../components/filtroSelecaoDatas';
-import ModalEdicaoLancamento from '../../components/Forms/modalEdicaoLancamento';
-import ModalNovoLancamento from '../../components/Forms/modalNovoLancamento';
+import FiltroSelecaoDatas from './filtroSelecaoDatas';
+import ModalEdicaoLancamento from './ModalEdicaoLancamento';
+import ModalNovoLancamento from '../novoLancamento/modalNovoLancamento';
 
 // Contexto
 import { useModal } from '../../context/modalContext';
@@ -23,7 +23,7 @@ import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 // Ícones de ação estão importados no componente TabelaLancamentos
 
 // Componente de tabela reutilizável
-import TabelaLancamentos from '../../components/tabelaLancamentos';
+import TabelaLancamentos from './tabelaLancamentos';
 
 
 

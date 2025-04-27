@@ -10,13 +10,13 @@ import CardOrcamentoMensal from './components/cards/cardOrcamentoMensal';
 import CardValoresReceber from './components/cards/cardValoresReceber';
 import CardRelatorios from './components/cards/cardRelatorios';
 
-import ModalNovoLancamento from './components/Forms/modalNovoLancamento';
+import ModalNovoLancamento from './features/novoLancamento/modalNovoLancamento';
 
 import ExtratoFinanceiroPage from './features/extratoFinanceiro/ExtratoFinanceiroPage';
 import DividasPagar from './pages/dividasPagar';
 import ValoresReceber from './pages/valoresReceber';
-import OrcamentoMensal from './pages/orcamentoMensal';
-import Relatorios from './pages/relatorios';
+import OrcamentoMensal from './features/orcamentoMensal/orcamentoMensal';
+import Relatorios from './features/relatorioFinanceiro/relatorios';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';

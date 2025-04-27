@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CategoriaAutocomplete from "../Forms/categoriaAutocomplete";
+import CategoriaAutocomplete from "../../components/Forms/categoriaAutocomplete";
 import { NumericFormat } from "react-number-format";
 import { useEffect } from "react"; // certifique-se de importar isso
 

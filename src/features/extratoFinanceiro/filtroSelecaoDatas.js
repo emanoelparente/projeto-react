@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button, Collapse, useMediaQuery } from '@mui/material';
-import SaldoAtualMini from '../features/extratoFinanceiro/SaldoAtualMini';
+import SaldoAtualMini from './SaldoAtualMini';
 import './filtroSelecaoDatas.css';
-import SaldoAtual from './saldoConta';
+import SaldoAtual from '../../components/saldoConta';
 
 const FiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
     const [open, setOpen] = useState(true);
