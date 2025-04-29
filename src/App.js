@@ -3,18 +3,18 @@ import './App.css';
 import NavbarFinancas from './components/header';
 import SaldoAtual from './components/saldoConta';
 
-import CardNovoLancamento from './components/cards/cardNovoLancamento';
-import CardDividasPagar from './components/cards/cardDividasPagar';
+import CardNovoLancamento from './features/novoLancamento/cardNovoLancamento';
+import CardDividasPagar from './features/dividasPagar/cardDividasPagar';
 import CardExtratoFinanceiro from './features/extratoFinanceiro/CardExtratoFinanceiro';
-import CardOrcamentoMensal from './components/cards/cardOrcamentoMensal';
-import CardValoresReceber from './components/cards/cardValoresReceber';
-import CardRelatorios from './components/cards/cardRelatorios';
+import CardOrcamentoMensal from './features/orcamentoMensal/cardOrcamentoMensal';
+import CardValoresReceber from './features/valoresReceber/cardValoresReceber';
+import CardRelatorios from './features/relatorioFinanceiro/cardRelatorios';
 
 import ModalNovoLancamento from './features/novoLancamento/modalNovoLancamento';
 
 import ExtratoFinanceiroPage from './features/extratoFinanceiro/ExtratoFinanceiroPage';
-import DividasPagar from './pages/dividasPagar';
-import ValoresReceber from './pages/valoresReceber';
+import DividasPagar from './features/dividasPagar/dividasPagar';
+import ValoresReceber from './features/valoresReceber/valoresReceber';
 import OrcamentoMensal from './features/orcamentoMensal/orcamentoMensal';
 import Relatorios from './features/relatorioFinanceiro/relatorios';
 
