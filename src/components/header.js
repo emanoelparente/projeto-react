@@ -13,7 +13,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link, useLocation } from "react-router-dom";
-import "../components/header.css";
+import "../styles/header.css";
 
 const NavbarFinancas = () => {
   const [anchorEl, setAnchorEl] = useState(null);
