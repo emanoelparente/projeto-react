@@ -1,4 +1,4 @@
-import SaldoAtual from '../components/saldoConta';
+import SaldoAtual from '../../components/saldoConta';
 const DividasPagar = () => {
     return (
         <SaldoAtual/>

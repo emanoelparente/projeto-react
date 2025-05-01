@@ -18,7 +18,7 @@ import {
   Stack,
   Snackbar,
 } from "@mui/material";
-import { useModal } from "../../context/modalContext";
+import { useModal } from '../../context/ModalContext';
 
 const ModalNovoLancamento = () => {
   const { modalAberto, fecharModal } = useModal();

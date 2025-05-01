@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import CategoriaAutocomplete from "./categoriaAutocomplete";
+import CategoriaAutocomplete from '../../components/Forms/categoriaAutocomplete';
+
 import { NumericFormat } from "react-number-format";
 import { Modal, Box, Typography, Button, TextField, Select, MenuItem, FormControl, InputLabel, ToggleButton, ToggleButtonGroup, Stack, Snackbar } from "@mui/material";
-import { useModal } from "../../context/modalContext";
+import { useModal } from '../../context/ModalContext';
 
 const ModalEdicaoLancamento = ({ dadosLancamento, onSalvar }) => {
   const { modalAberto, fecharModal } = useModal();

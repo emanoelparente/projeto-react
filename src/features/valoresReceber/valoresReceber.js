@@ -1,7 +1,8 @@
-import SaldoAtual from '../components/saldoConta';
+import SaldoConta from '../../components/saldoConta';
+
 const ValoresReceber = () => {
     return (
-        <SaldoAtual/>
+        <SaldoConta/>
     );
   };
   

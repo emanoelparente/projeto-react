@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import CardAcaoBase from "./cardAcaoBase";
+import CardAcaoBase from '../../components/cards/cardAcaoBase';
+
 
 const CardOrcamentoMensal = () => {
   const navigate = useNavigate();

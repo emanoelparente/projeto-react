@@ -5,7 +5,9 @@ import {
 } from '@mui/material';
 import { Edit, Delete, ExpandMore, ExpandLess } from '@mui/icons-material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import './tabelaLancamentos.css';
+import '../../styles/tabelaLancamentos.css';
+
+;
 
 const DetalhesCollapseMobile = ({ item, tipo, onEditar, onExcluir, expanded, onToggle }) => {
     return (

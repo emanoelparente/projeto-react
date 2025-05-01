@@ -21,7 +21,7 @@ import Relatorios from './features/relatorioFinanceiro/relatorios';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ModalProvider } from './context/ModalContext';
-;
+
 import theme from './theme';
 
 function App() {

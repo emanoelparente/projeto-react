@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Componentes personalizados
-import SaldoAtual from '../../components/saldoConta';
+
 import FiltroSelecaoLancamentos from './filtroSelecaoLancamentos';
 
 
@@ -10,7 +10,7 @@ import ModalEdicaoLancamento from './ModalEdicaoLancamento';
 import ModalNovoLancamento from '../novoLancamento/modalNovoLancamento';
 
 // Contexto
-import { useModal } from '../../context/modalContext';
+import { useModal } from '../../context/ModalContext';
 
 // MUI
 import {
