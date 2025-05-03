@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardAcaoBase from "../../components/shared/cardAcaoBase";
 
-const CardDividasPagar = () => {
+const DividasPagarCard = () => {
   const navigate = useNavigate();
 
   const irParaDividas = () => {
@@ -20,4 +20,4 @@ const CardDividasPagar = () => {
   );
 };
 
-export default CardDividasPagar;
+export default DividasPagarCard;

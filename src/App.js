@@ -4,7 +4,7 @@ import NavbarFinancas from './components/shared/header';
 import SaldoAtual from './components/shared/saldoConta';
 
 import CardNovoLancamento from './features/novo-lancamento/cardNovoLancamento';
-import CardDividasPagar from './features/dividas-pagar/cardDividasPagar';
+import DividasPagarCard from './features/dividas-pagar/DividasPagarCard';
 import CardExtratoFinanceiro from './features/extrato-financeiro/CardExtratoFinanceiro';
 import CardOrcamentoMensal from './features/orcamento-mensal/cardOrcamentoMensal';
 import CardValoresReceber from './features/valores-receber/cardValoresReceber';
@@ -39,7 +39,7 @@ function App() {
                   <div className="card-container">
                     <CardNovoLancamento />
                     <ModalNovoLancamento />
-                    <CardDividasPagar />
+                    <DividasPagarCard />
                     <CardExtratoFinanceiro />
                     <CardOrcamentoMensal />
                     <CardValoresReceber />
