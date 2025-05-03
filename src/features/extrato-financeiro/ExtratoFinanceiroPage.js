@@ -7,7 +7,7 @@ import FiltroSelecaoLancamentos from './filtroSelecaoLancamentos';
 
 import FiltroSelecaoDatas from './filtroSelecaoDatas';
 import ModalEdicaoLancamento from './ModalEdicaoLancamento';
-import ModalNovoLancamento from '../novoLancamento/modalNovoLancamento';
+import ModalNovoLancamento from '../novo-lancamento/modalNovoLancamento';
 
 // Contexto
 import { useModal } from '../../context/ModalContext';

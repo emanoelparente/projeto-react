@@ -3,14 +3,14 @@ import './App.css';
 import NavbarFinancas from './components/header';
 import SaldoAtual from './components/saldoConta';
 
-import CardNovoLancamento from './features/novoLancamento/cardNovoLancamento';
+import CardNovoLancamento from './features/novo-lancamento/cardNovoLancamento';
 import CardDividasPagar from './features/dividas-pagar/cardDividasPagar';
 import CardExtratoFinanceiro from './features/extrato-financeiro/CardExtratoFinanceiro';
 import CardOrcamentoMensal from './features/orcamentoMensal/cardOrcamentoMensal';
 import CardValoresReceber from './features/valoresReceber/cardValoresReceber';
 import CardRelatorios from './features/relatorioFinanceiro/cardRelatorios';
 
-import ModalNovoLancamento from './features/novoLancamento/modalNovoLancamento';
+import ModalNovoLancamento from './features/novo-lancamento/modalNovoLancamento';
 
 import ExtratoFinanceiroPage from './features/extrato-financeiro/ExtratoFinanceiroPage';
 import DividasPagar from './features/dividas-pagar/dividasPagar';
