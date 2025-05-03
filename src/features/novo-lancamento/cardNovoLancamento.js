@@ -1,5 +1,5 @@
 import React from "react";
-import CardAcaoBase from '../../components/cards/cardAcaoBase';
+import CardAcaoBase from '../../components/shared/cardAcaoBase';
 
 
 import { useModal } from '../../context/ModalContext';

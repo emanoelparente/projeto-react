@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import CardAcaoBase from '../../components/cards/cardAcaoBase';
+import CardAcaoBase from '../../components/shared/cardAcaoBase';
 
 
 const CardRelatorios = () => {

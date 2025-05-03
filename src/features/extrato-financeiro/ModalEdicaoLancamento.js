@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CategoriaAutocomplete from '../../components/Forms/categoriaAutocomplete';
+import CategoriaAutocomplete from '../../components/shared/categoriaAutocomplete';
 
 import { NumericFormat } from "react-number-format";
 import { Modal, Box, Typography, Button, TextField, Select, MenuItem, FormControl, InputLabel, ToggleButton, ToggleButtonGroup, Stack, Snackbar } from "@mui/material";
