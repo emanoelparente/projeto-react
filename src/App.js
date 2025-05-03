@@ -8,7 +8,7 @@ import CardDividasPagar from './features/dividas-pagar/cardDividasPagar';
 import CardExtratoFinanceiro from './features/extrato-financeiro/CardExtratoFinanceiro';
 import CardOrcamentoMensal from './features/orcamento-mensal/cardOrcamentoMensal';
 import CardValoresReceber from './features/valoresReceber/cardValoresReceber';
-import CardRelatorios from './features/relatorioFinanceiro/cardRelatorios';
+import CardRelatorios from './features/relatorio-financeiro/cardRelatorios';
 
 import ModalNovoLancamento from './features/novo-lancamento/modalNovoLancamento';
 
@@ -16,7 +16,7 @@ import ExtratoFinanceiroPage from './features/extrato-financeiro/ExtratoFinancei
 import DividasPagar from './features/dividas-pagar/dividasPagar';
 import ValoresReceber from './features/valoresReceber/valoresReceber';
 import OrcamentoMensal from './features/orcamento-mensal/orcamentoMensal';
-import Relatorios from './features/relatorioFinanceiro/relatorios';
+import Relatorios from './features/relatorio-financeiro/relatorios';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
