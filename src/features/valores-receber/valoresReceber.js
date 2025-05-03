@@ -1,4 +1,4 @@
-import SaldoConta from '../../components/saldoConta';
+import SaldoConta from '../../components/shared/saldoConta';
 
 const ValoresReceber = () => {
     return (
