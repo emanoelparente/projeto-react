@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 import FiltroSelecaoLancamentos from './filtroSelecaoLancamentos';
 
 
-import FiltroSelecaoDatas from './filtroSelecaoDatas';
+import FiltroSelecaoDatas from '../../components/shared/filtroSelecaoDatas';
+
 import ModalEdicaoLancamento from './ModalEdicaoLancamento';
 import ModalNovoLancamento from '../novo-lancamento/modalNovoLancamento';
 

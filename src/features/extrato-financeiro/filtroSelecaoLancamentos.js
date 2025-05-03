@@ -4,7 +4,7 @@ import {
     Dialog, DialogTitle, DialogContent, DialogActions,
     Button, TextField, FormControl, InputLabel, Select, MenuItem, Box
 } from '@mui/material';
-import FiltroSelecaoDatas from './filtroSelecaoDatas';
+import FiltroSelecaoDatas from '../../components/shared/filtroSelecaoDatas';
 
 const FiltroSelecaoLancamentos = ({ aberto, onFechar, onAplicar }) => {
     const [forma, setForma] = useState('');

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button, Collapse, useMediaQuery } from '@mui/material';
-import SaldoAtualMini from './SaldoAtualMini';
+import SaldoAtualMini from '../../features/extrato-financeiro/SaldoAtualMini';
 import '../../styles/filtroSelecaoDatas.css';
 
 
