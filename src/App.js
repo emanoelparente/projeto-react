@@ -13,7 +13,7 @@ import CardRelatorios from './features/relatorio-financeiro/cardRelatorios';
 import ModalNovoLancamento from './features/novo-lancamento/modalNovoLancamento';
 
 import ExtratoFinanceiroPage from './features/extrato-financeiro/ExtratoFinanceiroPage';
-import DividasPagar from './features/dividas-pagar/dividasPagar';
+import DividasPagarPage from './features/dividas-pagar/DividasPagarPage';
 import ValoresReceber from './features/valores-receber/valoresReceber';
 import OrcamentoMensal from './features/orcamento-mensal/orcamentoMensal';
 import Relatorios from './features/relatorio-financeiro/relatorios';
@@ -49,7 +49,7 @@ function App() {
               }
             />
             <Route path="/extrato-financeiro" element={<ExtratoFinanceiroPage />} />
-            <Route path="/dividas-pagar" element={<DividasPagar />} />
+            <Route path="/dividas-pagar" element={<DividasPagarPage />} />
             <Route path="/valores-a-receber" element={<ValoresReceber />} />
             <Route path="/relatorios" element={<Relatorios />} />
             <Route path="/orcamento-mensal" element={<OrcamentoMensal />} />

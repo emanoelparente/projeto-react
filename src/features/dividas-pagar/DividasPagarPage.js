@@ -1,9 +1,9 @@
 import SaldoAtual from '../../components/shared/saldoConta';
-const DividasPagar = () => {
+const DividasPagarPage = () => {
     return (
         <SaldoAtual/>
     );
   };
   
-  export default DividasPagar;
+  export default DividasPagarPage;
   
