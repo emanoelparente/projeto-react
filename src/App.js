@@ -5,7 +5,7 @@ import SaldoAtual from './components/shared/saldoConta';
 
 import CardNovoLancamento from './features/novo-lancamento/cardNovoLancamento';
 import DividasPagarCard from './features/dividas-pagar/DividasPagarCard';
-import CardExtratoFinanceiro from './features/extrato-financeiro/CardExtratoFinanceiro';
+import ExtratoFinanceiroCard from './features/extrato-financeiro/ExtratoFinanceiroCard';
 import CardOrcamentoMensal from './features/orcamento-mensal/cardOrcamentoMensal';
 import CardValoresReceber from './features/valores-receber/cardValoresReceber';
 import CardRelatorios from './features/relatorio-financeiro/cardRelatorios';
@@ -40,7 +40,7 @@ function App() {
                     <CardNovoLancamento />
                     <ModalNovoLancamento />
                     <DividasPagarCard />
-                    <CardExtratoFinanceiro />
+                    <ExtratoFinanceiroCard />
                     <CardOrcamentoMensal />
                     <CardValoresReceber />
                     <CardRelatorios />

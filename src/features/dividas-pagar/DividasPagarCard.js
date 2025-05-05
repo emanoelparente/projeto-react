@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import CardAcaoBase from "../../components/shared/cardAcaoBase";
+import CardAcaoBase from "../../components/shared/CardAcaoBase";
 
 const DividasPagarCard = () => {
   const navigate = useNavigate();
