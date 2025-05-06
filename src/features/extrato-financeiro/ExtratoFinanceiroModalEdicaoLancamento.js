@@ -5,7 +5,7 @@ import { NumericFormat } from "react-number-format";
 import { Modal, Box, Typography, Button, TextField, Select, MenuItem, FormControl, InputLabel, ToggleButton, ToggleButtonGroup, Stack, Snackbar } from "@mui/material";
 import { useModal } from '../../context/ModalContext';
 
-const ModalEdicaoLancamento = ({ dadosLancamento, onSalvar }) => {
+const ExtratoFinanceiroModalEdicaoLancamento = ({ dadosLancamento, onSalvar }) => {
   const { modalAberto, fecharModal } = useModal();
 
   const [tipo, setTipo] = useState(dadosLancamento.tipo || "Receita");
@@ -160,4 +160,4 @@ const ModalEdicaoLancamento = ({ dadosLancamento, onSalvar }) => {
   );
 };
 
-export default ModalEdicaoLancamento;
+export default ExtratoFinanceiroModalEdicaoLancamento;

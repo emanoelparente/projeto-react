@@ -7,7 +7,7 @@ import ExtratoFinanceiroFiltroSelecaoLancamentos from './ExtratoFinanceiroFiltro
 
 import FiltroSelecaoDatas from '../../components/shared/filtroSelecaoDatas';
 
-import ModalEdicaoLancamento from './ModalEdicaoLancamento';
+import ExtratoFinanceiroModalEdicaoLancamento from './ExtratoFinanceiroModalEdicaoLancamento';
 import ModalNovoLancamento from '../novo-lancamento/modalNovoLancamento';
 
 // Contexto
@@ -134,7 +134,7 @@ const ExtratoFinanceiroPage = () => {
 
 
             {dadosLancamento && (
-                <ModalEdicaoLancamento dadosLancamento={dadosLancamento} onSalvar={atualizarLancamento} />
+                <ExtratoFinanceiroModalEdicaoLancamento dadosLancamento={dadosLancamento} onSalvar={atualizarLancamento} />
             )}
 
             <ModalNovoLancamento />
