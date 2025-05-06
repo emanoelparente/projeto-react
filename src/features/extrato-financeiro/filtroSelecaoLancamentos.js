@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import FiltroSelecaoDatas from '../../components/shared/filtroSelecaoDatas';
 
-const FiltroSelecaoLancamentos = ({ aberto, onFechar, onAplicar }) => {
+const ExtratoFinanceiroFiltroSelecaoLancamentos = ({ aberto, onFechar, onAplicar }) => {
     const [forma, setForma] = useState('');
     const [categoria, setCategoria] = useState('');
     const [palavraChave, setPalavraChave] = useState('');
@@ -67,4 +67,4 @@ const FiltroSelecaoLancamentos = ({ aberto, onFechar, onAplicar }) => {
     );
 };
 
-export default FiltroSelecaoLancamentos;
+export default ExtratoFinanceiroFiltroSelecaoLancamentos;

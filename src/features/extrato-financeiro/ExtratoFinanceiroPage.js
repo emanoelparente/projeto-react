@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Componentes personalizados
 
-import FiltroSelecaoLancamentos from './filtroSelecaoLancamentos';
+import ExtratoFinanceiroFiltroSelecaoLancamentos from './filtroSelecaoLancamentos';
 
 
 import FiltroSelecaoDatas from '../../components/shared/filtroSelecaoDatas';
@@ -166,7 +166,7 @@ const ExtratoFinanceiroPage = () => {
                 </DialogActions>
             </Dialog>
 
-            <FiltroSelecaoLancamentos
+            <ExtratoFinanceiroFiltroSelecaoLancamentos
                 aberto={filtroDialogAberto}
                 onFechar={() => setFiltroDialogAberto(false)}
                 onAplicar={(filtros) => setFiltrosAvancados(filtros)}
