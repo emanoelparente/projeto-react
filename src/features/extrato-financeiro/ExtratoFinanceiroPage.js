@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Componentes personalizados
 
-import ExtratoFinanceiroFiltroSelecaoLancamentos from './filtroSelecaoLancamentos';
+import ExtratoFinanceiroFiltroSelecaoLancamentos from './ExtratoFinanceiroFiltroSelecaoLancamentos';
 
 
 import FiltroSelecaoDatas from '../../components/shared/filtroSelecaoDatas';
