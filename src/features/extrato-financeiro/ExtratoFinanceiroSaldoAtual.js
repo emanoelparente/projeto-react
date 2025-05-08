@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid, Box, Typography } from "@mui/material";
-import '../../styles/SaldoAtualMini.css';
+import '../../styles/ExtratoFinanceiroSaldoAtual.css';
 
-const SaldoAtualMini = ({ saldo }) => {
+const ExtratoFinanceiroSaldoAtual = ({ saldo }) => {
     return (
         <Grid item xs={12} sm={4}>
             <Typography
@@ -28,4 +28,4 @@ const SaldoAtualMini = ({ saldo }) => {
     );
 };
 
-export default SaldoAtualMini;
+export default ExtratoFinanceiroSaldoAtual;

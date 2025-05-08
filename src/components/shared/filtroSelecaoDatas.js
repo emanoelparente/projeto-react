@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button, Collapse, useMediaQuery } from '@mui/material';
-import SaldoAtualMini from '../../features/extrato-financeiro/SaldoAtualMini';
+import ExtratoFinanceiroSaldoAtual from '../../features/extrato-financeiro/ExtratoFinanceiroSaldoAtual';
 import '../../styles/filtroSelecaoDatas.css';
 
 
@@ -31,7 +31,7 @@ const FiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
                     className="filtro-container"
                 >
                     <Grid item xs={12} sm={3} className="filtro-item saldo-topo">
-                        <SaldoAtualMini />
+                        <ExtratoFinanceiroSaldoAtual />
                     </Grid>
 
                     <Grid item xs={12} sm={3} className="filtro-item data-inicial">
