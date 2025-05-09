@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CardAcaoBase from '../../components/shared/CardAcaoBase';
 
 
-const CardOrcamentoMensal = () => {
+const OrcamentoMensalCard = () => {
   const navigate = useNavigate();
 
   const irParaOrcamento = () => {
@@ -21,4 +21,4 @@ const CardOrcamentoMensal = () => {
   );
 };
 
-export default CardOrcamentoMensal;
+export default OrcamentoMensalCard;

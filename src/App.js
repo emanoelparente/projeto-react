@@ -6,7 +6,7 @@ import SaldoAtual from './components/shared/saldoConta';
 import NovoLancamentoCard from './features/novo-lancamento/NovoLancamentoCard';
 import DividasPagarCard from './features/dividas-pagar/DividasPagarCard';
 import ExtratoFinanceiroCard from './features/extrato-financeiro/ExtratoFinanceiroCard';
-import CardOrcamentoMensal from './features/orcamento-mensal/cardOrcamentoMensal';
+import OrcamentoMensalCard from './features/orcamento-mensal/OrcamentoMensalCard';
 import CardValoresReceber from './features/valores-receber/cardValoresReceber';
 import CardRelatorios from './features/relatorio-financeiro/cardRelatorios';
 
@@ -15,7 +15,7 @@ import NovoLancamentoModal from './features/novo-lancamento/NovoLancamentoModal'
 import ExtratoFinanceiroPage from './features/extrato-financeiro/ExtratoFinanceiroPage';
 import DividasPagarPage from './features/dividas-pagar/DividasPagarPage';
 import ValoresReceber from './features/valores-receber/valoresReceber';
-import OrcamentoMensal from './features/orcamento-mensal/orcamentoMensal';
+import OrcamentoMensalPage from './features/orcamento-mensal/orcamentoMensal';
 import Relatorios from './features/relatorio-financeiro/relatorios';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -41,7 +41,7 @@ function App() {
                     <NovoLancamentoModal />
                     <DividasPagarCard />
                     <ExtratoFinanceiroCard />
-                    <CardOrcamentoMensal />
+                    <OrcamentoMensalCard />
                     <CardValoresReceber />
                     <CardRelatorios />
                   </div>
@@ -52,7 +52,7 @@ function App() {
             <Route path="/dividas-pagar" element={<DividasPagarPage />} />
             <Route path="/valores-a-receber" element={<ValoresReceber />} />
             <Route path="/relatorios" element={<Relatorios />} />
-            <Route path="/orcamento-mensal" element={<OrcamentoMensal />} />
+            <Route path="/orcamento-mensal" element={<OrcamentoMensalPage />} />
 
             {/* Adicione mais rotas aqui conforme necessário */}
           </Routes>

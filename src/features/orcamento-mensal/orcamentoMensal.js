@@ -1,5 +1,5 @@
-const OrcamentoMensal = () => {
+const OrcamentoMensalPage = () => {
     return <div>Orçamento Mensal</div>;
   };
   
-  export default OrcamentoMensal;
+  export default OrcamentoMensalPage;
