@@ -4,7 +4,7 @@ import CardAcaoBase from '../../components/shared/CardAcaoBase';
 
 import { useModal } from '../../context/ModalContext';
 
-const CardNovoLancamento = () => {
+const NovoLancamentoCard = () => {
   const { abrirModal } = useModal();
 
   return (
@@ -18,4 +18,4 @@ const CardNovoLancamento = () => {
   );
 };
 
-export default CardNovoLancamento;
+export default NovoLancamentoCard;

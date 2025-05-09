@@ -3,7 +3,7 @@ import './App.css';
 import NavbarFinancas from './components/shared/header';
 import SaldoAtual from './components/shared/saldoConta';
 
-import CardNovoLancamento from './features/novo-lancamento/cardNovoLancamento';
+import NovoLancamentoCard from './features/novo-lancamento/NovoLancamentoCard';
 import DividasPagarCard from './features/dividas-pagar/DividasPagarCard';
 import ExtratoFinanceiroCard from './features/extrato-financeiro/ExtratoFinanceiroCard';
 import CardOrcamentoMensal from './features/orcamento-mensal/cardOrcamentoMensal';
@@ -37,7 +37,7 @@ function App() {
                 <>
                   <SaldoAtual />
                   <div className="card-container">
-                    <CardNovoLancamento />
+                    <NovoLancamentoCard />
                     <ModalNovoLancamento />
                     <DividasPagarCard />
                     <ExtratoFinanceiroCard />
