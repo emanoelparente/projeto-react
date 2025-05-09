@@ -1,9 +1,9 @@
 import SaldoConta from '../../components/shared/saldoConta';
 
-const ValoresReceber = () => {
+const ValoresReceberPage = () => {
     return (
         <SaldoConta/>
     );
   };
   
-  export default ValoresReceber;
+  export default ValoresReceberPage;
