@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CardAcaoBase from '../../components/shared/CardAcaoBase';
 
 
-const CardRelatorios = () => {
+const RelatoriosFinanceirosCard = () => {
   const navigate = useNavigate();
 
   const irParaRelatorios = () => {
@@ -21,4 +21,4 @@ const CardRelatorios = () => {
   );
 };
 
-export default CardRelatorios;
+export default RelatoriosFinanceirosCard;

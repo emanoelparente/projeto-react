@@ -34,7 +34,7 @@ const NavbarFinancas = () => {
     "/extrato-financeiro": "Extrato financeiro",
     "/dividas-pagar": "Dívidas a pagar",
     "/valores-a-receber": "Valores a receber",
-    "/relatorios": "Relatórios",
+    "/relatorios": "Relatórios Financeiros",
     "/orcamento-mensal": "Orçamento mensal",
   };
 
