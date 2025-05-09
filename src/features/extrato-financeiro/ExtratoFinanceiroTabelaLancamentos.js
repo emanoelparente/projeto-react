@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 import { Edit, Delete, ExpandMore, ExpandLess } from '@mui/icons-material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import '../../styles/tabelaLancamentos.css';
+import '../../styles/ExtratoFinanceiroTabelaLancamentos.css';
 
 ;
 
@@ -49,7 +49,7 @@ const DetalhesCollapseMobile = ({ item, tipo, onEditar, onExcluir, expanded, onT
     );
 };
 
-const TabelaLancamentos = ({ dados, corHeader = '#000', tipo = '', onEditar, onExcluir }) => {
+const ExtratoFinanceiroTabelaLancamentos = ({ dados, corHeader = '#000', tipo = '', onEditar, onExcluir }) => {
     const estiloHeader = {
         fontWeight: 'bold',
         color: corHeader,
@@ -127,4 +127,4 @@ const TabelaLancamentos = ({ dados, corHeader = '#000', tipo = '', onEditar, onE
     );
 };
 
-export default TabelaLancamentos;
+export default ExtratoFinanceiroTabelaLancamentos;

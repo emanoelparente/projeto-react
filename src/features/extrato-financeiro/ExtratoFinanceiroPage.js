@@ -24,7 +24,7 @@ import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 // Ícones de ação estão importados no componente TabelaLancamentos
 
 // Componente de tabela reutilizável
-import TabelaLancamentos from './tabelaLancamentos';
+import ExtratoFinanceiroTabelaLancamentos from './ExtratoFinanceiroTabelaLancamentos';
 
 
 
@@ -103,7 +103,7 @@ const ExtratoFinanceiroPage = () => {
                     RECEITAS {mostrarReceitas ? <ExpandLess /> : <ExpandMore />}
                 </Typography>
                 <Collapse in={mostrarReceitas}>
-                    <TabelaLancamentos
+                    <ExtratoFinanceiroTabelaLancamentos
                         dados={receitas}
                         corHeader="#386641"
                         tipo="receita"
@@ -122,7 +122,7 @@ const ExtratoFinanceiroPage = () => {
                     DESPESAS {mostrarDespesas ? <ExpandLess /> : <ExpandMore />}
                 </Typography>
                 <Collapse in={mostrarDespesas}>
-                    <TabelaLancamentos
+                    <ExtratoFinanceiroTabelaLancamentos
                         dados={despesas}
                         corHeader="#9d0208"
                         tipo="despesa"
