@@ -15,7 +15,7 @@ import NovoLancamentoModal from './features/novo-lancamento/NovoLancamentoModal'
 import ExtratoFinanceiroPage from './features/extrato-financeiro/ExtratoFinanceiroPage';
 import DividasPagarPage from './features/dividas-pagar/DividasPagarPage';
 import ValoresReceber from './features/valores-receber/valoresReceber';
-import OrcamentoMensalPage from './features/orcamento-mensal/orcamentoMensal';
+import OrcamentoMensalPage from './features/orcamento-mensal/OrcamentoMensalPage';
 import Relatorios from './features/relatorio-financeiro/relatorios';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
