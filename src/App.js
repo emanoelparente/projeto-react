@@ -10,7 +10,7 @@ import CardOrcamentoMensal from './features/orcamento-mensal/cardOrcamentoMensal
 import CardValoresReceber from './features/valores-receber/cardValoresReceber';
 import CardRelatorios from './features/relatorio-financeiro/cardRelatorios';
 
-import ModalNovoLancamento from './features/novo-lancamento/modalNovoLancamento';
+import NovoLancamentoModal from './features/novo-lancamento/NovoLancamentoModal';
 
 import ExtratoFinanceiroPage from './features/extrato-financeiro/ExtratoFinanceiroPage';
 import DividasPagarPage from './features/dividas-pagar/DividasPagarPage';
@@ -38,7 +38,7 @@ function App() {
                   <SaldoAtual />
                   <div className="card-container">
                     <NovoLancamentoCard />
-                    <ModalNovoLancamento />
+                    <NovoLancamentoModal />
                     <DividasPagarCard />
                     <ExtratoFinanceiroCard />
                     <CardOrcamentoMensal />

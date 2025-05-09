@@ -8,7 +8,7 @@ import ExtratoFinanceiroFiltroSelecaoLancamentos from './ExtratoFinanceiroFiltro
 import FiltroSelecaoDatas from '../../components/shared/filtroSelecaoDatas';
 
 import ExtratoFinanceiroModalEdicaoLancamento from './ExtratoFinanceiroModalEdicaoLancamento';
-import ModalNovoLancamento from '../novo-lancamento/modalNovoLancamento';
+import NovoLancamentoModal from '../novo-lancamento/NovoLancamentoModal';
 
 // Contexto
 import { useModal } from '../../context/ModalContext';
@@ -137,7 +137,7 @@ const ExtratoFinanceiroPage = () => {
                 <ExtratoFinanceiroModalEdicaoLancamento dadosLancamento={dadosLancamento} onSalvar={atualizarLancamento} />
             )}
 
-            <ModalNovoLancamento />
+            <NovoLancamentoModal />
 
             {/* FAB */}
             <Fab color="primary" aria-label="add" onClick={abrirModal} sx={{ position: 'fixed', bottom: 16, right: 16 }}>
