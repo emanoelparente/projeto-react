@@ -13,9 +13,9 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link, useLocation } from "react-router-dom";
-import "../../styles/header.css";
+import "../../styles/NavbarAppFinancas.css";
 
-const NavbarFinancas = () => {
+const NavbarAppFinancas = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const logoRef = useRef(null);
@@ -95,7 +95,7 @@ const NavbarFinancas = () => {
   );
 };
 
-export default NavbarFinancas;
+export default NavbarAppFinancas;
 
 
 

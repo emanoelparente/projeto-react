@@ -1,6 +1,6 @@
 
 import './App.css';
-import NavbarFinancas from './components/shared/header';
+import NavbarAppFinancas from './components/shared/header';
 import SaldoAtual from './components/shared/saldoConta';
 
 import NovoLancamentoCard from './features/novo-lancamento/NovoLancamentoCard';
@@ -29,7 +29,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <ModalProvider>
         <Router>
-          <NavbarFinancas />
+          <NavbarAppFinancas />
           <Routes>
             <Route
               path="/"

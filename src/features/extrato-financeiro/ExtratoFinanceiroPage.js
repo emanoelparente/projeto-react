@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import ExtratoFinanceiroFiltroSelecaoLancamentos from './ExtratoFinanceiroFiltroSelecaoLancamentos';
 
-import FiltroSelecaoDatas from '../../components/shared/FiltroSelecaoData';
+import FiltroSelecaoDatas from '../../components/shared/FiltroSelecaoDatas';
 
 import ExtratoFinanceiroModalEdicaoLancamento from './ExtratoFinanceiroModalEdicaoLancamento';
 import NovoLancamentoModal from '../novo-lancamento/NovoLancamentoModal';
