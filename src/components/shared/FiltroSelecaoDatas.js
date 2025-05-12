@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button, Collapse, useMediaQuery } from '@mui/material';
-import ExtratoFinanceiroSaldoAtual from '../../features/extrato-financeiro/ExtratoFinanceiroSaldoAtual';
+import ExtratoFinanceiroSaldoAtual from '../../features/extrato-financeiro/extrato-financeiro-saldo-atual/ExtratoFinanceiroSaldoAtual';
 import '../../styles/FiltroSelecaoDatas.css';
 
 
