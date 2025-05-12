@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 import { Edit, Delete, ExpandMore, ExpandLess } from '@mui/icons-material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import '../../styles/ExtratoFinanceiroTabelaLancamentos.css';
+import '../extrato-financeiro-tabela-lancamentos/ExtratoFinanceiroTabelaLancamentos.css';
 
 ;
 

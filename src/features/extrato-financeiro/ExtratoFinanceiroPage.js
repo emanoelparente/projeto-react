@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import ExtratoFinanceiroFiltroSelecaoLancamentos from './ExtratoFinanceiroFiltroSelecaoLancamentos';
 
-import FiltroSelecaoDatas from '../../components/shared/FiltroSelecaoDatas';
+import FiltroSelecaoDatas from '../../components/shared/filtro-selecao-datas/FiltroSelecaoDatas';
 
 import ExtratoFinanceiroModalEdicaoLancamento from './ExtratoFinanceiroModalEdicaoLancamento';
 import NovoLancamentoModal from '../novo-lancamento/NovoLancamentoModal';
@@ -23,7 +23,7 @@ import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 // Ícones de ação estão importados no componente TabelaLancamentos
 
 // Componente de tabela reutilizável
-import ExtratoFinanceiroTabelaLancamentos from './ExtratoFinanceiroTabelaLancamentos';
+import ExtratoFinanceiroTabelaLancamentos from './extrato-financeiro-tabela-lancamentos/ExtratoFinanceiroTabelaLancamentos';
 
 
 
