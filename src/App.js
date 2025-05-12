@@ -1,7 +1,7 @@
 
 import './App.css';
-import NavbarAppFinancas from './components/shared/NavbarAppFinancas';
-import SaldoAtual from './components/shared/SaldoAtual';
+import NavbarAppFinancas from './components/shared/navbar-app-financas/NavbarAppFinancas';
+import SaldoAtual from './components/shared/saldo-atual/SaldoAtual';
 
 import NovoLancamentoCard from './features/novo-lancamento/NovoLancamentoCard';
 import DividasPagarCard from './features/dividas-pagar/DividasPagarCard';
