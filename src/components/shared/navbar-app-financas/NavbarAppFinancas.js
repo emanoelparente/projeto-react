@@ -15,6 +15,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { Link, useLocation } from "react-router-dom";
 import "./NavbarAppFinancas.css";
 
+
 const NavbarAppFinancas = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
