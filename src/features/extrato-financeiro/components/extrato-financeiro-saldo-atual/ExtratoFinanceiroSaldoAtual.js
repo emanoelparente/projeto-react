@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Box, Typography } from "@mui/material";
-import '../extrato-financeiro-saldo-atual/ExtratoFinanceiroSaldoAtual.css';
+import './ExtratoFinanceiroSaldoAtual.css';
 
 const ExtratoFinanceiroSaldoAtual = ({ saldo }) => {
     return (

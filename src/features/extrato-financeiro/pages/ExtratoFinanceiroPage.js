@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 
 // Componentes personalizados
 
-import ExtratoFinanceiroFiltroSelecaoLancamentos from './ExtratoFinanceiroFiltroSelecaoLancamentos';
+import ExtratoFinanceiroFiltroSelecaoLancamentos from '../components/ExtratoFinanceiroFiltroSelecaoLancamentos';
 
-import FiltroSelecaoDatas from '../../components/shared/filtro-selecao-datas/FiltroSelecaoDatas';
+import FiltroSelecaoDatas from '../../../components/shared/filtro-selecao-datas/FiltroSelecaoDatas';
 
-import ExtratoFinanceiroModalEdicaoLancamento from './ExtratoFinanceiroModalEdicaoLancamento';
-import NovoLancamentoModal from '../novo-lancamento/NovoLancamentoModal';
+import ExtratoFinanceiroModalEdicaoLancamento from '../components/ExtratoFinanceiroModalEdicaoLancamento';
+import NovoLancamentoModal from '../../novo-lancamento/components/NovoLancamentoModal';
 
 // Contexto
-import { useModal } from '../../context/ModalContext';
+import { useModal } from '../../../context/ModalContext';
 
 // MUI
 import {
@@ -23,7 +23,7 @@ import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 // Ícones de ação estão importados no componente TabelaLancamentos
 
 // Componente de tabela reutilizável
-import ExtratoFinanceiroTabelaLancamentos from './extrato-financeiro-tabela-lancamentos/ExtratoFinanceiroTabelaLancamentos';
+import ExtratoFinanceiroTabelaLancamentos from '../components/extrato-financeiro-tabela-lancamentos/ExtratoFinanceiroTabelaLancamentos';
 
 
 

@@ -1,8 +1,8 @@
 import React from "react";
-import CardAcaoBase from '../../components/shared/CardAcaoBase';
+import CardAcaoBase from '../../../components/shared/CardAcaoBase';
 
 
-import { useModal } from '../../context/ModalContext';
+import { useModal } from '../../../context/ModalContext';
 
 const NovoLancamentoCard = () => {
   const { abrirModal } = useModal();

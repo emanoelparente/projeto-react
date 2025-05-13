@@ -3,19 +3,19 @@ import './App.css';
 import NavbarAppFinancas from './components/shared/navbar-app-financas/NavbarAppFinancas';
 import SaldoAtual from './components/shared/saldo-atual/SaldoAtual';
 
-import NovoLancamentoCard from './features/novo-lancamento/NovoLancamentoCard';
-import DividasPagarCard from './features/dividas-pagar/DividasPagarCard';
-import ExtratoFinanceiroCard from './features/extrato-financeiro/ExtratoFinanceiroCard';
-import OrcamentoMensalCard from './features/orcamento-mensal/OrcamentoMensalCard';
+import NovoLancamentoCard from './features/novo-lancamento/components/NovoLancamentoCard';
+import DividasPagarCard from './features/dividas-pagar/components/DividasPagarCard';
+import ExtratoFinanceiroCard from './features/extrato-financeiro/components/ExtratoFinanceiroCard';
+import OrcamentoMensalCard from './features/orcamento-mensal/components/OrcamentoMensalCard';
 import ValoresReceberCard from './features/valores-receber/ValoresReceberCard';
 import RelatoriosFinanceirosCard from './features/relatorio-financeiro/RelatoriosFinanceirosCard';
 
-import NovoLancamentoModal from './features/novo-lancamento/NovoLancamentoModal';
+import NovoLancamentoModal from './features/novo-lancamento/components/NovoLancamentoModal';
 
-import ExtratoFinanceiroPage from './features/extrato-financeiro/ExtratoFinanceiroPage';
-import DividasPagarPage from './features/dividas-pagar/DividasPagarPage';
+import ExtratoFinanceiroPage from './features/extrato-financeiro/pages/ExtratoFinanceiroPage';
+import DividasPagarPage from './features/dividas-pagar/pages/DividasPagarPage';
 import ValoresReceberPage from './features/valores-receber/ValoresReceberPage';
-import OrcamentoMensalPage from './features/orcamento-mensal/OrcamentoMensalPage';
+import OrcamentoMensalPage from './features/orcamento-mensal/pages/OrcamentoMensalPage';
 import RelatoriosFinanceirosPage from './features/relatorio-financeiro/RelatoriosFinanceirosPage';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

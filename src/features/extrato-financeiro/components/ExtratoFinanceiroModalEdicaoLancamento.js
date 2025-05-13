@@ -1,39 +1,32 @@
-import React, { useState } from "react";
-import CategoriaAutocomplete from "../../components/shared/CategoriaAutocomplete";
+import React, { useState, useEffect } from "react";
+import CategoriaAutocomplete from '../../../components/shared/CategoriaAutocomplete';
+
 import { NumericFormat } from "react-number-format";
-import { useEffect } from "react"; // certifique-se de importar isso
+import { Modal, Box, Typography, Button, TextField, Select, MenuItem, FormControl, InputLabel, ToggleButton, ToggleButtonGroup, Stack, Snackbar } from "@mui/material";
+import { useModal } from '../../../context/ModalContext';
 
-import {
-  Modal,
-  Box,
-  Typography,
-  Button,
-  TextField,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  ToggleButton,
-  ToggleButtonGroup,
-  Stack,
-  Snackbar,
-} from "@mui/material";
-import { useModal } from '../../context/ModalContext';
-
-const NovoLancamentoModal = () => {
+const ExtratoFinanceiroModalEdicaoLancamento = ({ dadosLancamento, onSalvar }) => {
   const { modalAberto, fecharModal } = useModal();
 
-  const [tipo, setTipo] = useState("Receita");
-  const [categoria, setCategoria] = useState("");
-  const [forma, setForma] = useState("");
-  const [data, setData] = useState("");
-  const [valor, setValor] = useState("");
-  const [descricao, setDescricao] = useState("");
+  const [tipo, setTipo] = useState(dadosLancamento.tipo || "Receita");
+  const [categoria, setCategoria] = useState(dadosLancamento.categoria || "");
+  const [forma, setForma] = useState(dadosLancamento.formaRecebimento || "");
+  const [data, setData] = useState(dadosLancamento.data || "");
+  const [valor, setValor] = useState(dadosLancamento.valor || "");
+  const [descricao, setDescricao] = useState(dadosLancamento.descricao || "");
   const [mensagemAberta, setMensagemAberta] = useState(false);
 
   const handleSalvar = (e) => {
     e.preventDefault();
-    // Aqui você pode salvar os dados
+    onSalvar({
+      id: dadosLancamento.id,  // Caso queira passar o id para identificar qual lançamento editar
+      tipo,
+      categoria,
+      formaRecebimento: forma,
+      data,
+      valor,
+      descricao,
+    });
     setMensagemAberta(true);
     fecharModal();
   };
@@ -44,14 +37,14 @@ const NovoLancamentoModal = () => {
 
   useEffect(() => {
     if (modalAberto) {
-      setTipo("Receita");
-      setCategoria("");
-      setForma("");
-      setData("");
-      setValor("");
-      setDescricao("");
+      setTipo(dadosLancamento.tipo || "Receita");
+      setCategoria(dadosLancamento.categoria || "");
+      setForma(dadosLancamento.formaRecebimento || "");
+      setData(dadosLancamento.data || "");
+      setValor(dadosLancamento.valor || "");
+      setDescricao(dadosLancamento.descricao || "");
     }
-  }, [modalAberto]);
+  }, [modalAberto, dadosLancamento]);
 
   return (
     <>
@@ -73,7 +66,7 @@ const NovoLancamentoModal = () => {
           }}
         >
           <Typography variant="h6" component="h2" sx={{ mb: 2 }}>
-            Novo Lançamento
+            Editar Lançamento
           </Typography>
 
           <Typography variant="subtitle2">Tipo de Lançamento</Typography>
@@ -83,7 +76,6 @@ const NovoLancamentoModal = () => {
             onChange={(e, val) => val && setTipo(val)}
             fullWidth
             sx={{ mb: 2 }}
-            
           >
             <ToggleButton value="Receita">Receita</ToggleButton>
             <ToggleButton value="Despesa">Despesa</ToggleButton>
@@ -94,10 +86,7 @@ const NovoLancamentoModal = () => {
             categoria={categoria}
             setCategoria={setCategoria}
             required
-            
           />
-
-
 
           <FormControl fullWidth sx={{ mb: 2 }} required>
             <InputLabel>Forma</InputLabel>
@@ -130,9 +119,7 @@ const NovoLancamentoModal = () => {
             fullWidth
             label="Valor"
             value={valor}
-            onValueChange={(values) => {
-              setValor(values.value); // só número puro
-            }}
+            onValueChange={(values) => setValor(values.value)}
             thousandSeparator="."
             decimalSeparator=","
             prefix="R$ "
@@ -167,10 +154,10 @@ const NovoLancamentoModal = () => {
         open={mensagemAberta}
         autoHideDuration={3000}
         onClose={handleCloseSnackbar}
-        message="Lançamento criado com sucesso!"
+        message="Lançamento atualizado com sucesso!"
       />
     </>
   );
 };
 
-export default NovoLancamentoModal;
+export default ExtratoFinanceiroModalEdicaoLancamento;
