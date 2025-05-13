@@ -1,0 +1,27 @@
+{
+    "material-icon-theme.folders.associations": {
+      "components": "component",
+      "shared": "shared",
+      "context": "settings",
+      "features": "functions",
+      "dividas-pagar": "warning",
+      "extrato-financeiro": "database",
+      "relatorio-financeiro": "chart",
+      "orcamento-mensal": "calendar",
+      "valores-receber": "money",
+      "novo-lancamento": "add",
+      "navbar-app-financas": "layout",
+      "saldo-atual": "sync",
+      "filtro-selecao-datas": "filter",
+      "styles": "css",
+      "pages": "document"
+    },
+    "material-icon-theme.files.associations": {
+      "*.context.js": "settings",
+      "*Modal*.js": "file-binary",
+      "*Card*.js": "layers",
+      "*Page.js": "document",
+      "*.module.css": "css"
+    }
+  }
+  
