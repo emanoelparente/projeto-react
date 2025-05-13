@@ -14,7 +14,7 @@ import { useModal } from '../../../context/ModalContext';
 
 // MUI
 import {
-    Box, Typography, TableContainer, Paper, Divider,
+    Box, Typography, Divider,
     Collapse, Fab, Dialog, DialogTitle, DialogContent,
     DialogActions, Button
 } from '@mui/material';

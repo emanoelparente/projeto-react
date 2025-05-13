@@ -7,22 +7,27 @@ import NovoLancamentoCard from './features/novo-lancamento/components/NovoLancam
 import DividasPagarCard from './features/dividas-pagar/components/DividasPagarCard';
 import ExtratoFinanceiroCard from './features/extrato-financeiro/components/ExtratoFinanceiroCard';
 import OrcamentoMensalCard from './features/orcamento-mensal/components/OrcamentoMensalCard';
-import ValoresReceberCard from './features/valores-receber/ValoresReceberCard';
-import RelatoriosFinanceirosCard from './features/relatorio-financeiro/RelatoriosFinanceirosCard';
+import ValoresReceberCard from './features/valores-receber/components/ValoresReceberCard';
+import RelatoriosFinanceirosCard from './features/relatorio-financeiro/components/RelatoriosFinanceirosCard';
 
 import NovoLancamentoModal from './features/novo-lancamento/components/NovoLancamentoModal';
 
 import ExtratoFinanceiroPage from './features/extrato-financeiro/pages/ExtratoFinanceiroPage';
 import DividasPagarPage from './features/dividas-pagar/pages/DividasPagarPage';
-import ValoresReceberPage from './features/valores-receber/ValoresReceberPage';
+import ValoresReceberPage from './features/valores-receber/pages/ValoresReceberPage';
 import OrcamentoMensalPage from './features/orcamento-mensal/pages/OrcamentoMensalPage';
-import RelatoriosFinanceirosPage from './features/relatorio-financeiro/RelatoriosFinanceirosPage';
+import RelatoriosFinanceirosPage from './features/relatorio-financeiro/pages/RelatoriosFinanceirosPage';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ModalProvider } from './context/ModalContext';
 
 import theme from './theme';
+
+import './styles/reset.css';
+import './styles/variables.css';
+import './styles/global.css';
+
 
 function App() {
   return (
