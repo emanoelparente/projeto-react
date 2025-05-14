@@ -6,7 +6,7 @@ const DividasPagarCard = () => {
   const navigate = useNavigate();
 
   const irParaDividas = () => {
-    navigate("/dividas-pagar"); // ou a rota que você configurou para dividasPagar.js
+    navigate("/dividas-pagar"); // ou a rota que você configurou para dividasPagar.js atualização
   };
 
   return (
