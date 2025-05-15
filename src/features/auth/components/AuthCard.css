@@ -1,0 +1,51 @@
+.auth-container {
+  display: flex;
+  width: 800px;
+  margin: 100px auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+.auth-left {
+  background: #e6f5e6;
+  padding: 40px;
+  flex: 1;
+  text-align: center;
+}
+
+.auth-left .brand {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  color: #3e9e3e;
+}
+
+.auth-right {
+  flex: 1;
+  padding: 40px;
+  background: rgba(0,0,0,0.05);
+}
+
+.btn-login, .btn-social, .btn-submit {
+  background: #3e9e3e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.btn-social {
+  margin: 0 10px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
