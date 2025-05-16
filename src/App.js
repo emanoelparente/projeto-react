@@ -18,6 +18,12 @@ import ValoresReceberPage from './features/valores-receber/pages/ValoresReceberP
 import OrcamentoMensalPage from './features/orcamento-mensal/pages/OrcamentoMensalPage';
 import RelatoriosFinanceirosPage from './features/relatorio-financeiro/pages/RelatoriosFinanceirosPage';
 
+import { AuthProvider } from './context/AuthContext';
+import PrivateRoute from './routes/PrivateRoute';
+
+import LoginPage from "./features/auth/pages/LoginPage";
+import CadastroPage from "./features/auth/pages/CadastroPage";
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ModalProvider } from './context/ModalContext';
@@ -31,39 +37,45 @@ import './styles/global.css';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <ModalProvider>
-        <Router>
-          <NavbarAppFinancas />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <SaldoAtual />
-                  <div className="card-container">
-                    <NovoLancamentoCard />
-                    <NovoLancamentoModal />
-                    <DividasPagarCard />
-                    <ExtratoFinanceiroCard />
-                    <OrcamentoMensalCard />
-                    <ValoresReceberCard />
-                    <RelatoriosFinanceirosCard />
-                  </div>
-                </>
-              }
-            />
-            <Route path="/extrato-financeiro" element={<ExtratoFinanceiroPage />} />
-            <Route path="/dividas-pagar" element={<DividasPagarPage />} />
-            <Route path="/valores-a-receber" element={<ValoresReceberPage />} />
-            <Route path="/relatorios" element={<RelatoriosFinanceirosPage />} />
-            <Route path="/orcamento-mensal" element={<OrcamentoMensalPage />} />
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <ModalProvider>
+          <Router>
+            <NavbarAppFinancas />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <SaldoAtual />
+                    <div className="card-container">
+                      <NovoLancamentoCard />
+                      <NovoLancamentoModal />
+                      <DividasPagarCard />
+                      <ExtratoFinanceiroCard />
+                      <OrcamentoMensalCard />
+                      <ValoresReceberCard />
+                      <RelatoriosFinanceirosCard />
+                    </div>
+                  </>
+                }
+              />
 
-            {/* Adicione mais rotas aqui conforme necessário */}
-          </Routes>
-        </Router>
-      </ModalProvider>
-    </ThemeProvider>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/cadastro" element={<CadastroPage />} />
+
+              <Route path="/extrato-financeiro" element={<ExtratoFinanceiroPage />} />
+              <Route path="/dividas-pagar" element={<DividasPagarPage />} />
+              <Route path="/valores-a-receber" element={<ValoresReceberPage />} />
+              <Route path="/relatorios" element={<RelatoriosFinanceirosPage />} />
+              <Route path="/orcamento-mensal" element={<OrcamentoMensalPage />} />
+
+              {/* Adicione mais rotas aqui conforme necessário */}
+            </Routes>
+          </Router>
+        </ModalProvider>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 
