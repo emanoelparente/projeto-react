@@ -31,7 +31,7 @@ const NavbarAppFinancas = () => {
   const handleClose = () => setAnchorEl(null);
 
   const titulosPorRota = {
-    "/": "Financas pessoais",
+    "/home": "Financas pessoais",
     "/extrato-financeiro": "Extrato financeiro",
     "/dividas-pagar": "Dívidas a pagar",
     "/valores-a-receber": "Valores a receber",
