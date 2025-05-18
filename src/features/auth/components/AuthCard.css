@@ -1,52 +1,73 @@
-
 .auth-container {
   display: flex;
-  width: 800px;
-  margin: 100px auto;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  border-radius: 10px;
+  width: 90%;
+  max-width: 800px;
+  height: 480px;
+  border-radius: 16px;
   overflow: hidden;
-  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
 }
 
-.auth-left {
-  background: #e6f5e6;
-  padding: 40px;
-  flex: 1;
-  text-align: center;
+/* Lados do card */
+.auth-side {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s ease;
+  background-color: white;
 }
 
-.auth-left .brand {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
-  color: #3e9e3e;
+/* Parte INATIVA (sem blur, opaca) */
+.auth-side.inactive {
+  flex: 0.4;
+  background-color: white;
+  opacity: 1;
 }
 
-.auth-right {
-  flex: 1;
-  padding: 40px;
-  background: rgba(0,0,0,0.05);
+/* Parte ATIVA (vidro fosco, transparente) */
+.auth-side.active {
+  flex: 0.6;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px); /* compatibilidade Safari */
+  opacity: 1;
 }
 
-.btn-login, .btn-social, .btn-submit {
-  background: #3e9e3e;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 20px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.btn-social {
-  margin: 0 10px;
+/* Estilo de texto e formulário */
+.brand {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
 input {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: none;
   border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+button.btn-submit {
+  padding: 0.8rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button.btn-toggle {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  background-color: transparent;
+  border: 2px solid #4CAF50;
+  color: #4CAF50;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
 }
