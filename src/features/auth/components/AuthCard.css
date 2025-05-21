@@ -86,3 +86,11 @@ button.btn-toggle {
   margin-bottom: 1rem;
   align-items: center;
 }
+
+.brand {
+  text-align: center;
+  font-weight: 400;     /* fonte mais suave (light) */
+  font-size: 1.75rem;   /* um pouco menor (20px) */
+  margin-bottom: 1rem;  /* espaçamento inferior opcional */
+  color: #ffffff;          /* opcional: cor suave para combinar com o estilo */
+}
