@@ -41,7 +41,8 @@ const AuthCard = () => {
                                 <img src="/images/facebook-icon.svg" alt="Login com Facebook" className="social-icon" />
                             </div>
 
-                            <h2>Login</h2>
+                            <p className="email-instruction">Ou use seu e-mail para se conectar</p>
+
 
                             <form onSubmit={handleSubmit}>
                                 <input type="email" placeholder="E-mail" required />

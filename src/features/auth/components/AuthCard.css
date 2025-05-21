@@ -94,3 +94,31 @@ button.btn-toggle {
   margin-bottom: 1rem;  /* espaçamento inferior opcional */
   color: #ffffff;          /* opcional: cor suave para combinar com o estilo */
 }
+
+.email-instruction {
+  text-align: center;
+  color: #fff;            /* fonte branca */
+  font-size: 0.95rem;     /* tamanho levemente menor */
+  font-weight: 300;       /* fonte mais suave */
+  margin: 0.5rem 0 1rem;  /* espaçamento vertical */
+}
+
+.btn-submit {
+  width: 90%;                   /* um pouco menor que os inputs (ex: inputs com 100%) */
+  background-color: #1B512D;
+  color: #fff;
+  border: none;
+  border-radius: 100%;         /* bordas totalmente arredondadas */
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 1rem auto 0;          /* centraliza o botão */
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #163f23;    /* tom mais escuro no hover */
+}
+
