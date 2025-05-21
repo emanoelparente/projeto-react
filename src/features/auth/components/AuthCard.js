@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import "./AuthCard.css";
 
 const AuthCard = () => {
@@ -32,10 +33,16 @@ const AuthCard = () => {
                 <div className={`auth-side login-side ${isLoginMode ? "active" : "inactive"}`}>
                     {isLoginMode ? (
                         <>
-                            <h1 className="brand">
-                                <img src="/images/logo-feasy-verde.svg" alt="Logo Feasy" className="logo-img" />
-                            </h1>
+                            <h1 className="brand">Faça login no feasy</h1>
+
+                            {/* Seção de login social */}
+                            <div className="social-login">
+                                <FaGoogle className="social-icon" />
+                                <FaFacebook className="social-icon" />
+                            </div>
+
                             <h2>Login</h2>
+
                             <form onSubmit={handleSubmit}>
                                 <input type="email" placeholder="E-mail" required />
                                 <input type="password" placeholder="Senha" required />
@@ -52,6 +59,7 @@ const AuthCard = () => {
                         </>
                     )}
                 </div>
+
 
                 {/* Cadastro à direita */}
                 <div className={`auth-side register-side ${!isLoginMode ? "active" : "inactive"}`}>
