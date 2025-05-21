@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaGoogle, FaFacebook } from 'react-icons/fa';
+
 import "./AuthCard.css";
 
 const AuthCard = () => {
@@ -37,8 +37,8 @@ const AuthCard = () => {
 
                             {/* Seção de login social */}
                             <div className="social-login">
-                                <FaGoogle className="social-icon" />
-                                <FaFacebook className="social-icon" />
+                                <img src="/images/google-icon.svg" alt="Login com Google" className="social-icon" />
+                                <img src="/images/facebook-icon.svg" alt="Login com Facebook" className="social-icon" />
                             </div>
 
                             <h2>Login</h2>
