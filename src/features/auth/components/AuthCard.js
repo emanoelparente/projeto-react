@@ -80,7 +80,7 @@ const AuthCard = () => {
                             <h2>Novo por aqui?</h2>
                             <p>Cadastre-se e comece a controlar sua vida financeira.</p>
                             <button className="btn-toggle" onClick={() => setIsLoginMode(false)}>
-                                REGISTRAR
+                                CRIAR UMA CONTA
                             </button>
                         </>
                     )}
