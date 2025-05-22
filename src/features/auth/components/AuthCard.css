@@ -125,3 +125,28 @@ button.btn-toggle {
   background-color: #163f23;    /* tom mais escuro no hover */
 }
 
+.conteudo-cadastro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.logomarca-login {
+  width: 100px;         /* ajuste conforme necessário */
+  margin-bottom: 1rem;
+}
+
+.conteudo-cadastro h2 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.conteudo-cadastro p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #555;
+}
