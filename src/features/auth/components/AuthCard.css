@@ -51,15 +51,7 @@ input {
   width: 100%;
 }
 
-button.btn-submit {
-  padding: 0.8rem;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-}
+
 
 button.btn-toggle {
   margin-top: 1rem;
@@ -98,17 +90,17 @@ button.btn-toggle {
 .email-instruction {
   text-align: center;
   color: #fff;            /* fonte branca */
-  font-size: 0.95rem;     /* tamanho levemente menor */
+  font-size: 0.90rem;     /* tamanho levemente menor */
   font-weight: 300;       /* fonte mais suave */
   margin: 0.5rem 0 1rem;  /* espaçamento vertical */
 }
 
 .btn-submit {
-  width: 90%;                   /* um pouco menor que os inputs (ex: inputs com 100%) */
-  background-color: #1B512D;
+  width: 80%;                   /* um pouco menor que os inputs (ex: inputs com 100%) */
+  background-color:rgb(43, 126, 71);
   color: #fff;
   border: none;
-  border-radius: 100%;         /* bordas totalmente arredondadas */
+  border-radius: 75px;         /* bordas totalmente arredondadas */
   padding: 0.75rem 1rem;
   font-size: 1rem;
   font-weight: 500;
