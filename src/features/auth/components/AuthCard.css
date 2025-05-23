@@ -135,14 +135,15 @@ button.btn-toggle {
 }
 
 .logomarca-login {
-  width: 100px;         /* ajuste conforme necessário */
+  width: 190px;         /* ajuste conforme necessário */
   margin-bottom: 1rem;
+  /*border: solid;*/
 }
 
 .conteudo-cadastro h2 {
   margin-bottom: 0.5rem;
-  font-weight: 500;
-  font-size: 1.5rem;
+  font-weight: 600;
+  font-size: 1.4rem;
 }
 
 .conteudo-cadastro p {
