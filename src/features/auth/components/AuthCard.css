@@ -146,12 +146,12 @@ input {
   border: none;
   border-radius: 75px;         /* totalmente arredondado */
   padding: 0.75rem 2rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 90%;                   /* para combinar com os campos, se desejar */
-  max-width: 300px;
+  width: 230px;
+  
   margin: 0 auto;
   display: block;
 }
