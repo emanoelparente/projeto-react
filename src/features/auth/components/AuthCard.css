@@ -52,18 +52,6 @@ input {
 }
 
 
-
-button.btn-toggle {
-  margin-top: 1rem;
-  padding: 0.6rem;
-  background-color: transparent;
-  border: 2px solid #4CAF50;
-  color: #4CAF50;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
 .social-icon {
   width: 35px;   /* antes era 32px */
   height: 35px;
@@ -150,4 +138,24 @@ button.btn-toggle {
   margin-bottom: 1.5rem;
   font-size: 1rem;
   color: #555;
+}
+
+.btn-toggle {
+  background-color: #55A630;
+  color: #ffff;
+  border: none;
+  border-radius: 75px;         /* totalmente arredondado */
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 90%;                   /* para combinar com os campos, se desejar */
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn-toggle:hover {
+  background-color: #4b942a;   /* tom mais escuro no hover */
 }
