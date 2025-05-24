@@ -3,7 +3,6 @@ import './styles/reset.css';
 import './styles/variables.css';
 import './styles/global.css';
 
-import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 
 import { AuthProvider } from './context/AuthContext';
@@ -17,9 +16,7 @@ function App() {
     <AuthProvider>
       <ThemeProvider theme={theme}>
         <ModalProvider>
-          <Router>
-            <AppContent />
-          </Router>
+          <AppContent />
         </ModalProvider>
       </ThemeProvider>
     </AuthProvider>
