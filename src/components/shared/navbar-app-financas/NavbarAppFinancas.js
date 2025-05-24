@@ -13,6 +13,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./NavbarAppFinancas.css";
 
 
@@ -41,6 +42,14 @@ const NavbarAppFinancas = () => {
 
   const titulo = titulosPorRota[location.pathname] || "";
   const isHome = location.pathname === "/home";
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+  // Modo temporário: limpar sessão
+  localStorage.removeItem("usuario"); // ou clear() se quiser apagar tudo
+  navigate("/login"); // Redireciona para tela de login
+};
 
 
   return (
@@ -88,9 +97,7 @@ const NavbarAppFinancas = () => {
           >
             <MenuItem onClick={handleClose}>Configurações</MenuItem>
             <MenuItem onClick={handleClose}>Perfil</MenuItem>
-            <MenuItem onClick={() => (window.location.href = "/logout")}>
-              Sair
-            </MenuItem>
+            <MenuItem onClick={handleLogout}>Sair</MenuItem>
           </Menu>
         </Box>
       </Toolbar>
