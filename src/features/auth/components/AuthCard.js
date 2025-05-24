@@ -52,6 +52,7 @@ const AuthCard = () => {
                         </>
                     ) : (
                         <>
+                            <img src="/images/logo-feasy-verde.svg" alt="LOGO FEASY" className="logomarca-login" />
                             <h2>Bem vindo de volta!</h2>
                             <p>Já tem uma conta? Faça login para continuar.</p>
                             <button className="btn-toggle" onClick={() => setIsLoginMode(true)}>
