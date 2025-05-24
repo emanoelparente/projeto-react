@@ -40,7 +40,8 @@ const NavbarAppFinancas = () => {
   };
 
   const titulo = titulosPorRota[location.pathname] || "";
-  const isHome = location.pathname === "/";
+  const isHome = location.pathname === "/home";
+
 
   return (
     <AppBar position="static">
@@ -48,7 +49,7 @@ const NavbarAppFinancas = () => {
         {/* Lado esquerdo */}
         <Box className="left-box">
           {isHome ? (
-            <Link to="/">
+            <Link to="/home">
               <img
                 ref={logoRef}
                 src="../images/logo-feasy-branco.svg"
@@ -57,11 +58,12 @@ const NavbarAppFinancas = () => {
               />
             </Link>
           ) : (
-            <Link to="/">
+            <Link to="/home">
               <HomeIcon className="home-icon" />
             </Link>
           )}
         </Box>
+
 
         {/* Título central */}
         <Box className="center-box">
