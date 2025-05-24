@@ -52,12 +52,14 @@ const AuthCard = () => {
                         </>
                     ) : (
                         <>
-                            <img src="/images/logo-feasy-verde.svg" alt="LOGO FEASY" className="logomarca-login" />
-                            <h2>Bem vindo de volta!</h2>
-                            <p>Já tem uma conta? Faça login para continuar.</p>
-                            <button className="btn-toggle" onClick={() => setIsLoginMode(true)}>
-                                LOGIN
-                            </button>
+                            <div className="conteudo-cadastro">
+                                <img src="/images/logo-feasy-verde.svg" alt="LOGO FEASY" className="logomarca-login" />
+                                <h2 style={{ color: "#3A3A3A" }}>Bem vindo de volta!</h2>
+                                <p>Já tem uma conta? Faça login para entrar</p>
+                                <button className="btn-toggle" onClick={() => setIsLoginMode(true)}>
+                                    LOGIN
+                                </button>
+                            </div>
                         </>
                     )}
                 </div>
@@ -67,7 +69,13 @@ const AuthCard = () => {
                 <div className={`auth-side register-side ${!isLoginMode ? "active" : "inactive"}`}>
                     {!isLoginMode ? (
                         <>
-                            <h2>Criar uma conta</h2>
+                            <h2 className="brand">Criar uma conta</h2>
+
+                            <div className="social-login">
+                                <img src="/images/google-icon.svg" alt="Login com Google" className="social-icon" />
+                                <img src="/images/facebook-icon.svg" alt="Login com Facebook" className="social-icon" />
+                            </div>
+
                             <form onSubmit={handleSubmit}>
                                 <input type="text" placeholder="Nome" required />
                                 <input type="email" placeholder="E-mail" required />
