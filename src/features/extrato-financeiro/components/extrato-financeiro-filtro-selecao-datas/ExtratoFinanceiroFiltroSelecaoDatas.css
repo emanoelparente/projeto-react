@@ -27,7 +27,7 @@
   }
 
   .saldo-topo {
-    display: none !important; 
+    display: none !important; /* Oculta o saldo em telas menores que 901px */
   }
 
   .data-inicial {

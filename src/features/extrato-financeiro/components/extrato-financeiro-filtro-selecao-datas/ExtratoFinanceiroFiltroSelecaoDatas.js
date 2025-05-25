@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button, Collapse, useMediaQuery } from '@mui/material';
-import './FiltroSelecaoDatas.css';
+import ExtratoFinanceiroSaldoAtual from '../extrato-financeiro-saldo-atual/ExtratoFinanceiroSaldoAtual';
+import './ExtratoFinanceiroFiltroSelecaoDatas.css';
 
 
-const FiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
+const ExtratoFinanceiroFiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
     const [open, setOpen] = useState(true);
     const isMobile = useMediaQuery('(max-width:900px)');
 
@@ -29,7 +30,9 @@ const FiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
                     alignItems="flex-end"
                     className="filtro-container"
                 >
-                    
+                    <Grid item xs={12} sm={3} className="filtro-item saldo-topo">
+                        <ExtratoFinanceiroSaldoAtual />
+                    </Grid>
 
                     <Grid item xs={12} sm={3} className="filtro-item data-inicial">
                         <TextField
@@ -71,4 +74,4 @@ const FiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
     );
 };
 
-export default FiltroSelecaoDatas;
+export default ExtratoFinanceiroFiltroSelecaoDatas;

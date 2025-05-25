@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import ExtratoFinanceiroFiltroSelecaoLancamentos from '../components/ExtratoFinanceiroFiltroSelecaoLancamentos';
 
-import FiltroSelecaoDatas from '../../../components/shared/filtro-selecao-datas/FiltroSelecaoDatas';
+import ExtratoFinanceiroFiltroSelecaoDatas from '../components/extrato-financeiro-filtro-selecao-datas/ExtratoFinanceiroFiltroSelecaoDatas';
 
 import ExtratoFinanceiroModalEdicaoLancamento from '../components/ExtratoFinanceiroModalEdicaoLancamento';
 import NovoLancamentoModal from '../../novo-lancamento/components/NovoLancamentoModal';
@@ -82,7 +82,7 @@ const ExtratoFinanceiroPage = () => {
     return (
         <Box p={3} maxWidth="85%" mx="auto">
 
-            <FiltroSelecaoDatas filtros={filtros} onChange={(e) => setFiltros({ ...filtros, [e.target.name]: e.target.value })} onBuscar={() => console.log(filtros)} />
+            <ExtratoFinanceiroFiltroSelecaoDatas filtros={filtros} onChange={(e) => setFiltros({ ...filtros, [e.target.name]: e.target.value })} onBuscar={() => console.log(filtros)} />
 
             <Box
                 sx={{
