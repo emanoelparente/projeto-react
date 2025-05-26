@@ -66,6 +66,10 @@ const AuthCard = () => {
                                     value={senha}
                                     onChange={(e) => setSenha(e.target.value)}
                                 />
+                                <p className="email-instruction" style={{color: 'blue'}}>Esqueceu sua senha?</p>
+
+
+
                                 <button type="submit" className="btn-submit">ENTRAR</button>
                             </form>
                         </>
