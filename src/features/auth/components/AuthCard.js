@@ -66,7 +66,7 @@ const AuthCard = () => {
                                     value={senha}
                                     onChange={(e) => setSenha(e.target.value)}
                                 />
-                                <p className="email-instruction" style={{color: 'blue'}}>Esqueceu sua senha?</p>
+                                <p className="email-instruction" style={{color: '#163f23', cursor: 'pointer',}}>Esqueceu sua senha?</p>
 
 
 
