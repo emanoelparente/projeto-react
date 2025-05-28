@@ -159,3 +159,45 @@ input {
 .btn-toggle:hover {
   background-color: #4b942a;   /* tom mais escuro no hover */
 }
+
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    height: auto;
+    width: 95%;
+    max-height: none;
+  }
+
+  .auth-side {
+    flex: 1;
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .auth-side.inactive {
+    display: none; /* Oculta a parte inativa para mobile */
+  }
+
+  .auth-side.active {
+    background-color: white;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    opacity: 1;
+  }
+
+  .btn-submit, .btn-toggle {
+    width: 100%;
+  }
+
+  input {
+    font-size: 0.95rem;
+  }
+
+  .logomarca-login {
+    width: 140px;
+  }
+
+  .social-login {
+    gap: 1rem;
+  }
+}
