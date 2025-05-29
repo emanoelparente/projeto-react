@@ -66,11 +66,15 @@ const AuthCard = () => {
                                     value={senha}
                                     onChange={(e) => setSenha(e.target.value)}
                                 />
-                                <p className="email-instruction" style={{color: '#163f23', cursor: 'pointer',}}>Esqueceu sua senha?</p>
+                                <p className="email-instruction" style={{ color: '#163f23', cursor: 'pointer', }}>Esqueceu sua senha?</p>
 
 
 
                                 <button type="submit" className="btn-submit">ENTRAR</button>
+                                <p className="mobile-only-switch">
+                                    Ainda não tem conta? <span onClick={() => setIsLoginMode(false)}>Criar conta</span>
+                                </p>
+
                             </form>
                         </>
                     ) : (
@@ -126,6 +130,8 @@ const AuthCard = () => {
                                     required
                                 />
                                 <button type="submit" className="btn-submit">REGISTRAR</button>
+                                <p className="mobile-only-switch">Já tem uma conta? <span onClick={() => setIsLoginMode(true)}>Fazer login</span></p>
+
                             </form>
                         </>
                     ) : (

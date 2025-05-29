@@ -204,3 +204,49 @@ input {
 }
 
 
+/* Esconde em telas grandes */
+.mobile-only-switch {
+  display: none;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+/* Mostra somente em telas pequenas */
+@media (max-width: 768px) {
+  .mobile-only-switch {
+    display: block;
+  }
+
+  .mobile-only-switch span {
+    color:rgb(255, 255, 255);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+
+/* Oculta em telas grandes */
+.mobile-only-switch {
+  display: none;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+/* Mostra em telas pequenas */
+@media (max-width: 768px) {
+  .mobile-only-switch {
+    display: block;
+  }
+
+  .mobile-only-switch span {
+    color:rgb(255, 255, 255);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
