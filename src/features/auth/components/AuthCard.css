@@ -40,6 +40,10 @@
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #333;
+  text-align: center;
+  font-weight: 400;     
+  font-size: 1.75rem; 
+  color: #ffffff;
 }
 
 input {
@@ -51,15 +55,12 @@ input {
   width: 100%;
 }
 
-
 .social-icon {
-  width: 35px;   /* antes era 32px */
+  width: 35px; 
   height: 35px;
   cursor: pointer;
   transition: transform 0.2s;
 }
-
-
 
 .social-login {
   display: flex;
@@ -74,16 +75,9 @@ input {
   justify-content: center;
   gap: 0.75rem;
   align-items: center;
-  width: 175px;   /* antes era 32px */
-  margin-bottom: -2%;
-}
-
-.brand {
-  text-align: center;
-  font-weight: 400;     /* fonte mais suave (light) */
-  font-size: 1.75rem;   /* um pouco menor (20px) */
-  margin-bottom: 1rem;  /* espaçamento inferior opcional */
-  color: #ffffff;          /* opcional: cor suave para combinar com o estilo */
+  width: 190px;
+  margin-bottom: 1rem;
+  /*border: solid;*/
 }
 
 .email-instruction {
@@ -122,12 +116,6 @@ input {
   padding: 2rem;
 }
 
-.logomarca-login {
-  width: 190px;         /* ajuste conforme necessário */
-  margin-bottom: 1rem;
-  /*border: solid;*/
-}
-
 .conteudo-cadastro h2 {
   margin-bottom: 0.5rem;
   font-weight: 600;
@@ -151,7 +139,6 @@ input {
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 230px;
-  
   margin: 0 auto;
   display: block;
 }
@@ -190,17 +177,10 @@ input {
     width: 100%;
   }
 
-  input {
-    font-size: 0.95rem;
-  }
-
   .logomarca-login {
     width: 140px;
   }
 
-  .social-login {
-    gap: 1rem;
-  }
 }
 
 
@@ -214,7 +194,7 @@ input {
 }
 
 /* Mostra somente em telas pequenas */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .mobile-only-switch {
     display: block;
   }
@@ -249,4 +229,6 @@ input {
     cursor: pointer;
     text-decoration: underline;
   }
+  
+
 }
