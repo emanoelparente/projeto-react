@@ -183,7 +183,6 @@ input {
 
 }
 
-
 /* Esconde em telas grandes */
 .mobile-only-switch {
   display: none;
@@ -207,7 +206,6 @@ input {
   }
 }
 
-
 /* Oculta em telas grandes */
 .mobile-only-switch {
   display: none;
@@ -230,5 +228,4 @@ input {
     text-decoration: underline;
   }
   
-
 }
