@@ -15,7 +15,7 @@ import OrcamentoMensalCard from './features/orcamento-mensal/components/Orcament
 import ValoresReceberCard from './features/valores-receber/components/ValoresReceberCard';
 import RelatoriosFinanceirosCard from './features/relatorio-financeiro/components/RelatoriosFinanceirosCard';
 
-import AuthCard from './features/auth/components/AuthCard';
+import AuthCard from './features/auth/pages/AuthCard';
 
 import ExtratoFinanceiroPage from './features/extrato-financeiro/pages/ExtratoFinanceiroPage';
 import DividasPagarPage from './features/dividas-pagar/pages/DividasPagarPage';
