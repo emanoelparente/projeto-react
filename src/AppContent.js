@@ -15,7 +15,7 @@ import OrcamentoMensalCard from './features/orcamento-mensal/components/Orcament
 import ValoresReceberCard from './features/valores-receber/components/ValoresReceberCard';
 import RelatoriosFinanceirosCard from './features/relatorio-financeiro/components/RelatoriosFinanceirosCard';
 
-import AuthCard from './features/auth/pages/AuthCard';
+import AuthPage from './features/auth/pages/AuthPage';
 
 import ExtratoFinanceiroPage from './features/extrato-financeiro/pages/ExtratoFinanceiroPage';
 import DividasPagarPage from './features/dividas-pagar/pages/DividasPagarPage';
@@ -34,8 +34,8 @@ function AppContent() {
     <>
       {!shouldHideNavbar && <NavbarAppFinancas />}
       <Routes>
-        <Route path="/login" element={<AuthCard />} />
-        <Route path="/cadastro" element={<AuthCard />} />
+        <Route path="/login" element={<AuthPage />} />
+        <Route path="/cadastro" element={<AuthPage />} />
 
         {/* Rota protegida: /home */}
         <Route

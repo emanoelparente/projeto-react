@@ -4,9 +4,9 @@ import { useAuth } from "../../../context/AuthContext";
 import LoginForm from "../components/LoginForm";
 import Register from "../components/RegisterForm";
 
-import "./AuthCard.css";
+import "./AuthPage.css";
 
-const AuthCard = () => {
+const AuthPage = () => {
     const [isLoginMode, setIsLoginMode] = useState(true);
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
@@ -89,4 +89,4 @@ const AuthCard = () => {
     );
 };
 
-export default AuthCard;
+export default AuthPage;
