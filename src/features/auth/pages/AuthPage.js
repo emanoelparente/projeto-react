@@ -54,6 +54,7 @@ const AuthPage = () => {
                             <img src="/images/logo-feasy-verde.svg" alt="LOGO FEASY" className="logomarca-login" />
                             <h2 style={{ color: "#3A3A3A" }}>Bem vindo de volta!</h2>
                             <p>Já tem uma conta? Faça login para entrar</p>
+                            
                             <button className="btn-toggle" onClick={() => setIsLoginMode(true)}>
                                 LOGIN
                             </button>
@@ -85,6 +86,7 @@ const AuthPage = () => {
                     )}
                 </div>
             </div>
+            
         </div>
     );
 };

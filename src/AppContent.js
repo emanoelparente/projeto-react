@@ -22,89 +22,97 @@ import DividasPagarPage from './features/dividas-pagar/pages/DividasPagarPage';
 import ValoresReceberPage from './features/valores-receber/pages/ValoresReceberPage';
 import RelatoriosFinanceirosPage from './features/relatorio-financeiro/pages/RelatoriosFinanceirosPage';
 import OrcamentoMensalPage from './features/orcamento-mensal/pages/OrcamentoMensalPage';
+import RecuperaSenhaPage from './features/auth/pages/RecuperaSenhaPage';
 
 function AppContent() {
-  const { usuario } = useAuth();
-  const location = useLocation();
+    const { usuario } = useAuth();
+    const location = useLocation();
 
-  const hideNavbarRoutes = ['/login', '/cadastro'];
-  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
+    const hideNavbarRoutes = ['/login', '/cadastro'];
+    const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
-  return (
-    <>
-      {!shouldHideNavbar && <NavbarAppFinancas />}
-      <Routes>
-        <Route path="/login" element={<AuthPage />} />
-        <Route path="/cadastro" element={<AuthPage />} />
+    return (
+        <>
+            {!shouldHideNavbar && <NavbarAppFinancas />}
+            <Routes>
+                <Route path="/login" element={<AuthPage />} />
+                <Route path="/cadastro" element={<AuthPage />} />
 
-        {/* Rota protegida: /home */}
-        <Route
-          path="/home"
-          element={
-            <PrivateRoute>
-              <>
-                <SaldoAtual />
-                <div className="card-container">
-                  <NovoLancamentoCard />
-                  <NovoLancamentoModal />
-                  <DividasPagarCard />
-                  <ExtratoFinanceiroCard />
-                  <OrcamentoMensalCard />
-                  <ValoresReceberCard />
-                  <RelatoriosFinanceirosCard />
-                </div>
-              </>
-            </PrivateRoute>
-          }
-        />
+                {/* Rota protegida: /home */}
+                <Route
+                    path="/home"
+                    element={
+                        <PrivateRoute>
+                            <>
+                                <SaldoAtual />
+                                <div className="card-container">
+                                    <NovoLancamentoCard />
+                                    <NovoLancamentoModal />
+                                    <DividasPagarCard />
+                                    <ExtratoFinanceiroCard />
+                                    <OrcamentoMensalCard />
+                                    <ValoresReceberCard />
+                                    <RelatoriosFinanceirosCard />
+                                </div>
+                            </>
+                        </PrivateRoute>
+                    }
+                />
 
-        {/* Outras rotas protegidas */}
-        <Route
-          path="/extrato-financeiro"
-          element={
-            <PrivateRoute>
-              <ExtratoFinanceiroPage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/dividas-pagar"
-          element={
-            <PrivateRoute>
-              <DividasPagarPage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/valores-a-receber"
-          element={
-            <PrivateRoute>
-              <ValoresReceberPage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/relatorios"
-          element={
-            <PrivateRoute>
-              <RelatoriosFinanceirosPage />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/orcamento-mensal"
-          element={
-            <PrivateRoute>
-              <OrcamentoMensalPage />
-            </PrivateRoute>
-          }
-        />
+                {/* Outras rotas protegidas */}
+                <Route
+                    path="/extrato-financeiro"
+                    element={
+                        <PrivateRoute>
+                            <ExtratoFinanceiroPage />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/dividas-pagar"
+                    element={
+                        <PrivateRoute>
+                            <DividasPagarPage />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/valores-a-receber"
+                    element={
+                        <PrivateRoute>
+                            <ValoresReceberPage />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/relatorios"
+                    element={
+                        <PrivateRoute>
+                            <RelatoriosFinanceirosPage />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/orcamento-mensal"
+                    element={
+                        <PrivateRoute>
+                            <OrcamentoMensalPage />
+                        </PrivateRoute>
+                    }
+                />
 
-        {/* Redirecionamento baseado no login */}
-        <Route path="/" element={usuario ? <Navigate to="/home" /> : <Navigate to="/login" />} />
-      </Routes>
-    </>
-  );
+                <Route
+                    path="/recupera-senha"
+                    element={
+                        <RecuperaSenhaPage />
+                    }
+                />
+
+                {/* Redirecionamento baseado no login */}
+                <Route path="/" element={usuario ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+            </Routes>
+        </>
+    );
 }
 
 export default AppContent;
