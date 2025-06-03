@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const LoginForm = ({ email, senha, setEmail, setSenha, handleSubmit, switchToRegister }) => (
     <>
@@ -26,7 +27,12 @@ const LoginForm = ({ email, senha, setEmail, setSenha, handleSubmit, switchToReg
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
             />
-            <p className="email-instruction" style={{ color: '#163f23', cursor: 'pointer' }}>Esqueceu sua senha?</p>
+
+            <div className="forgot-password-link">
+                <Link to="/recupera-senha">Esqueceu sua senha?</Link>
+            </div>
+
+
 
             <button type="submit" className="btn-submit">ENTRAR</button>
             <p className="mobile-only-switch">

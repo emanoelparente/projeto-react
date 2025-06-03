@@ -229,3 +229,20 @@ input {
   }
   
 }
+
+.forgot-password-link {
+  display: flex;
+  justify-content: center;
+}
+
+.forgot-password-link a {
+  font-size: 0.875rem; /* menor fonte (14px) */
+  color: #163f23;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.forgot-password-link a:hover {
+  text-decoration: underline;
+}
