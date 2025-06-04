@@ -25,9 +25,15 @@ const LoginForm = ({ email, senha, setEmail, setSenha, handleSubmit, switchToReg
                 sx={{
                     backgroundColor: 'white',
                     borderRadius: 1.5,
+                    '& .MuiInputBase-root': {
+                        height: 52, // altura total do campo
+                    },
+                    '& .MuiInputBase-input': {
+                        padding: '6px 10px', // reduzido o padding vertical
+                        fontSize: '1rem',
+                    },
                     '& .MuiInputBase-input::placeholder': {
-                        fontSize: '1rem', // Placeholder menor
-                        color: '#777',       // Placeholder mais claro (opcional)
+                        color: '#777',
                     },
                 }}
                 InputProps={{
@@ -43,26 +49,35 @@ const LoginForm = ({ email, senha, setEmail, setSenha, handleSubmit, switchToReg
                 fullWidth
                 variant="outlined"
                 placeholder="Senha"
-                margin="normal"
+
                 type="password"
                 value={senha}
                 onChange={(e) => setSenha(e.target.value)}
                 sx={{
                     backgroundColor: 'white',
+                    mt: 0.9, // margem superior
+                    mb: 1.5, // margem inferior
                     borderRadius: 1.5,
+                    '& .MuiInputBase-root': {
+                        height: 52, // altura total do campo
+                    },
+                    '& .MuiInputBase-input': {
+                        padding: '6px 10px', // reduzido o padding vertical
+                        fontSize: '1rem',
+                    },
                     '& .MuiInputBase-input::placeholder': {
-                        fontSize: '1rem', // Fonte do placeholder menor
-                        color: '#777',       // Cor do placeholder mais clara
+                        color: '#777',
                     },
                 }}
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">
-                            <LockOutlined sx={{ fontSize: 20, color: '#aaa' }} /> {/* Ícone menor e mais claro */}
+                            <LockOutlined sx={{ fontSize: 20, color: '#aaa' }} />
                         </InputAdornment>
                     ),
                 }}
             />
+
 
             <div className="forgot-password-link">
                 <Link to="/recupera-senha">Esqueceu sua senha?</Link>
