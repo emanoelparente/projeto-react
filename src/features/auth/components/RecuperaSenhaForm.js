@@ -58,7 +58,7 @@ const RecuperaSenhaForm = () => {
       <Box textAlign="center" mt={4}>
         <Typography variant="body2">
           Voltar para{" "}
-          <Link href="/auth" underline="hover" color="primary">
+          <Link href="/login" underline="hover" color="primary">
             login
           </Link>
         </Typography>
