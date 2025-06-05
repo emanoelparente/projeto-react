@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
 
 import LoginForm from "../components/LoginForm";
-import Register from "../components/RegisterForm";
+import RegisterForm from "../components/RegisterForm";
 
 import "./AuthPage.css";
 
@@ -64,7 +64,7 @@ const AuthPage = () => {
 
                 <div className={`auth-side register-side ${!isLoginMode ? "active" : "inactive"}`}>
                     {!isLoginMode ? (
-                        <Register
+                        <RegisterForm
                             nome={nome}
                             email={email}
                             senha={senha}

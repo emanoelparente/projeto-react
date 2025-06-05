@@ -2,7 +2,7 @@ import React from "react";
 import { TextField, InputAdornment } from '@mui/material';
 import { MailOutline, LockOutlined, PersonOutline } from '@mui/icons-material';
 
-const Register = ({ nome, email, senha, setNome, setEmail, setSenha, handleSubmit, switchToLogin }) => (
+const RegisterForm = ({ nome, email, senha, setNome, setEmail, setSenha, handleSubmit, switchToLogin }) => (
     <>
         <h2 className="brand">Criar uma conta</h2>
 
@@ -148,4 +148,4 @@ const Register = ({ nome, email, senha, setNome, setEmail, setSenha, handleSubmi
     </>
 );
 
-export default Register;
+export default RegisterForm;

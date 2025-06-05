@@ -28,7 +28,7 @@ function AppContent() {
     const { usuario } = useAuth();
     const location = useLocation();
 
-    const hideNavbarRoutes = ['/login', '/cadastro'];
+    const hideNavbarRoutes = ['/login', '/cadastro','/recupera-senha'];
     const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
     return (
