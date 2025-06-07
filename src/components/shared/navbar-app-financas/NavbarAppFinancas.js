@@ -61,7 +61,7 @@ const NavbarAppFinancas = () => {
             <Link to="/home">
               <img
                 ref={logoRef}
-                src="../images/logo-feasy-branco.svg"
+                src="../images/logo-feasy-fb.svg"
                 alt="logo"
                 className="logo-esquerda"
               />
