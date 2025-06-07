@@ -23,12 +23,13 @@ import ValoresReceberPage from './features/valores-receber/pages/ValoresReceberP
 import RelatoriosFinanceirosPage from './features/relatorio-financeiro/pages/RelatoriosFinanceirosPage';
 import OrcamentoMensalPage from './features/orcamento-mensal/pages/OrcamentoMensalPage';
 import RecuperaSenhaPage from './features/auth/pages/RecuperaSenhaPage';
+import RedefinirSenhaPage from './features/auth/pages/RedefinirSenhaPage';
 
 function AppContent() {
     const { usuario } = useAuth();
     const location = useLocation();
 
-    const hideNavbarRoutes = ['/login', '/cadastro','/recupera-senha'];
+    const hideNavbarRoutes = ['/login', '/cadastro','/recupera-senha', '/redefinir-senha'];
     const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
     return (
@@ -105,6 +106,13 @@ function AppContent() {
                     path="/recupera-senha"
                     element={
                         <RecuperaSenhaPage />
+                    }
+                />
+
+                <Route
+                    path="/redefinir-senha"
+                    element={
+                        <RedefinirSenhaPage />
                     }
                 />
 
