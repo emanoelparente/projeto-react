@@ -7,9 +7,21 @@ import {
   Paper,
   InputAdornment,
 } from "@mui/material";
-import { MailOutline } from "@mui/icons-material";
+import { LockOutlined } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const RedefinirSenhaForm = () => {
+  const navigate = useNavigate();
+  const [novaSenha, setNovaSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aqui poderia haver uma validação se as senhas coincidem etc.
+    navigate("/login"); // Redireciona temporariamente
+  };
+
   return (
     <Paper
       elevation={3}
@@ -22,24 +34,71 @@ const RedefinirSenhaForm = () => {
       }}
     >
       <Typography variant="h6" sx={{ color: "success.main", fontWeight: 600, mb: 1 }}>
-        ESQUECI A SENHA
+        REDEFINIÇÃO DE SENHA
       </Typography>
 
       <Typography variant="body1" sx={{ mb: 4 }}>
-        Informe o e-mail cadastrado para que possamos te ajudar a recuperar sua senha
+        Vamos criar uma nova senha para sua conta. Lembre-se de guardá-la em um lugar seguro.
       </Typography>
 
-      <Box component="form" noValidate autoComplete="off">
+      <Box component="form" onSubmit={handleSubmit} noValidate autoComplete="off">
         <TextField
           fullWidth
-          label="Endereço de e-mail"
-          placeholder="Informe o e-mail cadastrado"
+          type="password"
+          placeholder="Nova senha"
           variant="outlined"
           margin="normal"
+          value={novaSenha}
+          onChange={(e) => setNovaSenha(e.target.value)}
+          sx={{
+            backgroundColor: 'white',
+            mt: 0.9,
+            mb: 1.5,
+            borderRadius: 1.5,
+            '& .MuiInputBase-root': { height: 52 },
+            '& .MuiInputBase-input': {
+              padding: '6px 10px',
+              fontSize: '1rem',
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: '#777',
+            },
+          }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <MailOutline color="action" />
+                <LockOutlined sx={{ fontSize: 20, color: '#aaa' }} />
+              </InputAdornment>
+            ),
+          }}
+        />
+
+        <TextField
+          fullWidth
+          type="password"
+          placeholder="Confirmar nova senha"
+          variant="outlined"
+          margin="normal"
+          value={confirmarSenha}
+          onChange={(e) => setConfirmarSenha(e.target.value)}
+          sx={{
+            backgroundColor: 'white',
+            mt: 0.9,
+            mb: 1.5,
+            borderRadius: 1.5,
+            '& .MuiInputBase-root': { height: 52 },
+            '& .MuiInputBase-input': {
+              padding: '6px 10px',
+              fontSize: '1rem',
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: '#777',
+            },
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <LockOutlined sx={{ fontSize: 20, color: '#aaa' }} />
               </InputAdornment>
             ),
           }}
@@ -49,9 +108,10 @@ const RedefinirSenhaForm = () => {
           fullWidth
           variant="contained"
           color="success"
+          type="submit"
           sx={{ mt: 2, py: 1.5 }}
         >
-          ENVIAR EMAIL
+          REDEFINIR SENHA
         </Button>
       </Box>
 
