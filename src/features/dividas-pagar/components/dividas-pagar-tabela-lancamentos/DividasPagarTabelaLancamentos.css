@@ -1,0 +1,22 @@
+/* DividasPagarTabelaLancamentos.css */
+
+@media (max-width: 715px) {
+  .col-descricao,
+  .col-acoes,
+  .col-situacao,
+  .col-quem-devo,
+  .col-quando-vence {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .col-descricao,
+  .col-acoes,
+  .col-situacao,
+  .col-quem-devo,
+  .col-quando-vence,
+  .col-nome {
+    display: none;
+  }
+}
