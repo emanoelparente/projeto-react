@@ -3,7 +3,13 @@ import { Grid, TextField, Button, Collapse, useMediaQuery } from '@mui/material'
 import './FiltroSelecaoDatas.css';
 
 
-const FiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
+const FiltroSelecaoDatas = ({ filtros = {}, onChange, onBuscar }) => {
+
+    const {
+        dataInicial = "",
+        dataFinal = ""
+    } = filtros;
+    
     const [open, setOpen] = useState(true);
     const isMobile = useMediaQuery('(max-width:900px)');
 
@@ -29,7 +35,7 @@ const FiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) => {
                     alignItems="flex-end"
                     className="filtro-container"
                 >
-                    
+
 
                     <Grid item xs={12} sm={3} className="filtro-item data-inicial">
                         <TextField
