@@ -113,7 +113,8 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
     const lista = dados || dadosInternos;
 
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{ width: '80%', mx: 'auto' }}>
+
             <Table>
                 {!isMobile && (
                     <TableHead>
