@@ -9,6 +9,8 @@ import {
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './DividasPagarTabelaLancamentos.css';
 import { ReactComponent as LixeiraIcon } from '../../../../assets/icons/lixeira.svg';
+import { ReactComponent as QuitarIcon } from '../../../../assets/icons/quitar.svg';
+import { ReactComponent as EditarIcon } from '../../../../assets/icons/editar.svg';
 
 
 const statusColors = {
@@ -161,14 +163,14 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
 
                                 <TableCell align="center">
                                     <Tooltip title="Editar">
-                                        <IconButton color="primary" onClick={() => onEditar(item)}><Edit /></IconButton>
+                                        <IconButton color="primary" onClick={() => onEditar(item)}><EditarIcon width={40} height={40} /></IconButton>
                                     </Tooltip>
                                     <Tooltip title="Excluir">
                                         <IconButton color="error" onClick={() => onExcluir(item.id)}><LixeiraIcon width={40} height={40} />
                                         </IconButton>
                                     </Tooltip>
                                     <Tooltip title="Quitar">
-                                        <IconButton color="success" onClick={() => onQuitar(item)}><CreditScore /></IconButton>
+                                        <IconButton color="success" onClick={() => onQuitar(item)}><QuitarIcon width={40} height={40} /></IconButton>
                                     </Tooltip>
                                 </TableCell>
                             </TableRow>
