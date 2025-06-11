@@ -8,6 +8,8 @@ import {
 } from '@mui/icons-material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './DividasPagarTabelaLancamentos.css';
+import { ReactComponent as LixeiraIcon } from '../../../../assets/icons/lixeira.svg';
+
 
 const statusColors = {
     'A vencer': 'warning',
@@ -162,7 +164,8 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
                                         <IconButton color="primary" onClick={() => onEditar(item)}><Edit /></IconButton>
                                     </Tooltip>
                                     <Tooltip title="Excluir">
-                                        <IconButton color="error" onClick={() => onExcluir(item.id)}><Delete /></IconButton>
+                                        <IconButton color="error" onClick={() => onExcluir(item.id)}><LixeiraIcon width={40} height={40} />
+                                        </IconButton>
                                     </Tooltip>
                                     <Tooltip title="Quitar">
                                         <IconButton color="success" onClick={() => onQuitar(item)}><CreditScore /></IconButton>
