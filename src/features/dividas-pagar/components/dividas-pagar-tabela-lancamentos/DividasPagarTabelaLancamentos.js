@@ -164,22 +164,22 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
 
                                 <TableCell align="center">
                                     <Tooltip title="Editar">
-                                        <IconButton color="primary" onClick={() => onEditar(item)}><EditarIcon width={20} height={20} /></IconButton>
+                                        <IconButton color="primary" onClick={() => onEditar(item)}><EditarIcon width={22} height={22} /></IconButton>
                                     </Tooltip>
                                     <Tooltip title="Excluir">
-                                        <IconButton color="error" onClick={() => onExcluir(item.id)}><LixeiraIcon width={20} height={20} />
+                                        <IconButton color="error" onClick={() => onExcluir(item.id)}><LixeiraIcon width={22} height={22} />
                                         </IconButton>
                                     </Tooltip>
                                     {item.situacao === 'Pago' ? (
                                         <Tooltip title="Quitado">
                                             <IconButton disabled>
-                                                <QuitadoIcon width={20} height={20} />
+                                                <QuitadoIcon width={22} height={22} />
                                             </IconButton>
                                         </Tooltip>
                                     ) : (
                                         <Tooltip title="Quitar">
                                             <IconButton color="success" onClick={() => onQuitar(item)}>
-                                                <QuitarIcon width={20} height={20} />
+                                                <QuitarIcon width={22} height={22} />
                                             </IconButton>
                                         </Tooltip>
                                     )}
