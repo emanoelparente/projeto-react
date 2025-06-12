@@ -11,7 +11,7 @@ import './DividasPagarTabelaLancamentos.css';
 import { ReactComponent as LixeiraIcon } from '../../../../assets/icons/lixeira-1.svg';
 import { ReactComponent as QuitarIcon } from '../../../../assets/icons/quitar-1.svg';
 import { ReactComponent as EditarIcon } from '../../../../assets/icons/editar-1.svg';
-
+import { ReactComponent as QuitadoIcon } from '../../../../assets/icons/quitado-1.svg';
 
 const statusColors = {
     'A vencer': 'warning',
@@ -170,9 +170,20 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
                                         <IconButton color="error" onClick={() => onExcluir(item.id)}><LixeiraIcon width={20} height={20} />
                                         </IconButton>
                                     </Tooltip>
-                                    <Tooltip title="Quitar">
-                                        <IconButton color="success" onClick={() => onQuitar(item)}><QuitarIcon width={20} height={20} /></IconButton>
-                                    </Tooltip>
+                                    {item.situacao === 'Pago' ? (
+                                        <Tooltip title="Quitado">
+                                            <IconButton disabled>
+                                                <QuitadoIcon width={20} height={20} />
+                                            </IconButton>
+                                        </Tooltip>
+                                    ) : (
+                                        <Tooltip title="Quitar">
+                                            <IconButton color="success" onClick={() => onQuitar(item)}>
+                                                <QuitarIcon width={20} height={20} />
+                                            </IconButton>
+                                        </Tooltip>
+                                    )}
+
                                 </TableCell>
                             </TableRow>
                         )
