@@ -8,9 +8,9 @@ import {
 } from '@mui/icons-material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './DividasPagarTabelaLancamentos.css';
-import { ReactComponent as LixeiraIcon } from '../../../../assets/icons/lixeira.svg';
-import { ReactComponent as QuitarIcon } from '../../../../assets/icons/quitar.svg';
-import { ReactComponent as EditarIcon } from '../../../../assets/icons/editar.svg';
+import { ReactComponent as LixeiraIcon } from '../../../../assets/icons/lixeira-1.svg';
+import { ReactComponent as QuitarIcon } from '../../../../assets/icons/quitar-1.svg';
+import { ReactComponent as EditarIcon } from '../../../../assets/icons/editar-1.svg';
 
 
 const statusColors = {
@@ -100,6 +100,7 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
                     destinatario: 'Banco ABC',
                     situacao: 'Pago',
                 },
+
             ];
             setDadosInternos(dadosMock);
         }
@@ -163,14 +164,14 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
 
                                 <TableCell align="center">
                                     <Tooltip title="Editar">
-                                        <IconButton color="primary" onClick={() => onEditar(item)}><EditarIcon width={40} height={40} /></IconButton>
+                                        <IconButton color="primary" onClick={() => onEditar(item)}><EditarIcon width={20} height={20} /></IconButton>
                                     </Tooltip>
                                     <Tooltip title="Excluir">
-                                        <IconButton color="error" onClick={() => onExcluir(item.id)}><LixeiraIcon width={40} height={40} />
+                                        <IconButton color="error" onClick={() => onExcluir(item.id)}><LixeiraIcon width={20} height={20} />
                                         </IconButton>
                                     </Tooltip>
                                     <Tooltip title="Quitar">
-                                        <IconButton color="success" onClick={() => onQuitar(item)}><QuitarIcon width={40} height={40} /></IconButton>
+                                        <IconButton color="success" onClick={() => onQuitar(item)}><QuitarIcon width={20} height={20} /></IconButton>
                                     </Tooltip>
                                 </TableCell>
                             </TableRow>
