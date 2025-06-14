@@ -85,9 +85,9 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
                 {
                     id: 2,
                     nome: 'Cartão de Crédito',
-                    descricao: 'Fatura Nubank',
+                    descricao: 'Fatura cartão',
                     valor: 800,
-                    dataVencimento: '2025-06-05',
+                    dataVencimento: '2025-07-05',
                     destinatario: 'Nubank',
                     situacao: 'Pendente',
                 },
