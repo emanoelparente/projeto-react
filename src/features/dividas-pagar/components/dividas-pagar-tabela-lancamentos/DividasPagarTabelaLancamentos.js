@@ -78,8 +78,8 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
                     nome: 'Aluguel',
                     descricao: 'Apartamento mensal',
                     valor: 1500,
-                    dataVencimento: '2025-06-10',
-                    destinatario: 'Imobiliária Silva',
+                    dataVencimento: '2024-06-10',
+                    destinatario: 'Imobiliária Silvaa',
                     situacao: 'A vencer',
                 },
                 {
