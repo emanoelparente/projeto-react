@@ -20,6 +20,11 @@
 }
 
 @media (max-width: 900px) {
+  .filtro-wrapper {
+    width: 80%;
+    margin: 0 auto; /* centraliza horizontalmente */
+  }
+
   .filtro-item {
     flex-basis: 100% !important;
     width: 100% !important;
@@ -27,7 +32,7 @@
   }
 
   .saldo-topo {
-    display: none !important; 
+    display: none !important;
   }
 
   .data-inicial {
@@ -42,3 +47,4 @@
     order: 4;
   }
 }
+

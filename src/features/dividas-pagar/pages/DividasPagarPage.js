@@ -4,7 +4,6 @@ import DividasPagarTabelaLancamentos from '../components/dividas-pagar-tabela-la
 const DividasPagarPage = () => {
     return (
         <div>
-            <SaldoAtual />
             <FiltroSelecaoDatas></FiltroSelecaoDatas>
             <DividasPagarTabelaLancamentos></DividasPagarTabelaLancamentos>
         </div>
