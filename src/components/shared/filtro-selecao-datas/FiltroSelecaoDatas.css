@@ -1,34 +1,40 @@
-
 .filtro-wrapper {
   width: 100%;
 }
 
 .filtro-container {
-  padding-top: 1%;
-  background-color: #ced4da00;
+  background-color: #1579ddec;
   border-radius: 8px;
 }
 
-.filtro-item {
-  flex-basis: 20%;
-  min-width: 250px;
-  padding: 8px;
+.botao-pesquisar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.filtro-full-width {
-  width: 100%;
+.botao-pesquisar-btn {
+  padding-left: 32px;
+  padding-right: 32px;
+  min-height: 56px;
 }
 
+/* Responsividade */
 @media (max-width: 900px) {
   .filtro-wrapper {
     width: 90%;
-    margin: 0 auto; /* centraliza horizontalmente */
+    margin: 5% auto 0;
   }
 
-  .filtro-item {
-    flex-basis: 100% !important;
+  .filtro-item,
+  .botao-pesquisar {
     width: 100% !important;
+    justify-content: center !important;
     padding: 8px 0;
+  }
+
+  .botao-pesquisar-btn {
+    width: 100%;
   }
 
   .saldo-topo {
@@ -46,5 +52,7 @@
   .botao-pesquisar {
     order: 4;
   }
+
+  
 }
 

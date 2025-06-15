@@ -20,7 +20,7 @@ const statusColors = {
 };
 
 const DetalhesCollapseMobile = ({ item, expanded, onToggle, onEditar, onExcluir, onQuitar }) => {
-    const isMobile = useMediaQuery('(max-width:700px)');
+    const isMobile = useMediaQuery('(max-width:930px)');
 
     return (
         <>
@@ -66,7 +66,7 @@ const DetalhesCollapseMobile = ({ item, expanded, onToggle, onEditar, onExcluir,
 };
 
 const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar }) => {
-    const isMobile = useMediaQuery('(max-width:700px)');
+    const isMobile = useMediaQuery('(max-width:930px)');
     const [expandedId, setExpandedId] = React.useState(null);
     const [dadosInternos, setDadosInternos] = React.useState([]);
 
@@ -118,7 +118,7 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
     const lista = dados || dadosInternos;
 
     return (
-        <TableContainer component={Paper} sx={{ width: '80%', mx: 'auto' }}>
+        <TableContainer component={Paper} sx={{ width: '90%', mx: 'auto' }}>
 
             <Table>
                 {!isMobile && (

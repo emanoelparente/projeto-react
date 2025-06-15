@@ -1,0 +1,12 @@
+.filtro-container {
+  padding-top: 1%;
+  background-color: #1579ddec;
+  border-radius: 8px;
+}
+
+.filtro-item {
+  flex-basis: 20%;
+  min-width: 250px;
+  padding: 8px;
+}
+

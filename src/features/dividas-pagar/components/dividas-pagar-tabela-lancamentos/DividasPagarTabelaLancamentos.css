@@ -1,6 +1,6 @@
 /* DividasPagarTabelaLancamentos.css */
 
-@media (max-width: 715px) {
+@media (max-width: 930px) {
   .col-descricao,
   .col-acoes,
   .col-situacao,
@@ -10,7 +10,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 930px) {
   .col-descricao,
   .col-acoes,
   .col-situacao,
