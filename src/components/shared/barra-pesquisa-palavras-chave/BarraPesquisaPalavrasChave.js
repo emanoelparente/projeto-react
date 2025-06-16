@@ -5,32 +5,36 @@ import './BarraPesquisaPalavrasChave.css'; // certifique-se de importar os estil
 
 const BarraPesquisaPalavrasChave = ({ valorBusca, onChange, onLimpar, onBuscar }) => {
     return (
-        <div className="filtro-container filtro-item">
-            <TextField
-                fullWidth
-                variant="outlined"
-                label="Buscar por palavra-chave"
-                value={valorBusca}
-                onChange={(e) => onChange(e.target.value)}
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter') onBuscar();
-                }}
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            {valorBusca && (
-                                <IconButton onClick={onLimpar}>
-                                    <Clear />
-                                </IconButton>
-                            )}
-                            <IconButton onClick={onBuscar}>
-                                <Search />
+        <TextField
+            fullWidth
+            variant="outlined"
+            label="Buscar por palavra-chave"
+            value={valorBusca}
+            onChange={(e) => onChange(e.target.value)}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter') onBuscar();
+            }}
+            sx={{
+                '& .MuiOutlinedInput-root': {
+                    borderRadius: '60px', // ajuste conforme seu design
+                },
+            }}
+            InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                        {valorBusca && (
+                            <IconButton onClick={onLimpar}>
+                                <Clear />
                             </IconButton>
-                        </InputAdornment>
-                    )
-                }}
-            />
-        </div>
+                        )}
+                        <IconButton onClick={onBuscar}>
+                            <Search />
+                        </IconButton>
+                    </InputAdornment>
+                )
+            }}
+        />
+
     );
 };
 

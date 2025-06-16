@@ -8,7 +8,7 @@ import DividasPagarTabelaLancamentos from '../components/dividas-pagar-tabela-la
 const DividasPagarPage = () => {
   return (
     <Box sx={{ p: 2 }}>
-      <SaldoAtual />
+      
 
       {/* Container com largura igual à da Tabela */}
       <Box
@@ -21,7 +21,7 @@ const DividasPagarPage = () => {
           alignItems: 'top',
         
           my: 2,
-          backgroundColor: 'rgba(162, 0, 255, 0.5)'
+          backgroundColor: 'rgba(162, 0, 255, 0)'
         }}
       >
         {/* Pesquisa */}
