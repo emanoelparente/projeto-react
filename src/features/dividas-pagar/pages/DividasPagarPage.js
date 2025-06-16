@@ -19,25 +19,18 @@ const DividasPagarPage = () => {
           justifyContent: 'space-between',
           flexWrap: 'wrap',
           alignItems: 'top',
-          gap: 2,
+        
           my: 2,
-          backgroundColor: 'rgba(0, 123, 255, 0.1)'
+          backgroundColor: 'rgba(162, 0, 255, 0.5)'
         }}
       >
         {/* Pesquisa */}
-        <Box sx={{ flexGrow: 1, maxWidth: 450 }}>
+        <Box sx={{ flexGrow: 1, maxWidth: 500 }}>
           <BarraPesquisaPalavrasChave />
         </Box>
 
         {/* Filtros e botão */}
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 2,
-            flexWrap: 'wrap',
-          }}
-        >
+        <Box>
           <FiltroSelecaoDatas />
         </Box>
       </Box>

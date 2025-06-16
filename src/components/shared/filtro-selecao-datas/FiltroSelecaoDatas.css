@@ -1,29 +1,53 @@
+
+
 .filtro-wrapper {
   width: 100%;
 }
 
-.filtro-container {
+.filtro-container-date {
   background-color: #1579ddec;
   border-radius: 8px;
+
+  
+  
+  margin-left: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+
+  
+}
+
+.filtro-item {
+  padding: 4px;
 }
 
 .botao-pesquisar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding: 4px;
 }
 
 .botao-pesquisar-btn {
   padding-left: 32px;
   padding-right: 32px;
   min-height: 56px;
+  white-space: nowrap;
 }
 
-/* Responsividade */
+
 @media (max-width: 900px) {
   .filtro-wrapper {
     width: 90%;
     margin: 5% auto 0;
+  }
+
+  .filtro-container {
+    width: 100%;
+    justify-content: center;
   }
 
   .filtro-item,
@@ -52,7 +76,4 @@
   .botao-pesquisar {
     order: 4;
   }
-
-  
 }
-
