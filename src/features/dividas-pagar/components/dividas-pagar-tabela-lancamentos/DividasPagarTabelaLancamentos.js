@@ -33,10 +33,16 @@ const DetalhesCollapseMobile = ({ item, expanded, onToggle, onEditar, onExcluir,
                 <TableCell colSpan={3} style={{ padding: 0 }}>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <Box sx={{ padding: 2 }}>
-                            <Typography variant="body2"><strong>Descrição:</strong> {item.descricao}</Typography>
-                            <Typography variant="body2"><strong>Quando vence:</strong> {item.dataVencimento}</Typography>
-                            <Typography variant="body2"><strong>A quem devo:</strong> {item.destinatario}</Typography>
-                            <Typography variant="body2">
+                            <Typography variant="body2" sx={{ lineHeight: 1.8, mb: 1 }}>
+                                <strong>Descrição:</strong> {item.descricao}
+                            </Typography>
+                            <Typography variant="body2" sx={{ lineHeight: 1.8, mb: 1 }}>
+                                <strong>Quando vence:</strong> {item.dataVencimento}
+                            </Typography>
+                            <Typography variant="body2" sx={{ lineHeight: 1.8, mb: 1 }}>
+                                <strong>A quem devo:</strong> {item.destinatario}
+                            </Typography>
+                            <Typography variant="body2" sx={{ lineHeight: 1.8, mb: 1 }}>
                                 <strong>Situação:</strong>
                                 <Chip
                                     label={item.situacao}
@@ -45,6 +51,7 @@ const DetalhesCollapseMobile = ({ item, expanded, onToggle, onEditar, onExcluir,
                                     sx={{ ml: 1, width: 80, justifyContent: 'center', fontSize: '0.75rem' }}
                                 />
                             </Typography>
+
 
                             <Box display="flex" justifyContent="center" gap={1} mt={1}>
                                 <Tooltip title="Editar">
