@@ -24,7 +24,7 @@ const DividasPagarPage = () => {
           flexWrap: 'wrap',
           alignItems: 'flex-start',
           my: 2,
-          backgroundColor: 'rgba(162, 0, 255, 0.27)',
+          backgroundColor: 'rgba(162, 0, 255, 0)',
         }}
       >
         {/* Pesquisa */}
