@@ -33,16 +33,16 @@ const DetalhesCollapseMobile = ({ item, expanded, onToggle, onEditar, onExcluir,
                 <TableCell colSpan={3} style={{ padding: 0 }}>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <Box sx={{ padding: 2 }}>
-                            <Typography variant="body2" sx={{ lineHeight: 1.8, mb: 1 }}>
+                            <Typography variant="body2" sx={{ lineHeight: 1.4, mb: 1 }}>
                                 <strong>Descrição:</strong> {item.descricao}
                             </Typography>
-                            <Typography variant="body2" sx={{ lineHeight: 1.8, mb: 1 }}>
+                            <Typography variant="body2" sx={{ lineHeight: 1.4, mb: 1 }}>
                                 <strong>Quando vence:</strong> {item.dataVencimento}
                             </Typography>
-                            <Typography variant="body2" sx={{ lineHeight: 1.8, mb: 1 }}>
+                            <Typography variant="body2" sx={{ lineHeight: 1.4, mb: 1 }}>
                                 <strong>A quem devo:</strong> {item.destinatario}
                             </Typography>
-                            <Typography variant="body2" sx={{ lineHeight: 1.8, mb: 1 }}>
+                            <Typography variant="body2" sx={{ lineHeight: 1.4, mb: 1 }}>
                                 <strong>Situação:</strong>
                                 <Chip
                                     label={item.situacao}
