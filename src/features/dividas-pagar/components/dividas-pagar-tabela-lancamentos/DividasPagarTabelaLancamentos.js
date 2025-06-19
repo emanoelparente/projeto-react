@@ -15,7 +15,7 @@ import { ReactComponent as QuitadoIcon } from '../../../../assets/icons/quitado-
 
 const statusColors = {
     'A vencer': 'warning',
-    'Pendente': 'error',
+    'Vencido': 'error',
     'Pago': 'success'
 };
 
@@ -96,7 +96,7 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
                     valor: 800,
                     dataVencimento: '2025-07-05',
                     destinatario: 'Nubank',
-                    situacao: 'Pendente',
+                    situacao: 'Vencido',
                 },
                 {
                     id: 3,
