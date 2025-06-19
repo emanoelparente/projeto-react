@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button, Collapse, useMediaQuery } from '@mui/material';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ExtratoFinanceiroSaldoAtual from '../extrato-financeiro-saldo-atual/ExtratoFinanceiroSaldoAtual';
 import './ExtratoFinanceiroFiltroSelecaoDatas.css';
 
@@ -16,8 +17,18 @@ const ExtratoFinanceiroFiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) =>
     return (
         <div className="filtro-wrapper">
             {isMobile && (
-                <Button onClick={() => setOpen(!open)} variant="outlined" fullWidth sx={{ mb: 1 }}>
-                    {open ? 'Esconder filtros' : 'Filtrar por data'}
+                <Button
+                    onClick={() => setOpen(!open)}
+                    variant="text"
+                    fullWidth
+                    sx={{
+                        mb: 1,
+                        p: 1,
+                        minHeight: 48,
+                        '&:hover': { backgroundColor: 'transparent' } // remove fundo ao passar o mouse, opcional
+                    }}
+                >
+                    {open ? 'Esconder filtros' : <FilterAltIcon sx={{ color: '#77AF51', fontSize: '2rem' }} />}
                 </Button>
             )}
 
