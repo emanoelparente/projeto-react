@@ -41,9 +41,7 @@ const ExtratoFinanceiroFiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) =>
                     alignItems="flex-end"
                     className="filtro-container-d"
                 >
-                    <Grid item xs={12} sm={3} className="filtro-item saldo-topo">
-                        <ExtratoFinanceiroSaldoAtual />
-                    </Grid>
+                
 
                     <Grid item xs={12} sm={3} className="filtro-item data-inicial">
                         <TextField
