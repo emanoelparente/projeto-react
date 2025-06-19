@@ -8,6 +8,8 @@ import ExtratoFinanceiroFiltroSelecaoDatas from '../components/extrato-financeir
 
 import ExtratoFinanceiroModalEdicaoLancamento from '../components/ExtratoFinanceiroModalEdicaoLancamento';
 import NovoLancamentoModal from '../../novo-lancamento/components/NovoLancamentoModal';
+import BarraPesquisaPalavrasChave from '../../../components/shared/barra-pesquisa-palavras-chave/BarraPesquisaPalavrasChave';
+
 
 // Contexto
 import { useModal } from '../../../context/ModalContext';
@@ -82,6 +84,7 @@ const ExtratoFinanceiroPage = () => {
     return (
         <Box p={3} maxWidth="85%" mx="auto">
 
+            <BarraPesquisaPalavrasChave></BarraPesquisaPalavrasChave>
             <ExtratoFinanceiroFiltroSelecaoDatas filtros={filtros} onChange={(e) => setFiltros({ ...filtros, [e.target.name]: e.target.value })} onBuscar={() => console.log(filtros)} />
 
             <Box
