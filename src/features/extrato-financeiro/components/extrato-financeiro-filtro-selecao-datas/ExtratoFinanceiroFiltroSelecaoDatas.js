@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { Grid, TextField, Button, Collapse, useMediaQuery } from '@mui/material';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import ExtratoFinanceiroSaldoAtual from '../extrato-financeiro-saldo-atual/ExtratoFinanceiroSaldoAtual';
@@ -25,7 +25,7 @@ const ExtratoFinanceiroFiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) =>
                         mb: 1,
                         p: 1,
                         minHeight: 48,
-                        '&:hover': { backgroundColor: 'transparent' } // remove fundo ao passar o mouse, opcional
+                        '&:hover': { backgroundColor: 'transparent' } 
                     }}
                 >
                     {open ? 'Esconder filtros' : <FilterAltIcon sx={{ color: '#77AF51', fontSize: '2rem' }} />}
@@ -83,4 +83,4 @@ const ExtratoFinanceiroFiltroSelecaoDatas = ({ filtros, onChange, onBuscar }) =>
     );
 };
 
-export default ExtratoFinanceiroFiltroSelecaoDatas;
+export default ExtratoFinanceiroFiltroSelecaoDatas;*/

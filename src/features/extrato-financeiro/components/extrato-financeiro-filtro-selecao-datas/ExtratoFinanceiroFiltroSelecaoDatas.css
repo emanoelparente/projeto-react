@@ -1,5 +1,5 @@
 
-.filtro-wrapper {
+/*.filtro-wrapper {
   width: 100%;
 }
 
@@ -27,7 +27,7 @@
   }
 
   .saldo-topo {
-    display: none !important; /* Oculta o saldo em telas menores que 901px */
+    display: none !important; 
   }
 
   .data-inicial {
@@ -41,4 +41,4 @@
   .botao-pesquisar {
     order: 4;
   }
-}
+}*/
