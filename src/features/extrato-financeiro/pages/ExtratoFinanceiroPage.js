@@ -75,7 +75,7 @@ const ExtratoFinanceiroPage = () => {
     });
 
     return (
-        <Box p={3} maxWidth="85%" mx="auto">
+        <Box p={3} maxWidth="90%" mx="auto">
             {/* Filtros principais: barra de pesquisa e seleção de datas */}
             <Box sx={{ p: 2 }}>
                 <Box
