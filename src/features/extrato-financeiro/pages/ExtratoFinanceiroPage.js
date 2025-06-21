@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 
 // Componentes personalizados
-
 import ExtratoFinanceiroFiltroSelecaoLancamentos from '../components/ExtratoFinanceiroFiltroSelecaoLancamentos';
-
 import ExtratoFinanceiroFiltroSelecaoDatas from '../components/extrato-financeiro-filtro-selecao-datas/ExtratoFinanceiroFiltroSelecaoDatas';
-
 import ExtratoFinanceiroModalEdicaoLancamento from '../components/ExtratoFinanceiroModalEdicaoLancamento';
 import NovoLancamentoModal from '../../novo-lancamento/components/NovoLancamentoModal';
 import BarraPesquisaPalavrasChave from '../../../components/shared/barra-pesquisa-palavras-chave/BarraPesquisaPalavrasChave';
-
+import FiltroSelecaoDatas from '../../../components/shared/filtro-selecao-datas/FiltroSelecaoDatas';
 
 // Contexto
 import { useModal } from '../../../context/ModalContext';
@@ -18,19 +15,17 @@ import { useModal } from '../../../context/ModalContext';
 import {
     Box, Typography, Divider,
     Collapse, Fab, Dialog, DialogTitle, DialogContent,
-    DialogActions, Button
+    DialogActions, Button, useMediaQuery, useTheme
 } from '@mui/material';
 import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 
-// Ícones de ação estão importados no componente TabelaLancamentos
-
-// Componente de tabela reutilizável
 import ExtratoFinanceiroTabelaLancamentos from '../components/extrato-financeiro-tabela-lancamentos/ExtratoFinanceiroTabelaLancamentos';
-
-
 
 const ExtratoFinanceiroPage = () => {
     const { abrirModal } = useModal();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
 
     const [receitas, setReceitas] = useState([
@@ -45,6 +40,8 @@ const ExtratoFinanceiroPage = () => {
     const [mostrarReceitas, setMostrarReceitas] = useState(true);
     const [mostrarDespesas, setMostrarDespesas] = useState(true);
     const [idParaExcluir, setIdParaExcluir] = useState(null);
+    const [filtroDialogAberto, setFiltroDialogAberto] = useState(false);
+    const [filtrosAvancados, setFiltrosAvancados] = useState({});
 
     const editarLancamento = (item) => {
         setDadosLancamento(item);
@@ -76,26 +73,42 @@ const ExtratoFinanceiroPage = () => {
         userSelect: 'none'
     });
 
-    const [filtroDialogAberto, setFiltroDialogAberto] = useState(false);
-    const [filtrosAvancados, setFiltrosAvancados] = useState({});
-
-
-
     return (
         <Box p={3} maxWidth="85%" mx="auto">
+            {/* Filtros principais: barra de pesquisa e seleção de datas */}
+            <Box sx={{ p: 2 }}>
+                <Box
+                    sx={{
+                        width: '90%',
+                        mx: 'auto',
+                        display: 'flex',
+                        justifyContent: isMobile ? 'center' : 'space-between',
+                        flexWrap: 'wrap',
+                        alignItems: 'flex-start',
+                        my: 2,
+                        backgroundColor: 'rgba(162, 0, 255, 0)', // transparente
+                    }}
+                >
+                    {/* Esquerda: Barra de Pesquisa */}
+                    <Box sx={{ flexGrow: 1, maxWidth: 500 }}>
+                        <BarraPesquisaPalavrasChave />
+                    </Box>
 
-            <BarraPesquisaPalavrasChave></BarraPesquisaPalavrasChave>
-            <ExtratoFinanceiroFiltroSelecaoDatas filtros={filtros} onChange={(e) => setFiltros({ ...filtros, [e.target.name]: e.target.value })} onBuscar={() => console.log(filtros)} />
+                    {/* Direita: Filtro por Data */}
+                    <Box>
+                        <FiltroSelecaoDatas
+                            filtros={filtros}
+                            onChange={(e) =>
+                                setFiltros({ ...filtros, [e.target.name]: e.target.value })
+                            }
+                            onBuscar={() => console.log(filtros)}
+                        />
+                    </Box>
+                </Box>
+            </Box>
 
-            <Box
-                sx={{
-                    mt: {
-                        xs: 2,  // menor margem para telas menores que 600px
-                        sm: 3,  // um pouco maior para telas até 900px
-                        md: 4   // padrão para 901px ou mais
-                    }
-                }}
-            >
+            {/* Receitas e Despesas */}
+            <Box sx={{ mt: { xs: 2, sm: 3, md: 4 } }}>
                 <Typography
                     variant="h6"
                     gutterBottom
@@ -134,19 +147,20 @@ const ExtratoFinanceiroPage = () => {
                 </Collapse>
             </Box>
 
-
+            {/* Modal de Edição */}
             {dadosLancamento && (
-                <ExtratoFinanceiroModalEdicaoLancamento dadosLancamento={dadosLancamento} onSalvar={atualizarLancamento} />
+                <ExtratoFinanceiroModalEdicaoLancamento
+                    dadosLancamento={dadosLancamento}
+                    onSalvar={atualizarLancamento}
+                />
             )}
 
             <NovoLancamentoModal />
 
-            {/* FAB */}
+            {/* Botões flutuantes */}
             <Fab color="primary" aria-label="add" onClick={abrirModal} sx={{ position: 'fixed', bottom: 16, right: 16 }}>
                 <Add />
             </Fab>
-
-            {/* Botão FAB de filtro */}
             <Fab
                 color="secondary"
                 aria-label="filter"
@@ -156,9 +170,7 @@ const ExtratoFinanceiroPage = () => {
                 <FilterList />
             </Fab>
 
-
-
-            {/* Diálogo de confirmaçãooo */}
+            {/* Diálogo de confirmação de exclusão */}
             <Dialog open={!!idParaExcluir} onClose={() => setIdParaExcluir(null)}>
                 <DialogTitle>Confirmar Exclusão</DialogTitle>
                 <DialogContent>Tem certeza que deseja excluir este lançamento?</DialogContent>
@@ -168,12 +180,12 @@ const ExtratoFinanceiroPage = () => {
                 </DialogActions>
             </Dialog>
 
+            {/* Filtros avançados */}
             <ExtratoFinanceiroFiltroSelecaoLancamentos
                 aberto={filtroDialogAberto}
                 onFechar={() => setFiltroDialogAberto(false)}
                 onAplicar={(filtros) => setFiltrosAvancados(filtros)}
             />
-
         </Box>
     );
 };
