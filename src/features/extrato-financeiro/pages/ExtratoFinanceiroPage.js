@@ -25,6 +25,7 @@ const ExtratoFinanceiroPage = () => {
     const { abrirModal } = useModal();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    
 
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
 
