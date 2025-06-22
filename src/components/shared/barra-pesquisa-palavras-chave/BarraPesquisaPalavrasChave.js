@@ -6,6 +6,7 @@ import './BarraPesquisaPalavrasChave.css'; // certifique-se de importar os estil
 const BarraPesquisaPalavrasChave = ({ valorBusca, onChange, onLimpar, onBuscar }) => {
     return (
         <TextField
+            className="barra-pesquisa"
             fullWidth
             variant="outlined"
             label="Buscar por palavra-chave"
@@ -16,7 +17,7 @@ const BarraPesquisaPalavrasChave = ({ valorBusca, onChange, onLimpar, onBuscar }
             }}
             sx={{
                 '& .MuiOutlinedInput-root': {
-                    borderRadius: '60px', // ajuste conforme seu design
+                    borderRadius: '60px',
                 },
             }}
             InputProps={{
@@ -34,6 +35,7 @@ const BarraPesquisaPalavrasChave = ({ valorBusca, onChange, onLimpar, onBuscar }
                 )
             }}
         />
+
 
     );
 };

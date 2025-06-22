@@ -22,16 +22,17 @@ const DividasPagarPage = () => {
           flexWrap: 'wrap',
           alignItems: 'flex-start',
           my: 2,
-          backgroundColor: 'rgba(162, 0, 255, 0)',
+          backgroundColor: 'rgba(162, 0, 255, 0.53)',
+          p: 1,
         }}
       >
         {/* Pesquisa */}
-        <Box sx={{ flexGrow: 1, maxWidth: 500 }}>
+        <Box sx={{ flexGrow: 1, maxWidth: 500, backgroundColor: 'rgba(0, 255, 191, 0.53)', m: 0.5, }}>
           <BarraPesquisaPalavrasChave />
         </Box>
 
         {/* Filtros e botão */}
-        <Box>
+        <Box sx={{ flexGrow: 1, maxWidth: 500, backgroundColor: 'rgba(0, 47, 255, 0.53)', m: 0.5, }}>
           <FiltroSelecaoDatas />
         </Box>
       </Box>

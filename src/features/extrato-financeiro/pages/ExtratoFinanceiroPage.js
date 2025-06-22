@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 // Componentes personalizados
 import ExtratoFinanceiroFiltroSelecaoLancamentos from '../components/ExtratoFinanceiroFiltroSelecaoLancamentos';
-import ExtratoFinanceiroFiltroSelecaoDatas from '../components/extrato-financeiro-filtro-selecao-datas/ExtratoFinanceiroFiltroSelecaoDatas';
 import ExtratoFinanceiroModalEdicaoLancamento from '../components/ExtratoFinanceiroModalEdicaoLancamento';
 import NovoLancamentoModal from '../../novo-lancamento/components/NovoLancamentoModal';
 import BarraPesquisaPalavrasChave from '../../../components/shared/barra-pesquisa-palavras-chave/BarraPesquisaPalavrasChave';
 import FiltroSelecaoDatas from '../../../components/shared/filtro-selecao-datas/FiltroSelecaoDatas';
+import ExtratoFinanceiroTabelaLancamentos from '../components/extrato-financeiro-tabela-lancamentos/ExtratoFinanceiroTabelaLancamentos';
 
 // Contexto
 import { useModal } from '../../../context/ModalContext';
@@ -19,20 +19,16 @@ import {
 } from '@mui/material';
 import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 
-import ExtratoFinanceiroTabelaLancamentos from '../components/extrato-financeiro-tabela-lancamentos/ExtratoFinanceiroTabelaLancamentos';
-
 const ExtratoFinanceiroPage = () => {
     const { abrirModal } = useModal();
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-    
 
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
-
+    const [filtrosAvancados, setFiltrosAvancados] = useState({});
     const [receitas, setReceitas] = useState([
         { id: 1, data: '2025-04-01', categoria: 'Venda', formaRecebimento: 'Pix', descricao: 'Produto X', valor: 500 },
     ]);
-
     const [despesas, setDespesas] = useState([
         { id: 2, data: '2025-04-02', categoria: 'Compra', formaRecebimento: 'Cartão', descricao: 'Fornecedor Y', valor: 200 },
     ]);
@@ -42,7 +38,6 @@ const ExtratoFinanceiroPage = () => {
     const [mostrarDespesas, setMostrarDespesas] = useState(true);
     const [idParaExcluir, setIdParaExcluir] = useState(null);
     const [filtroDialogAberto, setFiltroDialogAberto] = useState(false);
-    const [filtrosAvancados, setFiltrosAvancados] = useState({});
 
     const editarLancamento = (item) => {
         setDadosLancamento(item);
@@ -75,41 +70,39 @@ const ExtratoFinanceiroPage = () => {
     });
 
     return (
-        <Box p={3} maxWidth="90%" mx="auto">
-            {/* Filtros principais: barra de pesquisa e seleção de datas */}
-            <Box sx={{ p: 2 }}>
-                <Box
-                    sx={{
-                        width: '90%',
-                        mx: 'auto',
-                        display: 'flex',
-                        justifyContent: isMobile ? 'center' : 'space-between',
-                        flexWrap: 'wrap',
-                        alignItems: 'flex-start',
-                        my: 2,
-                        backgroundColor: 'rgba(162, 0, 255, 0)', // transparente
-                    }}
-                >
-                    {/* Esquerda: Barra de Pesquisa */}
-                    <Box sx={{ flexGrow: 1, maxWidth: 500 }}>
-                        <BarraPesquisaPalavrasChave />
-                    </Box>
+        <Box>
 
-                    {/* Direita: Filtro por Data */}
-                    <Box>
-                        <FiltroSelecaoDatas
-                            filtros={filtros}
-                            onChange={(e) =>
-                                setFiltros({ ...filtros, [e.target.name]: e.target.value })
-                            }
-                            onBuscar={() => console.log(filtros)}
-                        />
-                    </Box>
+            {/* Barra superior com filtros e pesquisa */}
+            <Box sx={{
+                width: '90%',
+                mx: 'auto',
+                display: 'flex',
+                justifyContent: isMobile ? 'center' : 'space-between',
+                flexWrap: 'wrap',
+                alignItems: 'flex-start',
+                my: 2,
+                backgroundColor: 'rgba(162, 0, 255, 0.53)',
+                p: 1,
+            }}>
+                <Box sx={{ flexGrow: 1, maxWidth: 500, backgroundColor: 'rgba(0, 255, 191, 0.53)', m: 0.5 }}>
+                    <BarraPesquisaPalavrasChave />
+                </Box>
+                <Box sx={{ flexGrow: 1, maxWidth: 500, backgroundColor: 'rgba(0, 47, 255, 0.53)', m: 0.5 }}>
+                    <FiltroSelecaoDatas />
                 </Box>
             </Box>
 
             {/* Receitas e Despesas */}
-            <Box sx={{ mt: { xs: 2, sm: 3, md: 4 } }}>
+            <Box
+                sx={{
+                    width: '90%',
+                    mx: 'auto',
+                    mt: { xs: 2, sm: 3, md: 4 },
+                    backgroundColor: 'rgba(162, 0, 255, 0.53)',
+                    p: 2,
+                    borderRadius: 2,
+                }}
+            >
                 <Typography
                     variant="h6"
                     gutterBottom
@@ -148,6 +141,7 @@ const ExtratoFinanceiroPage = () => {
                 </Collapse>
             </Box>
 
+
             {/* Modal de Edição */}
             {dadosLancamento && (
                 <ExtratoFinanceiroModalEdicaoLancamento
@@ -156,6 +150,7 @@ const ExtratoFinanceiroPage = () => {
                 />
             )}
 
+            {/* Modal de novo lançamento */}
             <NovoLancamentoModal />
 
             {/* Botões flutuantes */}

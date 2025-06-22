@@ -1,12 +1,5 @@
-.filtro-container {
-  padding-top: 1%;
-  background-color: #b2dd15;
-  border-radius: 2px;
+.barra-pesquisa {
+  background-color: #f0f4f8; /* exemplo de fundo */
+  border-radius: 60px;
+  padding: 4px; /* se necessário */
 }
-
-.filtro-item {
-  flex-basis: 20%;
-  min-width: 250px;
-  padding: 8px;
-}
-
