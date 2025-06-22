@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Componentes personalizados
 import ExtratoFinanceiroFiltroSelecaoLancamentos from '../components/ExtratoFinanceiroFiltroSelecaoLancamentos';
@@ -21,8 +21,8 @@ import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 
 const ExtratoFinanceiroPage = () => {
     const { abrirModal } = useModal();
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    
+    
 
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
     const [filtrosAvancados, setFiltrosAvancados] = useState({});
@@ -69,26 +69,51 @@ const ExtratoFinanceiroPage = () => {
         userSelect: 'none'
     });
 
+    const theme = useTheme();
+        const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+        const isSmallScreen = useMediaQuery('(max-width:450px)');
+        const [filtroExpandido, setFiltroExpandido] = useState(true);
+    
+        // Atualiza o estado do filtro ao detectar mudança no tamanho da tela
+        useEffect(() => {
+            setFiltroExpandido(!isSmallScreen);
+        }, [isSmallScreen]);
+
     return (
         <Box>
 
             {/* Barra superior com filtros e pesquisa */}
-            <Box sx={{
-                width: '90%',
-                mx: 'auto',
-                display: 'flex',
-                justifyContent: isMobile ? 'center' : 'space-between',
-                flexWrap: 'wrap',
-                alignItems: 'flex-start',
-                my: 2,
-                backgroundColor: 'rgba(162, 0, 255, 0.53)',
-                p: 1,
-            }}>
-                <Box sx={{ flexGrow: 1, maxWidth: 500, backgroundColor: 'rgba(0, 255, 191, 0.53)', m: 0.5 }}>
+            <Box
+                sx={{
+                    width: '90%',
+                    mx: 'auto',
+                    display: 'flex',
+                    justifyContent: isMobile ? 'center' : 'space-between',
+                    flexWrap: 'wrap',
+                    alignItems: 'flex-start',
+                    my: 2,
+                    backgroundColor: 'rgba(162, 0, 255, 0.53)',
+                }}
+            >
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        maxWidth: isSmallScreen
+                            ? filtroExpandido
+                                ? '100%'
+                                : '79%'
+                            : '50%',
+                        backgroundColor: 'rgba(255, 0, 0, 0.53)',
+                    }}
+                >
                     <BarraPesquisaPalavrasChave />
                 </Box>
-                <Box sx={{ flexGrow: 1, maxWidth: 500, backgroundColor: 'rgba(0, 47, 255, 0.53)', m: 0.5 }}>
-                    <FiltroSelecaoDatas />
+
+                <Box>
+                    <FiltroSelecaoDatas
+                        filtroExpandido={filtroExpandido}
+                        setFiltroExpandido={setFiltroExpandido}
+                    />
                 </Box>
             </Box>
 

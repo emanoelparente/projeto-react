@@ -1,15 +1,14 @@
 
 
 .filtro-wrapper {
-  width: 100%;
+  
+  background-color: aquamarine;
+  
 }
 
 .filtro-container-date {
-  background-color: #1579dd00;
+  background-color: #1579dd;
   border-radius: 8px;
-
-  
-  
   margin-left: 0;
 
   display: flex;
