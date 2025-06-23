@@ -2,12 +2,12 @@
 
 .filtro-wrapper {
   
-  background-color: aquamarine;
+  background-color: rgba(127, 255, 212, 0);
   
 }
 
 .filtro-container-date {
-  background-color: #1579dd;
+  background-color: #1579dd00;
   border-radius: 8px;
   margin-left: 0;
 

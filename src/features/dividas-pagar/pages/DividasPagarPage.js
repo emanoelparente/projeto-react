@@ -27,7 +27,7 @@ const DividasPagarPage = () => {
                     flexWrap: 'wrap',
                     alignItems: 'flex-start',
                     my: 2,
-                    backgroundColor: 'rgba(162, 0, 255, 0.53)',
+                    backgroundColor: 'rgba(162, 0, 255, 0)',
                 }}
             >
                 <Box
@@ -38,7 +38,7 @@ const DividasPagarPage = () => {
                                 ? '100%'
                                 : '79%'
                             : '50%',
-                        backgroundColor: 'rgba(255, 0, 0, 0.53)',
+                        backgroundColor: 'rgba(255, 0, 0, 0)',
                     }}
                 >
                     <BarraPesquisaPalavrasChave />

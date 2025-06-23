@@ -21,8 +21,8 @@ import { Add, ExpandLess, ExpandMore, FilterList } from '@mui/icons-material';
 
 const ExtratoFinanceiroPage = () => {
     const { abrirModal } = useModal();
-    
-    
+
+
 
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
     const [filtrosAvancados, setFiltrosAvancados] = useState({});
@@ -63,21 +63,28 @@ const ExtratoFinanceiroPage = () => {
     };
 
     const estiloTitulo = (corTexto, corFundo) => ({
-        padding: '8px', borderRadius: '4px', color: corTexto,
-        backgroundColor: corFundo, cursor: 'pointer',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        userSelect: 'none'
+        padding: '8px',
+        borderRadius: '4px',
+        color: corTexto,
+        backgroundColor: corFundo,
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        userSelect: 'none',
+        fontWeight: 600
     });
 
+
     const theme = useTheme();
-        const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-        const isSmallScreen = useMediaQuery('(max-width:450px)');
-        const [filtroExpandido, setFiltroExpandido] = useState(true);
-    
-        // Atualiza o estado do filtro ao detectar mudança no tamanho da tela
-        useEffect(() => {
-            setFiltroExpandido(!isSmallScreen);
-        }, [isSmallScreen]);
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const isSmallScreen = useMediaQuery('(max-width:450px)');
+    const [filtroExpandido, setFiltroExpandido] = useState(true);
+
+    // Atualiza o estado do filtro ao detectar mudança no tamanho da tela
+    useEffect(() => {
+        setFiltroExpandido(!isSmallScreen);
+    }, [isSmallScreen]);
 
     return (
         <Box>
@@ -92,7 +99,8 @@ const ExtratoFinanceiroPage = () => {
                     flexWrap: 'wrap',
                     alignItems: 'flex-start',
                     my: 2,
-                    backgroundColor: 'rgba(162, 0, 255, 0.53)',
+                    mt: 4,
+                    backgroundColor: 'rgba(162, 0, 255, 0)',
                 }}
             >
                 <Box
@@ -103,7 +111,7 @@ const ExtratoFinanceiroPage = () => {
                                 ? '100%'
                                 : '79%'
                             : '50%',
-                        backgroundColor: 'rgba(255, 0, 0, 0.53)',
+                        backgroundColor: 'rgba(255, 0, 0, 0)',
                     }}
                 >
                     <BarraPesquisaPalavrasChave />
@@ -117,13 +125,14 @@ const ExtratoFinanceiroPage = () => {
                 </Box>
             </Box>
 
+
             {/* Receitas e Despesas */}
             <Box
                 sx={{
                     width: '90%',
                     mx: 'auto',
                     mt: { xs: 2, sm: 3, md: 4 },
-                    backgroundColor: 'rgba(162, 0, 255, 0.53)',
+                    backgroundColor: 'rgba(162, 0, 255, 0)',
                     p: 2,
                     borderRadius: 2,
                 }}
@@ -132,14 +141,14 @@ const ExtratoFinanceiroPage = () => {
                     variant="h6"
                     gutterBottom
                     onClick={() => setMostrarReceitas(!mostrarReceitas)}
-                    sx={estiloTitulo('#386641', '#d3f4c7')}
+                    sx={estiloTitulo('#77AF51',)}
                 >
                     RECEITAS {mostrarReceitas ? <ExpandLess /> : <ExpandMore />}
                 </Typography>
                 <Collapse in={mostrarReceitas}>
                     <ExtratoFinanceiroTabelaLancamentos
                         dados={receitas}
-                        corHeader="#386641"
+                        corHeader="#565656"
                         tipo="receita"
                         onEditar={editarLancamento}
                         onExcluir={confirmarExclusao}
@@ -151,14 +160,14 @@ const ExtratoFinanceiroPage = () => {
                     variant="h6"
                     gutterBottom
                     onClick={() => setMostrarDespesas(!mostrarDespesas)}
-                    sx={estiloTitulo('#9d0208', '#fcb1a6')}
+                    sx={estiloTitulo('#E37373',)}
                 >
                     DESPESAS {mostrarDespesas ? <ExpandLess /> : <ExpandMore />}
                 </Typography>
                 <Collapse in={mostrarDespesas}>
                     <ExtratoFinanceiroTabelaLancamentos
                         dados={despesas}
-                        corHeader="#9d0208"
+                        corHeader="#565656"
                         tipo="despesa"
                         onEditar={editarLancamento}
                         onExcluir={confirmarExclusao}
