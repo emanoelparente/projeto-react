@@ -7,7 +7,8 @@ import {
   Button,
   Grid,
   Box,
-  Tooltip
+  Tooltip,
+  Divider
 } from '@mui/material';
 
 const DividasPagarModalIncluirLancamento = ({ aberto, onFechar, onSalvar }) => {
@@ -21,8 +22,12 @@ const DividasPagarModalIncluirLancamento = ({ aberto, onFechar, onSalvar }) => {
     valorParcela: ''
   });
 
+  const [erros, setErros] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    setErros((prev) => ({ ...prev, [name]: false }));
 
     if (name === 'valorParcela') {
       const parcelas = Number(dados.numeroParcelas) || 1;
@@ -56,24 +61,49 @@ const DividasPagarModalIncluirLancamento = ({ aberto, onFechar, onSalvar }) => {
   };
 
   const handleSalvar = () => {
+    const camposObrigatorios = ['nome', 'valorTotal', 'vencimento'];
+    const novosErros = {};
+
+    camposObrigatorios.forEach((campo) => {
+      if (!dados[campo] || dados[campo].toString().trim() === '') {
+        novosErros[campo] = true;
+      }
+    });
+
+    setErros(novosErros);
+
+    if (Object.keys(novosErros).length > 0) return;
+
     onSalvar(dados);
     onFechar();
   };
 
   return (
     <Dialog open={aberto} onClose={onFechar} fullWidth maxWidth="sm">
-      <DialogTitle sx={{ fontWeight: 'bold', px: 3, pt: 3 }}>
+      <DialogTitle
+        sx={{
+          fontWeight: 'bold',
+          px: 3,
+          pt: 3,
+          color: '#77AF51'
+        }}
+      >
         Adicionar nova dívida
       </DialogTitle>
+
+      <Divider sx={{ mx: 3, mb: 1 }} />
+
       <DialogContent>
         <Box display="flex" flexDirection="column" alignItems="flex-start" sx={{ p: 2 }} gap={2}>
           <TextField
             name="nome"
-            label="Nome"
+            label="Nome *"
             fullWidth
             sx={{ maxWidth: '500px' }}
             value={dados.nome}
             onChange={handleChange}
+            error={erros.nome}
+            helperText={erros.nome ? 'Campo obrigatório' : ''}
           />
 
           <TextField
@@ -96,24 +126,28 @@ const DividasPagarModalIncluirLancamento = ({ aberto, onFechar, onSalvar }) => {
 
           <TextField
             name="vencimento"
-            label="Vencimento"
+            label="Vencimento *"
             type="date"
             fullWidth
             sx={{ maxWidth: '500px' }}
             InputLabelProps={{ shrink: true }}
             value={dados.vencimento}
             onChange={handleChange}
+            error={erros.vencimento}
+            helperText={erros.vencimento ? 'Campo obrigatório' : ''}
           />
 
           <Grid container spacing={2} sx={{ maxWidth: '500px' }}>
             <Grid item xs={6}>
               <TextField
                 name="valorTotal"
-                label="Valor Total"
+                label="Valor Total *"
                 type="number"
                 fullWidth
                 value={dados.valorTotal}
                 onChange={handleChange}
+                error={erros.valorTotal}
+                helperText={erros.valorTotal ? 'Campo obrigatório' : ''}
                 inputProps={{ min: 0, step: '0.01' }}
               />
             </Grid>
