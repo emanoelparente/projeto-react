@@ -14,14 +14,13 @@ const DividasPagarModalIncluirLancamento = ({ aberto, onFechar, onSalvar }) => {
   const [dados, setDados] = useState({
     nome: '',
     descricao: '',
+    credor: '',
+    vencimento: '',
     valorTotal: '',
     numeroParcelas: 1,
-    valorParcela: '',
-    vencimento: '',
-    credor: ''
+    valorParcela: ''
   });
 
-  // Atualiza dados e calcula valores relacionados
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -62,102 +61,109 @@ const DividasPagarModalIncluirLancamento = ({ aberto, onFechar, onSalvar }) => {
   };
 
   return (
-    <Dialog open={aberto} onClose={onFechar} fullWidth maxWidth="sm" PaperProps={{ sx: { overflowX: 'hidden' } }}>
-      <DialogTitle sx={{ fontWeight: 'bold', px: 3, pt: 3 }}>Adicionar nova dívida</DialogTitle>
-      <DialogContent sx={{ px: 3, pb: 3 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              name="nome"
-              label="Nome"
-              placeholder="Ex.: Telefone"
-              fullWidth
-              value={dados.nome}
-              onChange={handleChange}
-              margin="normal"
-            />
-            <TextField
-              name="valorTotal"
-              label="Valor Total"
-              placeholder="Valor total da dívida"
-              type="number"
-              fullWidth
-              value={dados.valorTotal}
-              onChange={handleChange}
-              margin="normal"
-              inputProps={{ min: 0, step: '0.01' }}
-            />
-            <TextField
-              name="vencimento"
-              label="Vencimento"
-              type="date"
-              fullWidth
-              value={dados.vencimento}
-              onChange={handleChange}
-              margin="normal"
-              InputLabelProps={{ shrink: true }}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              name="descricao"
-              label="Descrição"
-              placeholder="Ex.: Telefone novo comprado no shopping"
-              fullWidth
-              multiline
-              rows={4}
-              value={dados.descricao}
-              onChange={handleChange}
-              margin="normal"
-            />
-            <Grid container spacing={2} alignItems="center" sx={{ mt: 1 }}>
-              <Grid item xs={5}>
-                <Tooltip title="Máximo 12 parcelas">
-                  <TextField
-                    name="numeroParcelas"
-                    label="Parcelas"
-                    type="number"
-                    inputProps={{ min: 1, max: 12, style: { textAlign: 'center' } }}
-                    fullWidth
-                    value={dados.numeroParcelas}
-                    onChange={handleChange}
-                    margin="normal"
-                  />
-                </Tooltip>
-              </Grid>
-              <Grid item xs={7}>
+    <Dialog open={aberto} onClose={onFechar} fullWidth maxWidth="sm">
+      <DialogTitle sx={{ fontWeight: 'bold', px: 3, pt: 3 }}>
+        Adicionar nova dívida
+      </DialogTitle>
+      <DialogContent>
+        <Box display="flex" flexDirection="column" alignItems="flex-start" sx={{ p: 2 }} gap={2}>
+          <TextField
+            name="nome"
+            label="Nome"
+            fullWidth
+            sx={{ maxWidth: '500px' }}
+            value={dados.nome}
+            onChange={handleChange}
+          />
+
+          <TextField
+            name="descricao"
+            label="Descrição"
+            fullWidth
+            sx={{ maxWidth: '500px' }}
+            value={dados.descricao}
+            onChange={handleChange}
+          />
+
+          <TextField
+            name="credor"
+            label="Credor"
+            fullWidth
+            sx={{ maxWidth: '500px' }}
+            value={dados.credor}
+            onChange={handleChange}
+          />
+
+          <TextField
+            name="vencimento"
+            label="Vencimento"
+            type="date"
+            fullWidth
+            sx={{ maxWidth: '500px' }}
+            InputLabelProps={{ shrink: true }}
+            value={dados.vencimento}
+            onChange={handleChange}
+          />
+
+          <Grid container spacing={2} sx={{ maxWidth: '500px' }}>
+            <Grid item xs={6}>
+              <TextField
+                name="valorTotal"
+                label="Valor Total"
+                type="number"
+                fullWidth
+                value={dados.valorTotal}
+                onChange={handleChange}
+                inputProps={{ min: 0, step: '0.01' }}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Tooltip title="Máximo 12 parcelas">
                 <TextField
-                  name="valorParcela"
-                  label="Valor da Parcela"
-                  placeholder="Ex: R$ 20,52"
+                  name="numeroParcelas"
+                  label="Parcelas"
                   type="number"
                   fullWidth
-                  value={dados.valorParcela}
+                  value={dados.numeroParcelas}
                   onChange={handleChange}
-                  margin="normal"
-                  inputProps={{ min: 0, step: '0.01' }}
+                  inputProps={{
+                    min: 1,
+                    max: 12,
+                    style: { textAlign: 'center' }
+                  }}
                 />
-              </Grid>
+              </Tooltip>
             </Grid>
-            <TextField
-              name="credor"
-              label="Credor"
-              placeholder="A quem eu devo"
-              fullWidth
-              value={dados.credor}
-              onChange={handleChange}
-              margin="normal"
-            />
           </Grid>
-        </Grid>
 
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 3 }}>
-          <Button variant="outlined" onClick={onFechar} sx={{ fontWeight: 'bold' }}>
-            Cancelar
-          </Button>
-          <Button variant="contained" onClick={handleSalvar} sx={{ fontWeight: 'bold' }}>
-            Salvar
-          </Button>
+          <TextField
+            name="valorParcela"
+            label="Valor da Parcela"
+            type="number"
+            fullWidth
+            sx={{ maxWidth: '500px' }}
+            value={dados.valorParcela}
+            onChange={handleChange}
+            inputProps={{ min: 0, step: '0.01' }}
+          />
+
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              width: '100%',
+              maxWidth: '500px',
+              mt: 2,
+              gap: 2
+            }}
+          >
+            <Button variant="outlined" onClick={onFechar} sx={{ fontWeight: 'bold' }}>
+              Cancelar
+            </Button>
+            <Button variant="contained" onClick={handleSalvar} sx={{ fontWeight: 'bold' }}>
+              Salvar
+            </Button>
+          </Box>
         </Box>
       </DialogContent>
     </Dialog>
