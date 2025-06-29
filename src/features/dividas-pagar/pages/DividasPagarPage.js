@@ -24,33 +24,38 @@ const DividasPagarPage = () => {
   }, [isSmallScreen]);
 
   useEffect(() => {
-    // Mock de dívidas iniciais para testes
     const mock = [
       {
         id: 1,
         nome: 'Aluguel',
         descricao: 'Apartamento mensal',
-        valor: 1500,
-        dataVencimento: '2024-06-10',
-        destinatario: 'Imobiliária Silvaa',
+        credor: 'Imobiliária Silvaa',
+        vencimento: '2024-06-10',
+        valorTotal: '1500.00',
+        numeroParcelas: 1,
+        valorParcela: '1500.00',
         situacao: 'A vencer',
       },
       {
         id: 2,
         nome: 'Cartão de Crédito',
         descricao: 'Fatura cartão',
-        valor: 800,
-        dataVencimento: '2025-07-05',
-        destinatario: 'Nubank',
+        credor: 'Nubank',
+        vencimento: '2025-07-05',
+        valorTotal: '800.00',
+        numeroParcelas: 1,
+        valorParcela: '800.00',
         situacao: 'Vencido',
       },
       {
         id: 3,
         nome: 'Financiamento',
         descricao: 'Carro financiado',
-        valor: 950,
-        dataVencimento: '2025-05-30',
-        destinatario: 'Banco ABC',
+        credor: 'Banco ABC',
+        vencimento: '2025-05-30',
+        valorTotal: '950.00',
+        numeroParcelas: 1,
+        valorParcela: '950.00',
         situacao: 'Pago',
       },
     ];
@@ -61,8 +66,18 @@ const DividasPagarPage = () => {
     setDividas(prev => [...prev, { ...novaDivida, id: Date.now() }]);
   };
 
-  const editarDivida = (divida) => {
-    setDividaSelecionada(divida);
+  const editarDivida = (dividaOriginal) => {
+    const dividaMapeada = {
+      id: dividaOriginal.id,
+      nome: dividaOriginal.nome || '',
+      descricao: dividaOriginal.descricao || '',
+      credor: dividaOriginal.credor || '',
+      vencimento: dividaOriginal.vencimento || '',
+      valorTotal: dividaOriginal.valorTotal || '',
+      numeroParcelas: dividaOriginal.numeroParcelas || 1,
+      valorParcela: dividaOriginal.valorParcela || '',
+    };
+    setDividaSelecionada(dividaMapeada);
     setModalEdicaoAberto(true);
   };
 
@@ -77,7 +92,6 @@ const DividasPagarPage = () => {
 
   const quitarDivida = (divida) => {
     console.log('Quitar dívida:', divida);
-    // Aqui você pode implementar a lógica real de quitação
   };
 
   return (
