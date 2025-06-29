@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Fab, useMediaQuery } from '@mui/material';
+import {
+  Box, Fab, useMediaQuery, Dialog,
+  DialogTitle, DialogContent, DialogContentText,
+  DialogActions, Button
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Add } from '@mui/icons-material';
 import FiltroSelecaoDatas from '../../../components/shared/filtro-selecao-datas/FiltroSelecaoDatas';
@@ -18,6 +22,8 @@ const DividasPagarPage = () => {
   const [modalEdicaoAberto, setModalEdicaoAberto] = useState(false);
   const [dividas, setDividas] = useState([]);
   const [dividaSelecionada, setDividaSelecionada] = useState(null);
+  const [confirmarExclusaoAberto, setConfirmarExclusaoAberto] = useState(false);
+  const [dividaParaExcluir, setDividaParaExcluir] = useState(null);
 
   useEffect(() => {
     setFiltroExpandido(!isSmallScreen);
@@ -86,8 +92,16 @@ const DividasPagarPage = () => {
     setModalEdicaoAberto(false);
   };
 
-  const excluirDivida = (id) => {
-    setDividas(prev => prev.filter(d => d.id !== id));
+  const pedirConfirmacaoExclusao = (id) => {
+    const divida = dividas.find(d => d.id === id);
+    setDividaParaExcluir(divida);
+    setConfirmarExclusaoAberto(true);
+  };
+
+  const confirmarExclusao = () => {
+    setDividas(prev => prev.filter(d => d.id !== dividaParaExcluir.id));
+    setConfirmarExclusaoAberto(false);
+    setDividaParaExcluir(null);
   };
 
   const quitarDivida = (divida) => {
@@ -127,7 +141,7 @@ const DividasPagarPage = () => {
       <DividasPagarTabelaLancamentos
         dados={dividas}
         onEditar={editarDivida}
-        onExcluir={excluirDivida}
+        onExcluir={pedirConfirmacaoExclusao}
         onQuitar={quitarDivida}
       />
 
@@ -152,6 +166,19 @@ const DividasPagarPage = () => {
         divida={dividaSelecionada}
         onSalvar={salvarEdicaoDivida}
       />
+
+      <Dialog open={confirmarExclusaoAberto} onClose={() => setConfirmarExclusaoAberto(false)}>
+        <DialogTitle>Confirmar Exclusão</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Tem certeza que deseja excluir a dívida <strong>{dividaParaExcluir?.nome}</strong>?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setConfirmarExclusaoAberto(false)}>Cancelar</Button>
+          <Button onClick={confirmarExclusao} color="error" variant="contained">Excluir</Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
