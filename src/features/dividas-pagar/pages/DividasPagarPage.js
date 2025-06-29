@@ -82,6 +82,7 @@ const DividasPagarPage = () => {
       valorTotal: dividaOriginal.valorTotal || '',
       numeroParcelas: dividaOriginal.numeroParcelas || 1,
       valorParcela: dividaOriginal.valorParcela || '',
+      situacao: dividaOriginal.situacao || '',
     };
     setDividaSelecionada(dividaMapeada);
     setModalEdicaoAberto(true);

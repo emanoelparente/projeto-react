@@ -1,15 +1,21 @@
 import React from 'react';
 import {
   Dialog,
-  DialogTitle,
   DialogContent,
   TextField,
   Button,
   Grid,
   Box,
   Tooltip,
-  Divider
+  Divider,
+  Chip
 } from '@mui/material';
+
+const statusColors = {
+  'A vencer': 'warning',
+  'Vencido': 'error',
+  'Pago': 'success'
+};
 
 const DividasPagarModalBase = ({
   aberto,
@@ -18,15 +24,33 @@ const DividasPagarModalBase = ({
   erros,
   onChange,
   onSalvar,
-  onFechar
+  onFechar,
+  situacao
 }) => {
   return (
     <Dialog open={aberto} onClose={onFechar} fullWidth maxWidth="sm">
-      <DialogTitle sx={{ fontWeight: 'bold', px: 3, pt: 3, color: '#77AF51' }}>
-        {titulo}
-      </DialogTitle>
-
-      <Divider sx={{ mx: 3, mb: 1 }} />
+      {/* Cabeçalho com fundo e título alinhado com o badge */}
+      <Box sx={{ backgroundColor: '#F9F9F9', px: 3, pt: 3, pb: 1 }}>
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Box component="h2" sx={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#77AF51', m: 0 }}>
+            {titulo}
+          </Box>
+          {situacao && (
+            <Chip
+              label={situacao}
+              color={statusColors[situacao] || 'default'}
+              sx={{
+                height: 24,
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                width: 90,
+                justifyContent: 'center'
+              }}
+            />
+          )}
+        </Box>
+        <Divider sx={{ mt: 1 }} />
+      </Box>
 
       <DialogContent>
         <Box display="flex" flexDirection="column" alignItems="flex-start" sx={{ p: 2 }} gap={2}>
