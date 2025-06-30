@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardAcaoBase from "../../../components/shared/CardAcaoBase";
-
+import ExtratoFinanceiroIcon from '../../../assets/icons/icons-cards/extrato-financeiro.svg';
 
 const ExtratoFinanceiroCard = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const ExtratoFinanceiroCard = () => {
       titulo="Extrato Financeiro"
       corHeader="#37A692"
       corBody="#DDF1E5"
-      iconeSrc="../images/extrato-financeiro.svg"
+      iconeSrc={ExtratoFinanceiroIcon}
       onClick={irParaExtrato}
     />
   );

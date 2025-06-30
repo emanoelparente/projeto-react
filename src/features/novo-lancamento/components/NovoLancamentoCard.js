@@ -1,6 +1,6 @@
 import React from "react";
 import CardAcaoBase from '../../../components/shared/CardAcaoBase';
-
+import NovoLancamentoIcon from '../../../assets/icons/icons-cards/novo-lancamento.svg';
 
 import { useModal } from '../../../context/ModalContext';
 
@@ -12,7 +12,7 @@ const NovoLancamentoCard = () => {
       titulo="Novo lançamento"
       corHeader="#5D8165"
       corBody="#C0D7C5"
-      iconeSrc="../images/novo-lancamento.svg"
+      iconeSrc={NovoLancamentoIcon}
       onClick={abrirModal}
     />
   );

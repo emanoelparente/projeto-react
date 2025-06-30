@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardAcaoBase from '../../../components/shared/CardAcaoBase';
-
+import ValoresReceberIcon from '../../../assets/icons/icons-cards/valores-a-receber.svg';
 
 const ValoresReceberCard = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const ValoresReceberCard = () => {
       titulo="Valores a Receber"
       corHeader="#55A630"
       corBody="#E1FFD3"
-      iconeSrc="../images/valores-a-receber.svg"
+      iconeSrc={ValoresReceberIcon}
       onClick={irParaValoresReceber}
     />
   );

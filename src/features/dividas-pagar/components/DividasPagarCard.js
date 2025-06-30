@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardAcaoBase from "../../../components/shared/CardAcaoBase";
+import DividaPagarIcon from '../../../assets/icons/icons-cards/dividas-pagar.svg';
 
 const DividasPagarCard = () => {
   const navigate = useNavigate();
 
   const irParaDividas = () => {
-    navigate("/dividas-pagar"); // ou a rota que você configurou para dividasPagar.js atualização
+    navigate("/dividas-pagar");
   };
 
   return (
@@ -14,9 +15,10 @@ const DividasPagarCard = () => {
       titulo="Dívidas a Pagar"
       corHeader="#E37373"
       corBody="#FFF2F2"
-      iconeSrc="../images/dividas-pagar.svg"
+      iconeSrc={DividaPagarIcon} 
       onClick={irParaDividas}
     />
+
   );
 };
 
