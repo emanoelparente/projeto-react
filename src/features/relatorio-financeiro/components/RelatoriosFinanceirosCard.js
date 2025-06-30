@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardAcaoBase from '../../../components/shared/CardAcaoBase';
-
+import RelatorioFinanceiroIcon from '../../../assets/icons/icons-cards/relatorios.svg';
 
 const RelatoriosFinanceirosCard = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const RelatoriosFinanceirosCard = () => {
       titulo="Relatórios"
       corHeader="#E8B554"
       corBody="#FEEDCC"
-      iconeSrc="../images/relatorios.svg"
+      iconeSrc={RelatorioFinanceiroIcon}
       onClick={irParaRelatorios}
     />
   );
