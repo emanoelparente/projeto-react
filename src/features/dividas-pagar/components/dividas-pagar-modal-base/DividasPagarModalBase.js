@@ -12,9 +12,21 @@ import {
 } from '@mui/material';
 
 const statusColors = {
-  'A vencer': 'warning',
-  'Vencido': 'error',
-  'Pago': 'success'
+  'A vencer': {
+    chip: 'warning',
+    header: '#FFF6E0',
+    body: '#FFFBF2',
+  },
+  'Vencido': {
+    chip: 'error',
+    header: '#FDECEA',
+    body: '#FFF5F4',
+  },
+  'Pago': {
+    chip: 'success',
+    header: '#E5F4EB',
+    body: '#F2FAF6',
+  }
 };
 
 const DividasPagarModalBase = ({
@@ -27,10 +39,16 @@ const DividasPagarModalBase = ({
   onFechar,
   situacao
 }) => {
+  const status = statusColors[situacao] || {
+    chip: 'default',
+    header: '#F9F9F9',
+    body: '#FFFFFF'
+  };
+
   return (
     <Dialog open={aberto} onClose={onFechar} fullWidth maxWidth="sm">
-      {/* Cabeçalho com fundo e título alinhado com o badge */}
-      <Box sx={{ backgroundColor: '#F9F9F9', px: 3, pt: 3, pb: 1 }}>
+      {/* Cabeçalho com cor dinâmica */}
+      <Box sx={{ backgroundColor: status.header, px: 3, pt: 3, pb: 1 }}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box component="h2" sx={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#77AF51', m: 0 }}>
             {titulo}
@@ -38,7 +56,7 @@ const DividasPagarModalBase = ({
           {situacao && (
             <Chip
               label={situacao}
-              color={statusColors[situacao] || 'default'}
+              color={status.chip}
               sx={{
                 height: 24,
                 fontSize: '0.75rem',
@@ -52,7 +70,8 @@ const DividasPagarModalBase = ({
         <Divider sx={{ mt: 1 }} />
       </Box>
 
-      <DialogContent>
+      {/* Conteúdo com fundo dinâmico */}
+      <DialogContent sx={{ backgroundColor: status.body }}>
         <Box display="flex" flexDirection="column" alignItems="flex-start" sx={{ p: 2 }} gap={2}>
           <TextField
             name="nome"
