@@ -93,11 +93,29 @@ const NovoLancamentoModal = () => {
               exclusive
               onChange={(e, val) => val && setTipo(val)}
               fullWidth
-              sx={{ mb: 2 }}
+              sx={{
+                mb: 2,
+                '& .MuiToggleButton-root': {
+                  fontWeight: 'bold',
+                  border: '1px solid #ccc',
+                  borderRadius: 1,
+                  transition: 'all 0.3s',
+                  color: '#555',
+                },
+                '& .Mui-selected': {
+                  color: '#fff',
+                  backgroundColor: tipo === 'Receita' ? '#4CAF50' : '#F44336',
+                  borderColor: tipo === 'Receita' ? '#4CAF50' : '#F44336',
+                  '&:hover': {
+                    backgroundColor: tipo === 'Receita' ? '#45a049' : '#e53935',
+                  },
+                },
+              }}
             >
               <ToggleButton value="Receita">Receita</ToggleButton>
               <ToggleButton value="Despesa">Despesa</ToggleButton>
             </ToggleButtonGroup>
+
 
             <CategoriaAutocomplete
               tipo={tipo}
