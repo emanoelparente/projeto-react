@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CategoriaAutocomplete from "../../../components/shared/CategoriaAutocomplete";
 import { NumericFormat } from "react-number-format";
-import { useEffect } from "react"; // certifique-se de importar isso
-
 import {
   Modal,
   Box,
@@ -17,6 +15,7 @@ import {
   ToggleButtonGroup,
   Stack,
   Snackbar,
+  Divider,
 } from "@mui/material";
 import { useModal } from '../../../context/ModalContext';
 
@@ -66,100 +65,109 @@ const NovoLancamentoModal = () => {
             transform: "translate(-50%, -50%)",
             bgcolor: "background.paper",
             boxShadow: 24,
-            p: 4,
             borderRadius: 2,
             width: 500,
             maxWidth: "90%",
+            p: 0
           }}
         >
-          <Typography variant="h6" component="h2" sx={{ mb: 2 }}>
-            Novo Lançamento
-          </Typography>
-
-          <Typography variant="subtitle2">Tipo de Lançamento</Typography>
-          <ToggleButtonGroup
-            value={tipo}
-            exclusive
-            onChange={(e, val) => val && setTipo(val)}
-            fullWidth
-            sx={{ mb: 2 }}
-            
-          >
-            <ToggleButton value="Receita">Receita</ToggleButton>
-            <ToggleButton value="Despesa">Despesa</ToggleButton>
-          </ToggleButtonGroup>
-
-          <CategoriaAutocomplete
-            tipo={tipo}
-            categoria={categoria}
-            setCategoria={setCategoria}
-            required
-            
-          />
-
-
-
-          <FormControl fullWidth sx={{ mb: 2 }} required>
-            <InputLabel>Forma</InputLabel>
-            <Select
-              value={forma}
-              onChange={(e) => setForma(e.target.value)}
-              label="Forma"
+          {/* Cabeçalho separado */}
+          <Box sx={{ backgroundColor: "#F4F6F8", px: 3, pt: 3, pb: 1 }}>
+            <Typography
+              variant="h6"
+              component="h2"
+              sx={{ color: "#1976D2", fontWeight: "bold" }}
             >
-              <MenuItem value="Dinheiro">Dinheiro</MenuItem>
-              <MenuItem value="Pix">Pix</MenuItem>
-              <MenuItem value="Débito">Débito</MenuItem>
-              <MenuItem value="Crédito">Crédito</MenuItem>
-              <MenuItem value="TED/DOC">TED/DOC</MenuItem>
-            </Select>
-          </FormControl>
+              Novo Lançamento
+            </Typography>
+            <Divider sx={{ mt: 1 }} />
+          </Box>
 
-          <TextField
-            fullWidth
-            type="date"
-            label="Data"
-            InputLabelProps={{ shrink: true }}
-            value={data}
-            onChange={(e) => setData(e.target.value)}
-            sx={{ mb: 2 }}
-            required
-          />
+          {/* Conteúdo do modal */}
+          <Box sx={{ p: 3 }}>
+            <Typography variant="subtitle2" gutterBottom>
+              Tipo de Lançamento
+            </Typography>
+            <ToggleButtonGroup
+              value={tipo}
+              exclusive
+              onChange={(e, val) => val && setTipo(val)}
+              fullWidth
+              sx={{ mb: 2 }}
+            >
+              <ToggleButton value="Receita">Receita</ToggleButton>
+              <ToggleButton value="Despesa">Despesa</ToggleButton>
+            </ToggleButtonGroup>
 
-          <NumericFormat
-            customInput={TextField}
-            fullWidth
-            label="Valor"
-            value={valor}
-            onValueChange={(values) => {
-              setValor(values.value); // só número puro
-            }}
-            thousandSeparator="."
-            decimalSeparator=","
-            prefix="R$ "
-            decimalScale={2}
-            fixedDecimalScale
-            allowNegative={false}
-            sx={{ mb: 2 }}
-            required
-          />
+            <CategoriaAutocomplete
+              tipo={tipo}
+              categoria={categoria}
+              setCategoria={setCategoria}
+              required
+            />
 
-          <TextField
-            fullWidth
-            label="Descrição"
-            value={descricao}
-            onChange={(e) => setDescricao(e.target.value)}
-            sx={{ mb: 3 }}
-            required
-          />
+            <FormControl fullWidth sx={{ mb: 2 }} required>
+              <InputLabel>Forma</InputLabel>
+              <Select
+                value={forma}
+                onChange={(e) => setForma(e.target.value)}
+                label="Forma"
+              >
+                <MenuItem value="Dinheiro">Dinheiro</MenuItem>
+                <MenuItem value="Pix">Pix</MenuItem>
+                <MenuItem value="Débito">Débito</MenuItem>
+                <MenuItem value="Crédito">Crédito</MenuItem>
+                <MenuItem value="TED/DOC">TED/DOC</MenuItem>
+              </Select>
+            </FormControl>
 
-          <Stack direction="row" justifyContent="space-between">
-            <Button variant="outlined" color="error" onClick={fecharModal}>
-              Cancelar
-            </Button>
-            <Button type="submit" variant="contained" color="primary">
-              Salvar
-            </Button>
-          </Stack>
+            <TextField
+              fullWidth
+              type="date"
+              label="Data"
+              InputLabelProps={{ shrink: true }}
+              value={data}
+              onChange={(e) => setData(e.target.value)}
+              sx={{ mb: 2 }}
+              required
+            />
+
+            <NumericFormat
+              customInput={TextField}
+              fullWidth
+              label="Valor"
+              value={valor}
+              onValueChange={(values) => {
+                setValor(values.value); // número puro
+              }}
+              thousandSeparator="."
+              decimalSeparator=","
+              prefix="R$ "
+              decimalScale={2}
+              fixedDecimalScale
+              allowNegative={false}
+              sx={{ mb: 2 }}
+              required
+            />
+
+            <TextField
+              fullWidth
+              label="Descrição"
+              value={descricao}
+              onChange={(e) => setDescricao(e.target.value)}
+              sx={{ mb: 3 }}
+              required
+            />
+
+            <Stack direction="row" justifyContent="space-between">
+              <Button variant="outlined" color="error" onClick={fecharModal}>
+                Cancelar
+              </Button>
+              <Button type="submit" variant="contained" color="primary">
+                Salvar
+              </Button>
+            </Stack>
+          </Box>
         </Box>
       </Modal>
 
