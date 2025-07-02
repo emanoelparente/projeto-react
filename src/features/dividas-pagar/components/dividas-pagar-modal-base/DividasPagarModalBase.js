@@ -14,18 +14,21 @@ import {
 const statusColors = {
   'A vencer': {
     chip: 'warning',
-    header: '#FFF6E0',
-    body: '#FFFBF2',
+    header: '#FFE4B2',
+    body: '#FFF5E2',
+    color: '#C77800', // Laranja escuro
   },
   'Vencido': {
     chip: 'error',
-    header: '#FDECEA',
-    body: '#FFF5F4',
+    header: '#FFD8D8',
+    body: '#FFF2F2',
+    color: '#C37979', // Vermelho escuro
   },
   'Pago': {
     chip: 'success',
-    header: '#E5F4EB',
-    body: '#F2FAF6',
+    header: '#B9E49D',
+    body: '#ECF6E5',
+    color: '#2E7D32', // Verde escuro
   }
 };
 
@@ -42,15 +45,24 @@ const DividasPagarModalBase = ({
   const status = statusColors[situacao] || {
     chip: 'default',
     header: '#F9F9F9',
-    body: '#FFFFFF'
+    body: '#FFFFFF',
+    color: '#000000'
   };
 
   return (
     <Dialog open={aberto} onClose={onFechar} fullWidth maxWidth="sm">
-      {/* Cabeçalho com cor dinâmica */}
+      {/* Cabeçalho dinâmico */}
       <Box sx={{ backgroundColor: status.header, px: 3, pt: 3, pb: 1 }}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box component="h2" sx={{ fontWeight: 'bold', fontSize: '1.25rem', color: '#77AF51', m: 0 }}>
+          <Box
+            component="h2"
+            sx={{
+              fontWeight: 'bold',
+              fontSize: '1.25rem',
+              color: status.color,
+              m: 0
+            }}
+          >
             {titulo}
           </Box>
           {situacao && (
