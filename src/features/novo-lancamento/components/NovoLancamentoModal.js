@@ -104,8 +104,8 @@ const NovoLancamentoModal = () => {
                 },
                 '& .Mui-selected': {
                   color: '#fff',
-                  backgroundColor: tipo === 'Receita' ? '#4CAF50' : '#F44336',
-                  borderColor: tipo === 'Receita' ? '#4CAF50' : '#F44336',
+                  backgroundColor: tipo === 'Receita' ? '#4CAF50' : '#E37373',
+                  borderColor: tipo === 'Receita' ? '#4CAF50' : '#DE6262',
                   '&:hover': {
                     backgroundColor: tipo === 'Receita' ? '#45a049' : '#e53935',
                   },
