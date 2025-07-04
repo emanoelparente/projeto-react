@@ -72,7 +72,7 @@ const NovoLancamentoModal = () => {
           }}
         >
           {/* Cabeçalho separado */}
-          <Box sx={{ backgroundColor: "#F4F6F8", px: 3, pt: 3, pb: 1 }}>
+          <Box sx={{ backgroundColor: "#E1EDF8", px: 3, pt: 3, pb: 1 }}>
             <Typography
               variant="h6"
               component="h2"
