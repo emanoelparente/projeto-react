@@ -8,6 +8,7 @@ const CardAcaoBase = ({
   iconeSrc,
   iconeComponent,
   onClick,
+  children,
 }) => {
   return (
     <Box

@@ -17,7 +17,10 @@ const OrcamentoMensalCard = () => {
       corBody="#D6EBFF"
       iconeSrc={OrcamentoMensalIcon}
       onClick={irParaOrcamento}
-    />
+    >
+      Em desenvolvimento
+    </CardAcaoBase>
+
   );
 };
 
