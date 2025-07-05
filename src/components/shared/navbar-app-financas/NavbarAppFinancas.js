@@ -1,4 +1,3 @@
-// NavbarFinancas.js
 import React, { useState, useEffect, useRef } from "react";
 import {
   AppBar,
@@ -12,10 +11,8 @@ import {
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
-import { Link, useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavbarAppFinancas.css";
-
 
 const NavbarAppFinancas = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -23,6 +20,7 @@ const NavbarAppFinancas = () => {
   const logoRef = useRef(null);
   const location = useLocation();
   const isMobile = useMediaQuery("(max-width:600px)");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (logoRef.current) logoRef.current.blur();
@@ -31,8 +29,13 @@ const NavbarAppFinancas = () => {
   const handleMenu = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
+  const handleLogout = () => {
+    localStorage.removeItem("usuario");
+    navigate("/login");
+  };
+
   const titulosPorRota = {
-    "/home": "Financas pessoais",
+    "/home": "Finanças pessoais",
     "/extrato-financeiro": "Extrato financeiro",
     "/dividas-pagar": "Dívidas a pagar",
     "/valores-a-receber": "Valores a receber",
@@ -42,15 +45,6 @@ const NavbarAppFinancas = () => {
 
   const titulo = titulosPorRota[location.pathname] || "";
   const isHome = location.pathname === "/home";
-
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-  // Modo temporário: limpar sessão
-  localStorage.removeItem("usuario"); // ou clear() se quiser apagar tudo
-  navigate("/login"); // Redireciona para tela de login
-};
-
 
   return (
     <AppBar position="static">
@@ -73,14 +67,52 @@ const NavbarAppFinancas = () => {
           )}
         </Box>
 
-
         {/* Título central */}
         <Box className="center-box">
           <h1 className="titulo-central-texto">{titulo}</h1>
         </Box>
 
-        {/* Lado direito - menu */}
-        <Box className="right-box">
+        {/* Lado direito - saldo + menu */}
+        <Box
+          className="right-box"
+          sx={{ display: "flex", alignItems: "center", gap: 2 }}
+        >
+          {/* Caixa de saldo */}
+          <Box
+            sx={{
+              position: "relative",
+              backgroundColor: "transparent",
+              color: "#fff",
+              padding: "8px 12px",
+              borderRadius: "4px",
+              minWidth: "100px",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
+              display: { xs: "none", sm: "block" }, // esconde em telas muito pequenas
+            }}
+          >
+            {/* "Label" estilo shrink */}
+            <Box
+              component="span"
+              sx={{
+                position: "absolute",
+                top: "-10px",
+                left: "8px",
+                
+                color: "white",
+                fontSize: "0.65rem",
+                padding: "0 4px",
+                borderRadius: "4px",
+              }}
+            >
+              Saldo
+            </Box>
+
+            <Box sx={{  fontSize: "0.9rem" }}>
+              R$ 1.234,56
+            </Box>
+          </Box>
+
+          {/* Ícone de perfil/menu */}
           <IconButton onClick={handleMenu} className="perfil-icon">
             {isMobile ? (
               <MenuIcon className="icone" />
@@ -88,6 +120,8 @@ const NavbarAppFinancas = () => {
               <AccountCircle className="icone" />
             )}
           </IconButton>
+
+          {/* Menu dropdown */}
           <Menu
             anchorEl={anchorEl}
             open={open}
@@ -106,10 +140,3 @@ const NavbarAppFinancas = () => {
 };
 
 export default NavbarAppFinancas;
-
-
-
-
-
-
-/**import "../components/header.css"; */
