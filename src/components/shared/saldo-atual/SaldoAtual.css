@@ -12,11 +12,14 @@
   }
   
   .saldo-label {
-    background-color: #f5438700;
+    background-color: #e0136200;
     padding-top: 5px;
     text-align: left;
     color: #48673A;
-    
+  }
+
+  .saldo-label h6{
+    font-size: 15px;
   }
   
   .saldo-valores {

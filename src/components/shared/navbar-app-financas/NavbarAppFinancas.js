@@ -97,7 +97,7 @@ const NavbarAppFinancas = () => {
                 position: "absolute",
                 top: "-10px",
                 left: "8px",
-                
+
                 color: "white",
                 fontSize: "0.65rem",
                 padding: "0 4px",
@@ -107,15 +107,19 @@ const NavbarAppFinancas = () => {
               Saldo
             </Box>
 
-            <Box sx={{  fontSize: "0.9rem" }}>
+            <Box sx={{ fontSize: "0.9rem" }}>
               R$ 1.234,56
             </Box>
           </Box>
 
           {/* Ícone de perfil/menu */}
-          <IconButton onClick={handleMenu} className="perfil-icon">
+          <IconButton
+            onClick={handleMenu}
+            className="perfil-icon"
+          >
+
             {isMobile ? (
-              <MenuIcon className="icone" />
+              <MenuIcon/>
             ) : (
               <AccountCircle className="icone" />
             )}

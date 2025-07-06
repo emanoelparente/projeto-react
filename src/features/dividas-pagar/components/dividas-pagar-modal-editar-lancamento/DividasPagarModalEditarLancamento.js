@@ -64,7 +64,7 @@ const DividasPagarModalEditarLancamento = ({ aberto, onFechar, onSalvar, divida 
   return (
     <DividasPagarModalBase
     aberto={aberto}
-    titulo={`Editar ${dados?.nome || ''}`}
+    titulo={`Editar divida: ${dados?.nome || ''}`}
     dados={dados}
     erros={erros}
     onChange={handleChange}
