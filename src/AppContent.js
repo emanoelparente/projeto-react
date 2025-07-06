@@ -1,10 +1,12 @@
-// AppContent.js
+import { useState } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
+import PrivateRoute from './routes/PrivateRoute';
 
-import PrivateRoute from './routes/PrivateRoute'; // 👈 novo import
+import { useMediaQuery, Box } from '@mui/material';
 
 import NavbarAppFinancas from './components/shared/navbar-app-financas/NavbarAppFinancas';
+import NavbarAppFinancasVertical from './components/shared/navbar-app-financas/NavbarAppFinancasVertical';
 import SaldoAtual from './components/shared/saldo-atual/SaldoAtual';
 
 import NovoLancamentoCard from './features/novo-lancamento/components/NovoLancamentoCard';
@@ -16,7 +18,6 @@ import ValoresReceberCard from './features/valores-receber/components/ValoresRec
 import RelatoriosFinanceirosCard from './features/relatorio-financeiro/components/RelatoriosFinanceirosCard';
 
 import AuthPage from './features/auth/pages/AuthPage';
-
 import ExtratoFinanceiroPage from './features/extrato-financeiro/pages/ExtratoFinanceiroPage';
 import DividasPagarPage from './features/dividas-pagar/pages/DividasPagarPage';
 import ValoresReceberPage from './features/valores-receber/pages/ValoresReceberPage';
@@ -26,101 +27,70 @@ import RecuperaSenhaPage from './features/auth/pages/RecuperaSenhaPage';
 import RedefinirSenhaPage from './features/auth/pages/RedefinirSenhaPage';
 
 function AppContent() {
-    const { usuario } = useAuth();
-    const location = useLocation();
+  const { usuario } = useAuth();
+  const location = useLocation();
 
-    const hideNavbarRoutes = ['/login', '/cadastro','/recupera-senha', '/redefinir-senha'];
-    const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
+  const hideNavbarRoutes = ['/login', '/cadastro', '/recupera-senha', '/redefinir-senha'];
+  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
-    return (
-        <>
-            {!shouldHideNavbar && <NavbarAppFinancas />}
-            <Routes>
-                <Route path="/login" element={<AuthPage />} />
-                <Route path="/cadastro" element={<AuthPage />} />
+  const isLargeScreen = useMediaQuery('(min-width:1000px)');
+  const [menuAberto, setMenuAberto] = useState(true);
 
-                {/* Rota protegida: /home */}
-                <Route
-                    path="/home"
-                    element={
-                        <PrivateRoute>
-                            <>
-                                <SaldoAtual />
-                                <div className="card-container">
-                                    <NovoLancamentoCard />
-                                    <NovoLancamentoModal />
-                                    <DividasPagarCard />
-                                    <ExtratoFinanceiroCard />
-                                    <OrcamentoMensalCard />
-                                    <ValoresReceberCard />
-                                    <RelatoriosFinanceirosCard />
-                                </div>
-                            </>
-                        </PrivateRoute>
-                    }
-                />
+  const larguraMenu = isLargeScreen ? (menuAberto ? 230 : 70) : 0;
 
-                {/* Outras rotas protegidas */}
-                <Route
-                    path="/extrato-financeiro"
-                    element={
-                        <PrivateRoute>
-                            <ExtratoFinanceiroPage />
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path="/dividas-pagar"
-                    element={
-                        <PrivateRoute>
-                            <DividasPagarPage />
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path="/valores-a-receber"
-                    element={
-                        <PrivateRoute>
-                            <ValoresReceberPage />
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path="/relatorios"
-                    element={
-                        <PrivateRoute>
-                            <RelatoriosFinanceirosPage />
-                        </PrivateRoute>
-                    }
-                />
-                <Route
-                    path="/orcamento-mensal"
-                    element={
-                        <PrivateRoute>
-                            <OrcamentoMensalPage />
-                        </PrivateRoute>
-                    }
-                />
+  return (
+    <>
+      {!shouldHideNavbar && isLargeScreen && (
+        <NavbarAppFinancasVertical
+          menuAberto={menuAberto}
+          toggleMenu={() => setMenuAberto(!menuAberto)}
+        />
+      )}
+      {!shouldHideNavbar && !isLargeScreen && <NavbarAppFinancas />}
 
-                <Route
-                    path="/recupera-senha"
-                    element={
-                        <RecuperaSenhaPage />
-                    }
-                />
+      <Box
+        sx={{
+          marginLeft: !shouldHideNavbar && isLargeScreen ? `${larguraMenu}px` : 0,
+          transition: 'margin-left 0.3s',
+          padding: 2,
+        }}
+      >
+        <Routes>
+          <Route path="/login" element={<AuthPage />} />
+          <Route path="/cadastro" element={<AuthPage />} />
+          <Route path="/recupera-senha" element={<RecuperaSenhaPage />} />
+          <Route path="/redefinir-senha" element={<RedefinirSenhaPage />} />
 
-                <Route
-                    path="/redefinir-senha"
-                    element={
-                        <RedefinirSenhaPage />
-                    }
-                />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <>
+                  <SaldoAtual />
+                  <div className="card-container">
+                    <NovoLancamentoCard />
+                    <NovoLancamentoModal />
+                    <DividasPagarCard />
+                    <ExtratoFinanceiroCard />
+                    <OrcamentoMensalCard />
+                    <ValoresReceberCard />
+                    <RelatoriosFinanceirosCard />
+                  </div>
+                </>
+              </PrivateRoute>
+            }
+          />
+          <Route path="/extrato-financeiro" element={<PrivateRoute><ExtratoFinanceiroPage /></PrivateRoute>} />
+          <Route path="/dividas-pagar" element={<PrivateRoute><DividasPagarPage /></PrivateRoute>} />
+          <Route path="/valores-a-receber" element={<PrivateRoute><ValoresReceberPage /></PrivateRoute>} />
+          <Route path="/relatorios" element={<PrivateRoute><RelatoriosFinanceirosPage /></PrivateRoute>} />
+          <Route path="/orcamento-mensal" element={<PrivateRoute><OrcamentoMensalPage /></PrivateRoute>} />
 
-                {/* Redirecionamento baseado no login */}
-                <Route path="/" element={usuario ? <Navigate to="/home" /> : <Navigate to="/login" />} />
-            </Routes>
-        </>
-    );
+          <Route path="/" element={usuario ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+        </Routes>
+      </Box>
+    </>
+  );
 }
 
 export default AppContent;
