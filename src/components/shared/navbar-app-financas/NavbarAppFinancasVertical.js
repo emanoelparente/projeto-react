@@ -117,31 +117,37 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
               <Box
                 key={item.label}
                 onClick={() => navigate(item.path)}
+                className={`menu-item ${isActive ? "ativo" : ""}`}
                 sx={{
                   display: "flex",
                   alignItems: "center",
                   gap: 1,
                   px: 1,
                   py: 1,
-                  borderRadius: "12px 0 0 12px",
+                  borderRadius: "30px 0 0 30px",
                   cursor: "pointer",
-                  backgroundColor: isActive ? "white" : "transparent",
                   color: isActive ? "#77af51" : "white",
-                  transition: "all 0.2s",
-                  fontWeight: isActive ? "bold" : "normal",
-                  boxShadow: isActive ? "2px 0 8px rgba(0,0,0,0.1)" : "none",
-                  borderRight: isActive ? "4px solid white" : "none",
+                  backgroundColor: isActive ? "white" : "transparent",
+                  fontWeight: isActive ? "600" : "normal",
+                  
+                  
+                  transition: "all 0.3s ease",
                   "&:hover": {
                     backgroundColor: isActive ? "white" : "rgba(255,255,255,0.2)",
+                    color: isActive ? "#77af51" : "white",
                   },
                 }}
               >
-                <Tooltip title={item.label} placement="right" disableHoverListener={menuAberto}>
-                  <Box sx={{ display: "flex", alignItems: "center" }}>{item.icon}</Box>
+                <Tooltip
+                  title={item.label}
+                  placement="right"
+                  disableHoverListener={menuAberto}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", fontSize: 24 }}>
+                    {item.icon}
+                  </Box>
                 </Tooltip>
-                {menuAberto && (
-                  <Typography variant="body2">{item.label}</Typography>
-                )}
+                {menuAberto && <Typography variant="body2">{item.label}</Typography>}
               </Box>
             );
           })}
