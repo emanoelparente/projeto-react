@@ -1,9 +1,9 @@
-import { useState } from 'react';
+// AppContent.js
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import PrivateRoute from './routes/PrivateRoute';
-
 import { useMediaQuery, Box } from '@mui/material';
+import { useState } from 'react';
 
 import NavbarAppFinancas from './components/shared/navbar-app-financas/NavbarAppFinancas';
 import NavbarAppFinancasVertical from './components/shared/navbar-app-financas/NavbarAppFinancasVertical';
@@ -27,70 +27,59 @@ import RecuperaSenhaPage from './features/auth/pages/RecuperaSenhaPage';
 import RedefinirSenhaPage from './features/auth/pages/RedefinirSenhaPage';
 
 function AppContent() {
-  const { usuario } = useAuth();
-  const location = useLocation();
+    const { usuario } = useAuth();
+    const location = useLocation();
+    const hideNavbarRoutes = ['/login', '/cadastro', '/recupera-senha', '/redefinir-senha'];
+    const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
 
-  const hideNavbarRoutes = ['/login', '/cadastro', '/recupera-senha', '/redefinir-senha'];
-  const shouldHideNavbar = hideNavbarRoutes.includes(location.pathname);
+    const isLargeScreen = useMediaQuery('(min-width:1000px)');
 
-  const isLargeScreen = useMediaQuery('(min-width:1000px)');
-  const [menuAberto, setMenuAberto] = useState(true);
+    const [menuAberto, setMenuAberto] = useState(true);
+    const [bloquearAutoExpandir, setBloquearAutoExpandir] = useState(false);
 
-  const larguraMenu = isLargeScreen ? (menuAberto ? 230 : 70) : 0;
+    const fecharMenu = () => {
+        setMenuAberto(false);
+        setBloquearAutoExpandir(true);
+        setTimeout(() => setBloquearAutoExpandir(false), 300);
+    };
 
-  return (
-    <>
-      {!shouldHideNavbar && isLargeScreen && (
-        <NavbarAppFinancasVertical
-          menuAberto={menuAberto}
-          toggleMenu={() => setMenuAberto(!menuAberto)}
-        />
-      )}
-      {!shouldHideNavbar && !isLargeScreen && <NavbarAppFinancas />}
+    const larguraMenu = !shouldHideNavbar && isLargeScreen ? (menuAberto ? 230 : 70) : 0;
 
-      <Box
-        sx={{
-          marginLeft: !shouldHideNavbar && isLargeScreen ? `${larguraMenu}px` : 0,
-          transition: 'margin-left 0.3s',
-          padding: 2,
-        }}
-      >
-        <Routes>
-          <Route path="/login" element={<AuthPage />} />
-          <Route path="/cadastro" element={<AuthPage />} />
-          <Route path="/recupera-senha" element={<RecuperaSenhaPage />} />
-          <Route path="/redefinir-senha" element={<RedefinirSenhaPage />} />
+    return (
+        <>
+            {!shouldHideNavbar && isLargeScreen && (
+                <NavbarAppFinancasVertical
+                    menuAberto={menuAberto}
+                    setMenuAberto={setMenuAberto}
+                    bloquearAutoExpandir={bloquearAutoExpandir}
+                    fecharMenu={fecharMenu}
+                />
+            )}
+            {!shouldHideNavbar && !isLargeScreen && <NavbarAppFinancas />}
 
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute>
-                <>
-                  <SaldoAtual />
-                  <div className="card-container">
-                    <NovoLancamentoCard />
-                    <NovoLancamentoModal />
-                    <DividasPagarCard />
-                    <ExtratoFinanceiroCard />
-                    <OrcamentoMensalCard />
-                    <ValoresReceberCard />
-                    <RelatoriosFinanceirosCard />
-                  </div>
-                </>
-              </PrivateRoute>
-            }
-          />
-          <Route path="/extrato-financeiro" element={<PrivateRoute><ExtratoFinanceiroPage /></PrivateRoute>} />
-          <Route path="/dividas-pagar" element={<PrivateRoute><DividasPagarPage /></PrivateRoute>} />
-          <Route path="/valores-a-receber" element={<PrivateRoute><ValoresReceberPage /></PrivateRoute>} />
-          <Route path="/relatorios" element={<PrivateRoute><RelatoriosFinanceirosPage /></PrivateRoute>} />
-          <Route path="/orcamento-mensal" element={<PrivateRoute><OrcamentoMensalPage /></PrivateRoute>} />
-
-          <Route path="/" element={usuario ? <Navigate to="/home" /> : <Navigate to="/login" />} />
-        </Routes>
-      </Box>
-    </>
-  );
+            <Box
+                sx={{
+                    marginLeft: `${larguraMenu}px`,
+                    transition: 'margin-left 0.3s',
+                    padding: 2,
+                }}
+            >
+                <Routes>
+                    <Route path="/login" element={<AuthPage />} />
+                    <Route path="/cadastro" element={<AuthPage />} />
+                    <Route path="/recupera-senha" element={<RecuperaSenhaPage />} />
+                    <Route path="/redefinir-senha" element={<RedefinirSenhaPage />} />
+                    <Route path="/home" element={<PrivateRoute><><SaldoAtual /><div className="card-container"><NovoLancamentoCard /><NovoLancamentoModal /><DividasPagarCard /><ExtratoFinanceiroCard /><OrcamentoMensalCard /><ValoresReceberCard /><RelatoriosFinanceirosCard /></div></></PrivateRoute>} />
+                    <Route path="/extrato-financeiro" element={<PrivateRoute><ExtratoFinanceiroPage /></PrivateRoute>} />
+                    <Route path="/dividas-pagar" element={<PrivateRoute><DividasPagarPage /></PrivateRoute>} />
+                    <Route path="/valores-a-receber" element={<PrivateRoute><ValoresReceberPage /></PrivateRoute>} />
+                    <Route path="/relatorios" element={<PrivateRoute><RelatoriosFinanceirosPage /></PrivateRoute>} />
+                    <Route path="/orcamento-mensal" element={<PrivateRoute><OrcamentoMensalPage /></PrivateRoute>} />
+                    <Route path="/" element={usuario ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+                </Routes>
+            </Box>
+        </>
+    );
 }
 
 export default AppContent;
