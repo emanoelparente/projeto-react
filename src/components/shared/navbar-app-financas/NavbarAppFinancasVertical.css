@@ -1,33 +1,59 @@
 .navbar-vertical {
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Wrapper externo que irá renderizar os retângulos rosa */
+.menu-item-wrapper {
+    position: relative;
+}
 
+.menu-item-wrapper.ativo-wrapper::before,
+.menu-item-wrapper.ativo-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color:#77AF51;
+    border-radius: 0px;
+    padding-right: 8px;
+
+}
+
+.menu-item-wrapper.ativo-wrapper::before {
+    top: -25px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 30px;
+}
+
+.menu-item-wrapper.ativo-wrapper::after {
+    bottom: -25px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 30px;
+}
+
+/* Estilo do item de menu */
 .menu-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  border-radius: 30px 0 0 30px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 30px 0 0 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .menu-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .menu-item.ativo {
-  background-color: white;
-  color: #77af51;
-  /*border-right: 6px solid #77af51;*/
-  font-weight: 600;
- 
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  
-  margin-right: -12px;
-
+    background-color: rgb(255, 255, 255);
+    /* cor de fundo do item ativo */
+    color: #77af51;
+    font-weight: 600;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-right: -12px;
 }
-
