@@ -1,6 +1,4 @@
-.navbar-vertical {
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
-}
+
 
 .menu-item-wrapper {
   position: relative;
@@ -14,27 +12,30 @@
   position: absolute;
   left: 0px; /* espaço lateral */
   width: calc(100% - 16px);
-  height: 12px;
+  height: 15px;
   z-index: 1; /* rosa fica abaixo do azul */
 }
 
 /* Camada rosa - fundo */
 .menu-item-wrapper.ativo-wrapper::before,
 .menu-item-wrapper.ativo-wrapper::after {
-  background-color: hotpink;
+  background-color: #ffffff;
   padding: 2px;
+  padding-left: 22px;
   border-radius: 0px;
 }
 
 /* Camada azul — sobreposta usando pseudo ::before de ::before via box-shadow */
 .menu-item-wrapper.ativo-wrapper::before {
-  top: -16px;
-  box-shadow: inset 0 0 0 0px blue, 0 0 0 0px blue, 0 0 0 0px blue;
+  top: -15px;
+  
+  
+  
 }
 
 .menu-item-wrapper.ativo-wrapper::after {
-  bottom: -16px;
-  box-shadow: inset 0 0 0 0px blue, 0 0 0 0px blue, 0 0 0 0px blue;
+  bottom: -15px;
+  
 }
 
 /* Mas o truque real: o azul é feito com outro pseudo elemento usando ::before e box-shadow */
@@ -43,20 +44,24 @@
 .menu-item.ativo::after {
   content: "";
   position: absolute;
-  left: 0px;
+  left: 13px;
   width: calc(100% - 20px);
-  height: 8px;
-  background-color: blue;
-  z-index: 2; /* azul sobre rosa */
+  height: 15px;
+  background-color: #77AF51;
+  
   border-radius: 0px;
 }
 
 .menu-item.ativo::before {
-  top: -14px;
+  top: -15px;
+  border-bottom-right-radius: 20px;
+  
+  
 }
 
 .menu-item.ativo::after {
-  bottom: -14px;
+  bottom: -15px;
+  border-top-right-radius: 20px;
 }
 
 /* Estilo base */
