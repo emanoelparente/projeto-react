@@ -10,7 +10,7 @@
 .menu-item-wrapper.ativo-wrapper::after {
   content: "";
   position: absolute;
-  left: 13px; /* espaço lateral */
+  left: 24px; /* espaço lateral */
   
   width: calc(100% - 16px);
   height: 15px;
@@ -20,9 +20,10 @@
 /* Camada rosa - fundo */
 .menu-item-wrapper.ativo-wrapper::before,
 .menu-item-wrapper.ativo-wrapper::after {
-  background-color: #ffffff;
-  padding: 2px;
-  padding-left: 22px;
+  background-color: #a30808;
+  padding-left: -20px; /*parou aqui*/
+  
+ 
   border-radius: 0px;
 }
 
@@ -48,7 +49,7 @@
   left: 13px;
   width: calc(100% - 20px);
   height: 15px;
-  background-color: #77AF51;
+  background-color: #2353f000;
   
   border-radius: 0px;
 }
