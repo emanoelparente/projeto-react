@@ -10,7 +10,8 @@
 .menu-item-wrapper.ativo-wrapper::after {
   content: "";
   position: absolute;
-  left: 0px; /* espaço lateral */
+  left: 13px; /* espaço lateral */
+  
   width: calc(100% - 16px);
   height: 15px;
   z-index: 1; /* rosa fica abaixo do azul */
@@ -27,14 +28,14 @@
 
 /* Camada azul — sobreposta usando pseudo ::before de ::before via box-shadow */
 .menu-item-wrapper.ativo-wrapper::before {
-  top: -15px;
+  top: -8px;
   
   
   
 }
 
 .menu-item-wrapper.ativo-wrapper::after {
-  bottom: -15px;
+  bottom: -8px;
   
 }
 
