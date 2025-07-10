@@ -12,7 +12,7 @@
 .menu-item-wrapper.ativo-wrapper::after {
   content: "";
   position: absolute;
-  left: 8px; /* espaço lateral */
+  left: 0px; /* espaço lateral */
   width: calc(100% - 16px);
   height: 12px;
   z-index: 1; /* rosa fica abaixo do azul */
@@ -23,7 +23,7 @@
 .menu-item-wrapper.ativo-wrapper::after {
   background-color: hotpink;
   padding: 2px;
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 /* Camada azul — sobreposta usando pseudo ::before de ::before via box-shadow */
@@ -43,12 +43,12 @@
 .menu-item.ativo::after {
   content: "";
   position: absolute;
-  left: 10px;
+  left: 0px;
   width: calc(100% - 20px);
   height: 8px;
   background-color: blue;
   z-index: 2; /* azul sobre rosa */
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 .menu-item.ativo::before {
