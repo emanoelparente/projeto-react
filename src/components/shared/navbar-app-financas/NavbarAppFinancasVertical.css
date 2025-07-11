@@ -72,11 +72,11 @@
 .menu-item {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 10px 16px;
+  gap: 12px;
+  padding: 10px 15px;
   color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   position: relative;
   z-index: 3;
   background-color: transparent;
