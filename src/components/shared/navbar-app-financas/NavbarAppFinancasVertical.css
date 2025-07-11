@@ -10,19 +10,19 @@
 .menu-item-wrapper.ativo-wrapper::after {
   content: "";
   position: absolute;
-  left:183px;
+  left:212px;
   
   
   
-  width: calc(100% - 175px);
-  height: 10px;
-  z-index: 1; /* rosa fica abaixo do azul */
+  width: calc(100% - 204px);
+  height: 15px;
+  z-index: 1; 
 }
 
 /* Camada rosa - fundo */
 .menu-item-wrapper.ativo-wrapper::before,
 .menu-item-wrapper.ativo-wrapper::after {
-  background-color: #ffffff;
+  background-color: #c51212;
    /*parou aqui*/
   
  
@@ -48,11 +48,11 @@
 .menu-item.ativo::after {
   content: "";
   position: absolute;
-  left: 13px;
-  width: calc(100% - 180px);
+  
+  width: calc(100% - 218px);
   height: 10px;
-  background-color: #77AF51;
-  left:173px;
+  background-color: #516aaf;
+  left:211px;
   border-radius: 0px;
 }
 
@@ -76,7 +76,7 @@
   padding: 10px 15px;
   color: white;
   cursor: pointer;
-  transition: all 0.1s ease;
+  transition: all 1s ease;
   position: relative;
   z-index: 3;
   background-color: transparent;
