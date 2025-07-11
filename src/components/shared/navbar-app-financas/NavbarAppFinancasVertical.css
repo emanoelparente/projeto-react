@@ -1,72 +1,38 @@
-
-
+/* -----------------------------
+   WRAPPER DO ITEM DE MENU
+------------------------------ */
 .menu-item-wrapper {
   position: relative;
   z-index: 1;
 }
 
-/* ::before = cima, ::after = baixo */
+/* Linhas vermelhas (fundo) — cima e baixo */
 .menu-item-wrapper.ativo-wrapper::before,
 .menu-item-wrapper.ativo-wrapper::after {
   content: "";
   position: absolute;
-  left:212px;
-  
-  
-  
+  left: 212px;
   width: calc(100% - 204px);
   height: 15px;
-  z-index: 1; 
-}
-
-/* Camada rosa - fundo */
-.menu-item-wrapper.ativo-wrapper::before,
-.menu-item-wrapper.ativo-wrapper::after {
-  background-color: #c51212;
-   /*parou aqui*/
-  
- 
+  background-color: #ffffff;
   border-radius: 0px;
+  z-index: 1;
 }
 
-/* Camada azul — sobreposta usando pseudo ::before de ::before via box-shadow */
+/* Linha superior */
 .menu-item-wrapper.ativo-wrapper::before {
   top: -10px;
-  
-  
-  
 }
 
+/* Linha inferior */
 .menu-item-wrapper.ativo-wrapper::after {
   bottom: -10px;
-  
 }
 
-/* Mas o truque real: o azul é feito com outro pseudo elemento usando ::before e box-shadow */
 
-.menu-item.ativo::before,
-.menu-item.ativo::after {
-  content: "";
-  position: absolute;
-  
-  width: calc(100% - 218px);
-  height: 10px;
-  background-color: #516aaf;
-  left:211px;
-  border-radius: 0px;
-}
-
-.menu-item.ativo::before {
-  top: -10px;
-  border-bottom-right-radius: 20px;
-  
-  
-}
-
-.menu-item.ativo::after {
-  bottom: -10px;
-  border-top-right-radius: 20px;
-}
+/* -----------------------------
+   ITEM DE MENU
+------------------------------ */
 
 /* Estilo base */
 .menu-item {
@@ -76,17 +42,19 @@
   padding: 10px 15px;
   color: white;
   cursor: pointer;
-  transition: all 1s ease;
   position: relative;
   z-index: 3;
   background-color: transparent;
   border-radius: 30px 0 0 30px;
+  transition: background-color 0.2s ease, color 0.3s ease;
 }
 
+/* Hover */
 .menu-item:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Ativo */
 .menu-item.ativo {
   background-color: white;
   color: #77AF51;
@@ -94,4 +62,30 @@
   margin-right: -15px;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+}
+
+/* Linhas azuis (frente) — cima e baixo */
+.menu-item.ativo::before,
+.menu-item.ativo::after {
+  content: "";
+  position: absolute;
+  left: 211px;
+  width: calc(100% - 218px);
+  height: 10px;
+  background-color: #77AF51;
+  border-radius: 0px;
+  z-index: 2;
+  transition: none !important; /* ← sem transição */
+}
+
+/* Linha superior */
+.menu-item.ativo::before {
+  top: -10px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Linha inferior */
+.menu-item.ativo::after {
+  bottom: -10px;
+  border-top-right-radius: 20px;
 }
