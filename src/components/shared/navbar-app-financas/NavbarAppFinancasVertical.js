@@ -33,7 +33,7 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef();
-  const larguraMenu = menuAberto ? 230 : 70;
+  const larguraMenu = menuAberto ? 230 : 50;
 
   const toggleMenu = () => {
     setMenuAberto(false);
@@ -72,6 +72,9 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
         justifyContent: "space-between",
         zIndex: 1000,
         padding: "16px 8px",
+        borderTopRightRadius: "8px",
+        borderBottomRightRadius: "8px",
+
       }}
     >
       {/* Topo */}
@@ -98,7 +101,13 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
         </Box>
 
         {/* Saldo */}
-        <Box sx={{ mt: 3, textAlign: menuAberto ? "left" : "center", px: 1 }}>
+        <Box sx={{
+          mt: 3,
+          textAlign: menuAberto ? "left" : "center",
+          paddingLeft: menuAberto ? "10px" : "0px"
+
+        }}>
+
           <Typography variant="caption" sx={{ color: "white", fontSize: "0.65rem" }}>
             SALDO
           </Typography>
@@ -111,31 +120,28 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
 
         {/* Menu */}
         <Box sx={{ mt: 4, display: "flex", flexDirection: "column", gap: 1 }}>
-  {menuItems.map((item) => {
-    const isActive = location.pathname === item.path;
+          {menuItems.map((item) => {
+            const isActive = location.pathname === item.path;
 
-    return (
-      <Box
-        key={item.label}
-        className={`menu-item-wrapper ${isActive ? "ativo-wrapper" : ""}`}
-        onClick={() => navigate(item.path)}
-      >
-        <Box className={`menu-item ${isActive ? "ativo" : ""}`}>
-          <Tooltip
-            title={item.label}
-            placement="right"
-            disableHoverListener={menuAberto}
-          >
-            <Box sx={{ display: "flex", alignItems: "center", fontSize: 24 }}>
-              {item.icon}
-            </Box>
-          </Tooltip>
-          {menuAberto && <Typography variant="body2">{item.label}</Typography>}
+            return (
+              <Box
+                key={item.label}
+                className={`menu-item-wrapper ${isActive ? "ativo-wrapper" : ""}`}
+                onClick={() => navigate(item.path)}
+              >
+                <Box className={`menu-item ${isActive ? "ativo" : ""}`}>
+                  <Tooltip
+                  >
+                    <Box sx={{ display: "flex", alignItems: "center", fontSize: 24 }}>
+                      {item.icon}
+                    </Box>
+                  </Tooltip>
+                  {menuAberto && <Typography variant="body2">{item.label}</Typography>}
+                </Box>
+              </Box>
+            );
+          })}
         </Box>
-      </Box>
-    );
-  })}
-</Box>
 
       </Box>
 
