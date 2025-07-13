@@ -11,22 +11,20 @@
 .menu-item-wrapper.ativo-wrapper::after {
   content: "";
   position: absolute;
-  left: 212px;
-  width: calc(100% - 204px);
-  height: 15px;
+  right: -8px; /* ← posiciona com base no lado direito, mais flexível */
+  width: 15px; /* largura constante, funciona nos dois modos */
+  height: 9px;
   background-color: #ffffff;
   border-radius: 0px;
   z-index: 1;
 }
 
-/* Linha superior */
 .menu-item-wrapper.ativo-wrapper::before {
-  top: -10px;
+  top: -9px;
 }
 
-/* Linha inferior */
 .menu-item-wrapper.ativo-wrapper::after {
-  bottom: -10px;
+  bottom: -9px;
 }
 
 
@@ -46,10 +44,9 @@
   z-index: 3;
   background-color: transparent;
   border-radius: 30px 0 0 30px;
-  transition: background-color 0.2s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover */
 .menu-item:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -69,23 +66,21 @@
 .menu-item.ativo::after {
   content: "";
   position: absolute;
-  left: 211px;
-  width: calc(100% - 218px);
-  height: 10px;
+  right: 7px; /* ← acompanha a linha vermelha */
+  width: 15px;
+  height: 9px;
   background-color: #77AF51;
   border-radius: 0px;
   z-index: 2;
-  transition: none !important; /* ← sem transição */
+  transition: none !important;
 }
 
-/* Linha superior */
 .menu-item.ativo::before {
-  top: -10px;
-  border-bottom-right-radius: 20px;
+  top: -9px;
+  border-bottom-right-radius: 100px;
 }
 
-/* Linha inferior */
 .menu-item.ativo::after {
-  bottom: -10px;
-  border-top-right-radius: 20px;
+  bottom: -9px;
+  border-top-right-radius: 100px;
 }
