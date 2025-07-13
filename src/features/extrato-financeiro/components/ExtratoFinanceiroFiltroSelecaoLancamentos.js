@@ -22,12 +22,6 @@ const ExtratoFinanceiroFiltroSelecaoLancamentos = ({ aberto, onFechar, onAplicar
             <DialogContent>
                 <Box display="flex" flexDirection="column" gap={2} mt={1}>
 
-                    <TextField
-                        label="Palavra-chave"
-                        variant="outlined"
-                        value={palavraChave}
-                        onChange={(e) => setPalavraChave(e.target.value)}
-                    />
 
                     <FormControl fullWidth>
                         <InputLabel>Forma</InputLabel>

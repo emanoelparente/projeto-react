@@ -11,7 +11,7 @@
 .menu-item-wrapper.ativo-wrapper::after {
   content: "";
   position: absolute;
-  right: -8px; /* ← posiciona com base no lado direito, mais flexível */
+  right: -8px; /* ← posiciona com base no lado direito, mais flexívell */
   width: 15px; /* largura constante, funciona nos dois modos */
   height: 9px;
   background-color: #ffffff;
