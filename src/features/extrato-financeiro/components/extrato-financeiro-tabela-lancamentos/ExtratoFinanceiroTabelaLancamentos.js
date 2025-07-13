@@ -6,8 +6,10 @@ import {
 import { Edit, Delete, ExpandMore, ExpandLess } from '@mui/icons-material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './ExtratoFinanceiroTabelaLancamentos.css';
+import { ReactComponent as EditarIcon } from '../../../../assets/icons/editar-1.svg';
+import { ReactComponent as LixeiraIcon } from '../../../../assets/icons/lixeira-1.svg';
 
-;
+
 
 const DetalhesCollapseMobile = ({ item, tipo, onEditar, onExcluir, expanded, onToggle }) => {
     return (
@@ -31,14 +33,15 @@ const DetalhesCollapseMobile = ({ item, tipo, onEditar, onExcluir, expanded, onT
                             <Box display="flex" justifyContent="center" gap={1}>
                                 <Tooltip title="Editar">
                                     <IconButton color="primary" onClick={() => onEditar(item)}>
-                                        <Edit />
+                                        <EditarIcon width={22} height={22} />
                                     </IconButton>
                                 </Tooltip>
                                 <Tooltip title="Excluir">
                                     <IconButton color="error" onClick={() => onExcluir(item.id)}>
-                                        <Delete />
+                                        <LixeiraIcon width={22} height={22} />
                                     </IconButton>
                                 </Tooltip>
+
                             </Box>
 
                         </Box>
@@ -104,14 +107,15 @@ const ExtratoFinanceiroTabelaLancamentos = ({ dados, corHeader = '#000', tipo = 
                                     <TableCell align="center" className="col-acoes">
                                         <Tooltip title="Editar">
                                             <IconButton color="primary" onClick={() => onEditar(item)}>
-                                                <Edit />
+                                                <EditarIcon width={22} height={22} />
                                             </IconButton>
                                         </Tooltip>
                                         <Tooltip title="Excluir">
                                             <IconButton color="error" onClick={() => onExcluir(item.id)}>
-                                                <Delete />
+                                                <LixeiraIcon width={22} height={22} />
                                             </IconButton>
                                         </Tooltip>
+
                                     </TableCell>
                                 </TableRow>
                             )
