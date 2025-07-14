@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from './context/AuthContext'; // ajuste o caminho conforme sua estrutura
 import { BrowserRouter } from "react-router-dom";
+/*import * as serviceWorkerRegistration from './serviceWorkerRegistration';*/
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
