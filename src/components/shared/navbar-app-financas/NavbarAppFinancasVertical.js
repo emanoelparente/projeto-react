@@ -17,11 +17,12 @@ import {
   ChevronLeft,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useModal } from "../../../context/ModalContext"; // ajuste o path se necessário
 import "./NavbarAppFinancasVertical.css";
 
 const menuItems = [
   { label: "Home", icon: <Home />, path: "/home" },
-  { label: "Novo lançamento", icon: <AddCircle />, path: "/novo-lancamento" },
+  { label: "Novo lançamento", icon: <AddCircle />, action: "abrirModal" }, // ação especial
   { label: "Orçamento mensal", icon: <PieChart />, path: "/orcamento-mensal" },
   { label: "Dívidas a pagar", icon: <AttachMoney />, path: "/dividas-pagar" },
   { label: "Valores a receber", icon: <AttachMoney />, path: "/valores-a-receber" },
@@ -33,6 +34,7 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef();
+  const { abrirModal } = useModal(); // hook do contexto do modal
   const larguraMenu = menuAberto ? 230 : 50;
 
   const toggleMenu = () => {
@@ -54,6 +56,14 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const handleItemClick = (item) => {
+    if (item.action === "abrirModal") {
+      abrirModal(); // abre o modal de novo lançamento
+    } else if (item.path) {
+      navigate(item.path); // navega para rota
+    }
+  };
+
   return (
     <Box
       ref={menuRef}
@@ -74,7 +84,6 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
         padding: "16px 8px",
         borderTopRightRadius: "8px",
         borderBottomRightRadius: "8px",
-
       }}
     >
       {/* Topo */}
@@ -101,18 +110,23 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
         </Box>
 
         {/* Saldo */}
-        <Box sx={{
-          mt: 3,
-          textAlign: menuAberto ? "left" : "center",
-          paddingLeft: menuAberto ? "10px" : "0px"
-
-        }}>
-
-          <Typography variant="caption" sx={{ color: "white", fontSize: "0.65rem" }}>
+        <Box
+          sx={{
+            mt: 3,
+            textAlign: menuAberto ? "left" : "center",
+            paddingLeft: menuAberto ? "10px" : "0px",
+          }}
+        >
+          <Typography
+            variant="caption"
+            sx={{ color: "white", fontSize: "0.65rem" }}
+          >
             SALDO
           </Typography>
           {menuAberto && (
-            <Typography sx={{ color: "white", fontWeight: "bold", fontSize: "1rem" }}>
+            <Typography
+              sx={{ color: "white", fontWeight: "bold", fontSize: "1rem" }}
+            >
               R$ 152.500,75
             </Typography>
           )}
@@ -126,23 +140,27 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
             return (
               <Box
                 key={item.label}
-                className={`menu-item-wrapper ${isActive ? "ativo-wrapper" : ""}`}
-                onClick={() => navigate(item.path)}
+                className={`menu-item-wrapper ${
+                  isActive ? "ativo-wrapper" : ""
+                }`}
+                onClick={() => handleItemClick(item)}
               >
                 <Box className={`menu-item ${isActive ? "ativo" : ""}`}>
-                  <Tooltip
-                  >
-                    <Box sx={{ display: "flex", alignItems: "center", fontSize: 24 }}>
+                  <Tooltip title={!menuAberto ? item.label : ""} placement="right">
+                    <Box
+                      sx={{ display: "flex", alignItems: "center", fontSize: 24 }}
+                    >
                       {item.icon}
                     </Box>
                   </Tooltip>
-                  {menuAberto && <Typography variant="body2">{item.label}</Typography>}
+                  {menuAberto && (
+                    <Typography variant="body2">{item.label}</Typography>
+                  )}
                 </Box>
               </Box>
             );
           })}
         </Box>
-
       </Box>
 
       {/* Rodapé */}
