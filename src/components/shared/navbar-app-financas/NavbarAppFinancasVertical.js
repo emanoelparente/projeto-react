@@ -16,8 +16,10 @@ import {
   Menu as MenuIcon,
   ChevronLeft,
 } from "@mui/icons-material";
+import { Logout } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useModal } from "../../../context/ModalContext"; // ajuste o path se necessário
+import { useModal } from "../../../context/ModalContext";
+import { useAuth } from "../../../context/AuthContext";
 import "./NavbarAppFinancasVertical.css";
 
 const menuItems = [
@@ -31,6 +33,7 @@ const menuItems = [
 ];
 
 const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
+  const { logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef();
@@ -140,9 +143,8 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
             return (
               <Box
                 key={item.label}
-                className={`menu-item-wrapper ${
-                  isActive ? "ativo-wrapper" : ""
-                }`}
+                className={`menu-item-wrapper ${isActive ? "ativo-wrapper" : ""
+                  }`}
                 onClick={() => handleItemClick(item)}
               >
                 <Box className={`menu-item ${isActive ? "ativo" : ""}`}>
@@ -164,10 +166,19 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
       </Box>
 
       {/* Rodapé */}
-      <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
-        <Tooltip title="Perfil">
-          <IconButton sx={{ color: "white", width: 48, height: 48 }}>
-            <AccountCircle sx={{ fontSize: 36 }} />
+      <Box sx={{ display: "flex", mb: 2,
+
+        justifyContent: menuAberto ? "right" : "center",
+        
+
+
+       }}>
+        <Tooltip title="Sair">
+          <IconButton
+            sx={{ color: "white", width: 48, height: 48 }}
+            onClick={logout}
+          >
+            <Logout sx={{ fontSize: 30 }} />
           </IconButton>
         </Tooltip>
       </Box>
