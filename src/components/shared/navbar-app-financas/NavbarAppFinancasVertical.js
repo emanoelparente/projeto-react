@@ -169,14 +169,7 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
       </Box>
 
       {/* Rodapé */}
-      <Box sx={{
-        display: "flex", mb: 2,
-
-        justifyContent: menuAberto ? "right" : "center",
-
-
-
-      }}>
+      <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 2 }}>
         <Tooltip title="Sair">
           <IconButton
             sx={{ color: "white", width: 48, height: 48 }}
@@ -185,7 +178,34 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
             <Logout sx={{ fontSize: 30 }} />
           </IconButton>
         </Tooltip>
+
+        {menuAberto && (
+          <Box sx={{ mt: 1, textAlign: "center" }}>
+            <Typography
+              variant="caption"
+              sx={{ color: "white", cursor: "pointer", fontSize: "0.7rem" }}
+              onClick={() => navigate("/ajuda")}
+            >
+              <p>Ajuda</p>
+            </Typography>
+            <Typography
+              variant="caption"
+              sx={{ color: "white", cursor: "pointer", fontSize: "0.7rem" }}
+              onClick={() => navigate("/termos")}
+            >
+               <p>Termos de Uso</p>
+            </Typography>
+            <Typography
+              variant="caption"
+              sx={{ color: "white", cursor: "pointer", fontSize: "0.7rem" }}
+              onClick={() => navigate("/privacidade")}
+            >
+              <p>Política de Privacidade </p>
+            </Typography>
+          </Box>
+        )}
       </Box>
+
     </Box>
   );
 };
