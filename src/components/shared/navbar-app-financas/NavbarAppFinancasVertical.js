@@ -169,42 +169,73 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
       </Box>
 
       {/* Rodapé */}
-      <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 2 }}>
-        <Tooltip title="Sair">
-          <IconButton
-            sx={{ color: "white", width: 48, height: 48 }}
-            onClick={logout}
-          >
-            <Logout sx={{ fontSize: 30 }} />
-          </IconButton>
-        </Tooltip>
 
+      <Box sx={{ mt: 2 }}>
+        {/* Linha divisória depois do último item do menu */}
+        <Box sx={{ px: 1 }}>
+          <Box sx={{ height: "1px", backgroundColor: "#ffffff55", mb: 1 }} />
+        </Box>
+
+        {/* Links de rodapé */}
         {menuAberto && (
-          <Box sx={{ mt: 1, textAlign: "left" }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5, px: 2 }}>
             <Typography
               variant="caption"
-              sx={{ color: "white", cursor: "pointer", fontSize: "0.7rem" }}
+              sx={{ color: "white", cursor: "pointer", fontSize: "0.75rem" }}
               onClick={() => navigate("/ajuda")}
             >
-              <p>Ajuda</p>
+              Ajuda
             </Typography>
             <Typography
               variant="caption"
-              sx={{ color: "white", cursor: "pointer", fontSize: "0.7rem" }}
+              sx={{ color: "white", cursor: "pointer", fontSize: "0.75rem" }}
               onClick={() => navigate("/termos")}
             >
-               <p>Termos de Uso</p>
+              Termos de Uso
             </Typography>
             <Typography
               variant="caption"
-              sx={{ color: "white", cursor: "pointer", fontSize: "0.7rem" }}
+              sx={{ color: "white", cursor: "pointer", fontSize: "0.75rem" }}
               onClick={() => navigate("/privacidade")}
             >
-              <p>Política de Privacidade </p>
+              Política de Privacidade
             </Typography>
           </Box>
         )}
+
+        {/* Ícone de sair alinhado à direita */}
+        <Box
+          onClick={logout}
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            px: 1.5,
+            mt: 2,
+            mb: 1,
+            gap: 1,
+            cursor: "pointer",
+            '&:hover': {
+              opacity: 0.8
+            },
+            
+          }}
+        >
+          <Logout sx={{ fontSize: 20, color: "white" }} />
+          {menuAberto && (
+            <Typography
+              variant="body2"
+              sx={{ color: "white", fontSize: "0.9rem" }}
+            >
+              Sair
+            </Typography>
+          )}
+        </Box>
+
+
+
       </Box>
+
 
     </Box>
   );
