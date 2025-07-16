@@ -150,13 +150,16 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
                 <Box className={`menu-item ${isActive ? "ativo" : ""}`}>
                   <Tooltip title={!menuAberto ? item.label : ""} placement="right">
                     <Box
-                      sx={{ display: "flex", alignItems: "center", fontSize: 24 }}
+                      sx={{ display: "flex", alignItems: "center", fontSize: "24px" }}
                     >
                       {item.icon}
                     </Box>
                   </Tooltip>
                   {menuAberto && (
-                    <Typography variant="body2">{item.label}</Typography>
+                    <Typography sx={{
+                      fontSize: "0.85rem",
+                      fontWeight: 200,
+                    }}>{item.label}</Typography>
                   )}
                 </Box>
               </Box>
@@ -166,13 +169,14 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
       </Box>
 
       {/* Rodapé */}
-      <Box sx={{ display: "flex", mb: 2,
+      <Box sx={{
+        display: "flex", mb: 2,
 
         justifyContent: menuAberto ? "right" : "center",
-        
 
 
-       }}>
+
+      }}>
         <Tooltip title="Sair">
           <IconButton
             sx={{ color: "white", width: 48, height: 48 }}
