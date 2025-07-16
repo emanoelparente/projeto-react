@@ -180,7 +180,7 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
         </Tooltip>
 
         {menuAberto && (
-          <Box sx={{ mt: 1, textAlign: "center" }}>
+          <Box sx={{ mt: 1, textAlign: "left" }}>
             <Typography
               variant="caption"
               sx={{ color: "white", cursor: "pointer", fontSize: "0.7rem" }}
