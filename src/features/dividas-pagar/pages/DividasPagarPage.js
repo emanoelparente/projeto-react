@@ -11,12 +11,16 @@ import BarraPesquisaPalavrasChave from '../../../components/shared/barra-pesquis
 import DividasPagarTabelaLancamentos from '../components/dividas-pagar-tabela-lancamentos/DividasPagarTabelaLancamentos';
 import DividasPagarModalIncluirLancamento from '../components/dividas-pagar-modal-incluir-lancamento/DividasPagarModalIncluirLancamento';
 import DividasPagarModalEditarLancamento from '../components/dividas-pagar-modal-editar-lancamento/DividasPagarModalEditarLancamento';
+import DividasPagarModalQuitarDivida from '../components/dividas-pagar-modal-quitar-divida/DividasPagarModalQuitarDivida';
+
+
 
 const DividasPagarPage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isSmallScreen = useMediaQuery('(max-width:450px)');
 
+  const [modalQuitarAberto, setModalQuitarAberto] = useState(false);
   const [filtroExpandido, setFiltroExpandido] = useState(true);
   const [modalAberto, setModalAberto] = useState(false);
   const [modalEdicaoAberto, setModalEdicaoAberto] = useState(false);
@@ -106,8 +110,23 @@ const DividasPagarPage = () => {
   };
 
   const quitarDivida = (divida) => {
-    console.log('Quitar dívida:', divida);
+    setDividaSelecionada(divida);
+    setModalQuitarAberto(true);
   };
+
+  const quitarComSaldo = () => {
+    // Aqui você pode abrir o modal de Nova Despesa já preenchido
+    console.log('Quitar com saldo:', dividaSelecionada);
+    setModalQuitarAberto(false);
+    // TODO: abrir modal de nova despesa aqui
+  };
+
+  const quitarManual = () => {
+    console.log('Quitar manualmente:', dividaSelecionada);
+    setModalQuitarAberto(false);
+    setModalEdicaoAberto(true); // Abre o modal de edição para o usuário alterar manualmente
+  };
+
 
   return (
     <Box sx={{ p: 2 }}>
@@ -180,7 +199,16 @@ const DividasPagarPage = () => {
           <Button onClick={confirmarExclusao} color="error" variant="contained">Excluir</Button>
         </DialogActions>
       </Dialog>
+      <DividasPagarModalQuitarDivida
+        aberto={modalQuitarAberto}
+        onFechar={() => setModalQuitarAberto(false)}
+        divida={dividaSelecionada}
+        onQuitarComSaldo={quitarComSaldo}
+        onQuitarManual={quitarManual}
+      />
+
     </Box>
+
   );
 };
 
