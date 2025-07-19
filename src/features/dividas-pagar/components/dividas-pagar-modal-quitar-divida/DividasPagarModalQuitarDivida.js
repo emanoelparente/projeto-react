@@ -24,7 +24,7 @@ const DividasPagarModalQuitarLancamento = ({ aberto, onFechar, divida, onQuitarC
 
       <DialogActions>
         <Button onClick={onQuitarManual} color="secondary">Quitar manualmente</Button>
-        <Button onClick={onQuitarComSaldo} variant="contained" color="primary">Quitar com saldo</Button>
+        <Button onClick={onQuitarComSaldo} variant="contained" color="primary">Quitar com saldo da conta</Button>
       </DialogActions>
     </Dialog>
   );
