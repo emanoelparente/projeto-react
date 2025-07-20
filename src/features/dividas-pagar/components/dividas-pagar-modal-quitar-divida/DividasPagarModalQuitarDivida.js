@@ -58,7 +58,7 @@ const DividasPagarModalQuitarLancamento = ({
           Cancelar
         </Button>
         <Button onClick={handleQuitar} variant="contained" color="primary">
-          Confirmar quitação
+          Confirmar quitaçãoA
         </Button>
       </DialogActions>
     </Dialog>
