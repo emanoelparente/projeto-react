@@ -27,6 +27,8 @@ const DividasPagarModalQuitarLancamento = ({
     onFechar();
   };
 
+  
+
   return (
     <Dialog open={aberto} onClose={onFechar} maxWidth="sm" fullWidth>
       <DialogTitle>Quitar: {divida.nome}</DialogTitle>
