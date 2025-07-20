@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Dialog, DialogTitle, DialogContent, DialogActions,
   Button, Typography, Box, Radio, RadioGroup, FormControlLabel,
-  FormControl, FormLabel, TextField
+  FormControl, FormLabel
 } from '@mui/material';
 
 const DividasPagarModalQuitarLancamento = ({
@@ -12,22 +12,16 @@ const DividasPagarModalQuitarLancamento = ({
   onQuitar
 }) => {
   const [tipoBaixa, setTipoBaixa] = useState('comSaldo');
-  const [categoria, setCategoria] = useState('');
-  const [formaPagamento, setFormaPagamento] = useState('');
 
   if (!divida) return null;
 
   const handleQuitar = () => {
     onQuitar({
       tipoBaixa,
-      categoria,
-      formaPagamento,
       divida,
     });
     onFechar();
   };
-
-  
 
   return (
     <Dialog open={aberto} onClose={onFechar} maxWidth="sm" fullWidth>
@@ -57,25 +51,6 @@ const DividasPagarModalQuitarLancamento = ({
             />
           </RadioGroup>
         </FormControl>
-
-        <TextField
-          label="Categoria"
-          fullWidth
-          variant="outlined"
-          size="small"
-          sx={{ mb: 2 }}
-          value={categoria}
-          onChange={(e) => setCategoria(e.target.value)}
-        />
-
-        <TextField
-          label="Forma de pagamento"
-          fullWidth
-          variant="outlined"
-          size="small"
-          value={formaPagamento}
-          onChange={(e) => setFormaPagamento(e.target.value)}
-        />
       </DialogContent>
 
       <DialogActions>
