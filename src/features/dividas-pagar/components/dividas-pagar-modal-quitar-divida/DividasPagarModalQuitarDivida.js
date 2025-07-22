@@ -5,23 +5,43 @@ import {
   FormControl, FormLabel
 } from '@mui/material';
 
-const DividasPagarModalQuitarLancamento = ({
+import { useModal } from '../../../../context/ModalContext';
+
+
+const DividasPagarModalQuitarDivida = ({
   aberto,
   onFechar,
   divida,
   onQuitar
 }) => {
-  const [tipoBaixa, setTipoBaixa] = useState('comSaldo');
+  const [tipoBaixa, setTipoBaixa] = useState('');
+  const { abrirModal } = useModal();
 
   if (!divida) return null;
 
+  const isConfirmarDisabled = tipoBaixa === '';
+
   const handleQuitar = () => {
-    onQuitar({
-      tipoBaixa,
-      divida,
-    });
-    onFechar();
+    if (tipoBaixa === 'comSaldo') {
+      abrirModal({
+        tipo: "Despesa",
+        categoria: "Quitação",
+        descricao: `Quitação da dívida: ${divida.nome}`,
+        valor: divida.valorTotal,
+        data: divida.vencimento,
+        forma: "" // ou "Pix", "Dinheiro", etc.
+      });
+
+      onFechar();
+    } else if (tipoBaixa === 'semSaldo') {
+      onQuitar({
+        tipoBaixa,
+        divida,
+      });
+      onFechar();
+    }
   };
+
 
   return (
     <Dialog open={aberto} onClose={onFechar} maxWidth="sm" fullWidth>
@@ -33,7 +53,7 @@ const DividasPagarModalQuitarLancamento = ({
           <Typography variant="body2"><strong>Vencimento:</strong> {divida.vencimento}</Typography>
         </Box>
 
-        <FormControl component="fieldset" sx={{ mb: 2 }}>
+        <FormControl component="fieldset" sx={{ mb: 2 }} required>
           <FormLabel component="legend">Tipo de baixa</FormLabel>
           <RadioGroup
             value={tipoBaixa}
@@ -57,12 +77,17 @@ const DividasPagarModalQuitarLancamento = ({
         <Button onClick={onFechar} color="secondary">
           Cancelar
         </Button>
-        <Button onClick={handleQuitar} variant="contained" color="primary">
-          Confirmar quitaçãoA
+        <Button
+          onClick={handleQuitar}
+          variant="contained"
+          color="primary"
+          disabled={isConfirmarDisabled}
+        >
+          Confirmar quitação
         </Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default DividasPagarModalQuitarLancamento;
+export default DividasPagarModalQuitarDivida;

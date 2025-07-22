@@ -20,7 +20,8 @@ import {
 import { useModal } from '../../../context/ModalContext';
 
 const NovoLancamentoModal = () => {
-  const { modalAberto, fecharModal } = useModal();
+  const { modalAberto, fecharModal, dadosIniciais } = useModal();
+
 
   const [tipo, setTipo] = useState("Receita");
   const [categoria, setCategoria] = useState("");
@@ -42,15 +43,15 @@ const NovoLancamentoModal = () => {
   };
 
   useEffect(() => {
-    if (modalAberto) {
-      setTipo("Receita");
-      setCategoria("");
-      setForma("");
-      setData("");
-      setValor("");
-      setDescricao("");
-    }
-  }, [modalAberto]);
+  if (modalAberto) {
+    setTipo(dadosIniciais?.tipo || "Receita");
+    setCategoria(dadosIniciais?.categoria || "");
+    setForma(dadosIniciais?.forma || "");
+    setData(dadosIniciais?.data || "");
+    setValor(dadosIniciais?.valor || "");
+    setDescricao(dadosIniciais?.descricao || "");
+  }
+}, [modalAberto, dadosIniciais]);
 
   return (
     <>
@@ -200,3 +201,5 @@ const NovoLancamentoModal = () => {
 };
 
 export default NovoLancamentoModal;
+
+

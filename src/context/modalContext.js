@@ -1,15 +1,23 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useContext, useState } from 'react';
 
 const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
   const [modalAberto, setModalAberto] = useState(false);
+  const [dadosIniciais, setDadosIniciais] = useState(null);
 
-  const abrirModal = () => setModalAberto(true);
-  const fecharModal = () => setModalAberto(false);
+  const abrirModal = (dados = null) => {
+    setDadosIniciais(dados);
+    setModalAberto(true);
+  };
+
+  const fecharModal = () => {
+    setModalAberto(false);
+    setDadosIniciais(null);
+  };
 
   return (
-    <ModalContext.Provider value={{ modalAberto, abrirModal, fecharModal }}>
+    <ModalContext.Provider value={{ modalAberto, abrirModal, fecharModal, dadosIniciais }}>
       {children}
     </ModalContext.Provider>
   );
