@@ -27,7 +27,7 @@ const ExtratoFinanceiroPage = () => {
     const [filtros, setFiltros] = useState({ dataInicial: '', dataFinal: '', tipo: '' });
     const [filtrosAvancados, setFiltrosAvancados] = useState({});
     const [receitas, setReceitas] = useState([
-        { id: 1, data: '2025-04-01', categoria: 'Venda', formaRecebimento: 'Pix', descricao: 'Produto X', valor: 500 },
+        { id: 1, data: '2025-04-01', categoria: 'Vendajjj', formaRecebimento: 'Pix', descricao: 'Produto X', valor: 500 },
     ]);
     const [despesas, setDespesas] = useState([
         { id: 2, data: '2025-04-02', categoria: 'Compra', formaRecebimento: 'Cartão', descricao: 'Fornecedor Y', valor: 200 },
