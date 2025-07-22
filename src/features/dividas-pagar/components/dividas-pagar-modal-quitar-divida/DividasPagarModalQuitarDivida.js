@@ -7,7 +7,6 @@ import {
 
 import { useModal } from '../../../../context/ModalContext';
 
-
 const DividasPagarModalQuitarDivida = ({
   aberto,
   onFechar,
@@ -23,17 +22,12 @@ const DividasPagarModalQuitarDivida = ({
 
   const handleQuitar = () => {
     if (tipoBaixa === 'comSaldo') {
-      abrirModal({
-        tipo: "Despesa",
-        categoria: "Quitação",
-        descricao: `Quitação da dívida: ${divida.nome}`,
-        valor: divida.valorTotal,
-        data: divida.vencimento,
-        forma: "" // ou "Pix", "Dinheiro", etc.
-      });
+      // 👉 Aqui abre o modal de novo lançamento (em branco)
+      abrirModal(); // ← sem parâmetros = campos vazios
 
-      onFechar();
+      onFechar(); // fecha o modal atual de quitação
     } else if (tipoBaixa === 'semSaldo') {
+      // Lógica para quitação manual
       onQuitar({
         tipoBaixa,
         divida,
@@ -41,7 +35,6 @@ const DividasPagarModalQuitarDivida = ({
       onFechar();
     }
   };
-
 
   return (
     <Dialog open={aberto} onClose={onFechar} maxWidth="sm" fullWidth>
