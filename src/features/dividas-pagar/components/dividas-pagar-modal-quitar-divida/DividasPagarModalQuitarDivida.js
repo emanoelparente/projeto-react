@@ -39,12 +39,12 @@ const DividasPagarModalQuitarDivida = ({
 
   return (
     <Dialog open={aberto} onClose={onFechar} maxWidth="sm" fullWidth>
-      <DialogTitle sx={{ backgroundColor: '#48673A', color: '#FFFFFF', fontWeight: 'bold' }}>
+      <DialogTitle sx={{ backgroundColor: '#75A75F', color: '#FFFFFF', fontWeight: 'bold',}}>
         Quitar: {divida.nome}
       </DialogTitle>
 
       <DialogContent sx={{ backgroundColor: '#F8F8F8', px: 4, py: 3 }}>
-        <Box sx={{ mb: 3, p: 2, border: '1px solid #DDD', borderRadius: 2, backgroundColor: '#FFFFFF' }}>
+        <Box sx={{ mb: 3, mt: 3, p: 2, border: '1px solid #DDD', borderRadius: 2, backgroundColor: '#FFFFFF' }}>
           <Typography variant="body2" sx={{ color: '#565656' }}>
             <strong>Credor:</strong> {divida.credor}
           </Typography>
@@ -57,7 +57,7 @@ const DividasPagarModalQuitarDivida = ({
         </Box>
 
         <FormControl component="fieldset" required>
-          <FormLabel component="legend" sx={{ color: '#48673A', fontWeight: 'bold', mb: 1 }}>
+          <FormLabel component="legend" sx={{ color: '#54843E', fontWeight: 'bold', mb: 1 }}>
             Tipo de quitação
           </FormLabel>
           <RadioGroup
@@ -112,11 +112,11 @@ const DividasPagarModalQuitarDivida = ({
           onClick={onFechar}
           variant="outlined"
           sx={{
-            borderColor: '#48673A',
-            color: '#48673A',
+            borderColor: '#75A75F',
+            color: '#75A75F',
             '&:hover': {
               backgroundColor: '#EBF4E8',
-              borderColor: '#48673A',
+              borderColor: '#75A75F',
             }
           }}
         >
