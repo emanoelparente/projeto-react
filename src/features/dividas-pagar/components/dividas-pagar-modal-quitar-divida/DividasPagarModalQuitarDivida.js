@@ -11,10 +11,10 @@ const DividasPagarModalQuitarDivida = ({
   aberto,
   onFechar,
   divida,
-  onQuitar
+  onQuitar // usado para "sem saldo"
 }) => {
   const [tipoBaixa, setTipoBaixa] = useState('');
-  const { abrirModal } = useModal();
+  const { abrirModal } = useModal(); // Para abrir o modal de lançamento
 
   if (!divida) return null;
 
@@ -22,16 +22,19 @@ const DividasPagarModalQuitarDivida = ({
 
   const handleQuitar = () => {
     if (tipoBaixa === 'comSaldo') {
-      // 👉 Aqui abre o modal de novo lançamento (em branco)
-      abrirModal(); // ← sem parâmetros = campos vazios
-
-      onFechar(); // fecha o modal atual de quitação
-    } else if (tipoBaixa === 'semSaldo') {
-      // Lógica para quitação manual
-      onQuitar({
-        tipoBaixa,
-        divida,
+      // Abrir modal de novo lançamento com dados preenchidos
+      abrirModal({
+        tipo: 'Despesa',
+        categoria: '',
+        forma: '',
+        data: new Date().toISOString().split('T')[0], // data atual em yyyy-mm-dd
+        valor: divida.valorTotal,
+        descricao: `Quitação dívida: ${divida.nome}`,
       });
+
+      onFechar(); // Fecha o modal de quitação
+    } else if (tipoBaixa === 'semSaldo') {
+      onQuitar({ tipoBaixa, divida });
       onFechar();
     }
   };
@@ -39,6 +42,7 @@ const DividasPagarModalQuitarDivida = ({
   return (
     <Dialog open={aberto} onClose={onFechar} maxWidth="sm" fullWidth>
       <DialogTitle>Quitar: {divida.nome}</DialogTitle>
+
       <DialogContent>
         <Box sx={{ mt: 1, mb: 2, p: 2, backgroundColor: '#f5f5f5', borderRadius: 1 }}>
           <Typography variant="body2"><strong>Credor:</strong> {divida.credor}</Typography>
@@ -67,9 +71,7 @@ const DividasPagarModalQuitarDivida = ({
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={onFechar} color="secondary">
-          Cancelar
-        </Button>
+        <Button onClick={onFechar} color="secondary">Cancelar</Button>
         <Button
           onClick={handleQuitar}
           variant="contained"
