@@ -22,7 +22,6 @@ import { useModal } from '../../../context/ModalContext';
 const NovoLancamentoModal = () => {
   const { modalAberto, fecharModal, dadosIniciais } = useModal();
 
-
   const [tipo, setTipo] = useState("Receita");
   const [categoria, setCategoria] = useState("");
   const [forma, setForma] = useState("");
@@ -33,7 +32,6 @@ const NovoLancamentoModal = () => {
 
   const handleSalvar = (e) => {
     e.preventDefault();
-    // Aqui você pode salvar os dados
     setMensagemAberta(true);
     fecharModal();
   };
@@ -43,15 +41,15 @@ const NovoLancamentoModal = () => {
   };
 
   useEffect(() => {
-  if (modalAberto) {
-    setTipo(dadosIniciais?.tipo || "Receita");
-    setCategoria(dadosIniciais?.categoria || "");
-    setForma(dadosIniciais?.forma || "");
-    setData(dadosIniciais?.data || "");
-    setValor(dadosIniciais?.valor || "");
-    setDescricao(dadosIniciais?.descricao || "");
-  }
-}, [modalAberto, dadosIniciais]);
+    if (modalAberto) {
+      setTipo(dadosIniciais?.tipo || "Receita");
+      setCategoria(dadosIniciais?.categoria || "");
+      setForma(dadosIniciais?.forma || "");
+      setData(dadosIniciais?.data || "");
+      setValor(dadosIniciais?.valor || "");
+      setDescricao(dadosIniciais?.descricao || "");
+    }
+  }, [modalAberto, dadosIniciais]);
 
   return (
     <>
@@ -64,31 +62,33 @@ const NovoLancamentoModal = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            bgcolor: "background.paper",
+            bgcolor: "#FFFFFF",
             boxShadow: 24,
             borderRadius: 2,
             width: 500,
             maxWidth: "90%",
-            p: 0
+            p: 0,
+            overflow: "hidden"
           }}
         >
-          {/* Cabeçalho separado */}
-          <Box sx={{ backgroundColor: "#E1EDF8", px: 3, pt: 3, pb: 1 }}>
+          {/* Cabeçalho */}
+          <Box sx={{ backgroundColor: "#77AF51", px: 3, pt: 3, pb: 1 }}>
             <Typography
               variant="h6"
               component="h2"
-              sx={{ color: "#1976D2", fontWeight: "bold" }}
+              sx={{ color: "#FFFFFF", fontWeight: "bold" }}
             >
               Novo Lançamento
             </Typography>
-            <Divider sx={{ mt: 1 }} />
+            <Divider sx={{ mt: 1, borderColor: "#FFFFFF", opacity: 0.2 }} />
           </Box>
 
-          {/* Conteúdo do modal */}
-          <Box sx={{ p: 3 }}>
-            <Typography variant="subtitle2" gutterBottom>
+          {/* Conteúdo */}
+          <Box sx={{ p: 3, backgroundColor: "#F8FAF8" }}>
+            <Typography variant="subtitle2" gutterBottom sx={{ color: "#565656ff" }}>
               Tipo de Lançamento
             </Typography>
+
             <ToggleButtonGroup
               value={tipo}
               exclusive
@@ -100,23 +100,19 @@ const NovoLancamentoModal = () => {
                   fontWeight: 'bold',
                   border: '1px solid #ccc',
                   borderRadius: 1,
-                  transition: 'all 0.3s',
-                  color: '#555',
+                  color: "#565656",
+                  backgroundColor: "#FFFFFF",
                 },
                 '& .Mui-selected': {
-                  color: '#fff',
+                  color: '#FFFFFF',
                   backgroundColor: tipo === 'Receita' ? '#77AF51' : '#D44848',
                   borderColor: tipo === 'Receita' ? '#659743' : '#BD3535',
-                  '&:hover': {
-                    backgroundColor: tipo === 'Receita' ? '#659743' : '#BD3535',
-                  },
-                },
+                }
               }}
             >
               <ToggleButton value="Receita">Receita</ToggleButton>
               <ToggleButton value="Despesa">Despesa</ToggleButton>
             </ToggleButtonGroup>
-
 
             <CategoriaAutocomplete
               tipo={tipo}
@@ -157,7 +153,7 @@ const NovoLancamentoModal = () => {
               label="Valor"
               value={valor}
               onValueChange={(values) => {
-                setValor(values.value); // número puro
+                setValor(values.value);
               }}
               thousandSeparator="."
               decimalSeparator=","
@@ -179,10 +175,31 @@ const NovoLancamentoModal = () => {
             />
 
             <Stack direction="row" justifyContent="space-between">
-              <Button variant="outlined" color="error" onClick={fecharModal}>
+              <Button
+                variant="outlined"
+                onClick={fecharModal}
+                sx={{
+                  color: "#565656",
+                  borderColor: "#565656",
+                  '&:hover': {
+                    backgroundColor: "#f0f0f0",
+                    borderColor: "#565656",
+                  }
+                }}
+              >
                 Cancelar
               </Button>
-              <Button type="submit" variant="contained" color="primary">
+
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  backgroundColor: "#77AF51",
+                  '&:hover': {
+                    backgroundColor: "rgba(83, 129, 65, 1)"
+                  }
+                }}
+              >
                 Salvar
               </Button>
             </Stack>
@@ -201,5 +218,3 @@ const NovoLancamentoModal = () => {
 };
 
 export default NovoLancamentoModal;
-
-
