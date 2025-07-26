@@ -70,8 +70,8 @@ const DividasPagarModalIncluirLancamento = ({ aberto, onFechar, onSalvar }) => {
     <DividasPagarModalBase
       aberto={aberto}
       titulo="Adicionar nova dívida"
-      dados={dados}
-      erros={erros}
+      dados={dados || {}}
+      erros={erros || {}}
       onChange={handleChange}
       onSalvar={handleSalvar}
       onFechar={onFechar}

@@ -16,19 +16,19 @@ const statusColors = {
     chip: 'warning',
     header: '#FFE4B2',
     body: '#FFF5E2',
-    color: '#C77800', // Laranja escuro
+    color: '#C77800',
   },
   'Vencido': {
     chip: 'error',
     header: '#FFD8D8',
     body: '#FFF2F2',
-    color: '#C37979', // Vermelho escuro
+    color: '#C37979',
   },
   'Pago': {
     chip: 'success',
     header: '#B9E49D',
     body: '#ECF6E5',
-    color: '#2E7D32', // Verde escuro
+    color: '#2E7D32',
   }
 };
 
@@ -44,14 +44,14 @@ const DividasPagarModalBase = ({
 }) => {
   const status = statusColors[situacao] || {
     chip: 'default',
-    header: '#F9F9F9',
+    header: '#77AF51',      // Verde escuro
     body: '#FFFFFF',
-    color: '#000000'
+    color: '#FFFFFF'
   };
 
   return (
     <Dialog open={aberto} onClose={onFechar} fullWidth maxWidth="sm">
-      {/* Cabeçalho dinâmico */}
+      {/* Cabeçalho */}
       <Box sx={{ backgroundColor: status.header, px: 3, pt: 3, pb: 1 }}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box
@@ -82,9 +82,10 @@ const DividasPagarModalBase = ({
         <Divider sx={{ mt: 1 }} />
       </Box>
 
-      {/* Conteúdo com fundo dinâmico */}
+      {/* Corpo do modal */}
       <DialogContent sx={{ backgroundColor: status.body }}>
         <Box display="flex" flexDirection="column" alignItems="flex-start" sx={{ p: 2 }} gap={2}>
+
           <TextField
             name="nome"
             label="Nome *"
@@ -167,11 +168,34 @@ const DividasPagarModalBase = ({
             inputProps={{ min: 0, step: '0.01' }}
           />
 
+          {/* Botões de ação */}
           <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', maxWidth: '500px', mt: 2, gap: 2 }}>
-            <Button variant="outlined" onClick={onFechar} sx={{ fontWeight: 'bold' }}>
+            <Button
+              variant="outlined"
+              onClick={onFechar}
+              sx={{
+                fontWeight: 'bold',
+                borderColor: '#77AF51',
+                color: '#48673A',
+                '&:hover': {
+                  backgroundColor: '#E8F1E6',
+                  borderColor: '#48673A'
+                }
+              }}
+            >
               Cancelar
             </Button>
-            <Button variant="contained" onClick={onSalvar} sx={{ fontWeight: 'bold' }}>
+            <Button
+              variant="contained"
+              onClick={onSalvar}
+              sx={{
+                fontWeight: 'bold',
+                backgroundColor: '#77AF51',
+                '&:hover': {
+                  backgroundColor: '#3a552f'
+                }
+              }}
+            >
               Salvar
             </Button>
           </Box>
