@@ -231,7 +231,7 @@ const ExtratoFinanceiroPage = () => {
                 </DialogTitle>
 
                 <DialogContent sx={{ px: 3, pt: 2 }}>
-                    <Typography sx={{ color: '#565656' }}>
+                    <Typography sx={{ color: '#565656', mt: 2, }}>
                         Tem certeza que deseja excluir este lançamento?
                     </Typography>
                 </DialogContent>

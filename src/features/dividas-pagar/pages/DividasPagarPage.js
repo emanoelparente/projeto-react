@@ -187,18 +187,74 @@ const DividasPagarPage = () => {
         onSalvar={salvarEdicaoDivida}
       />
 
-      <Dialog open={confirmarExclusaoAberto} onClose={() => setConfirmarExclusaoAberto(false)}>
-        <DialogTitle>Confirmar Exclusão</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Tem certeza que deseja excluir a dívida <strong>{dividaParaExcluir?.nome}</strong>?
+      <Dialog
+        open={confirmarExclusaoAberto}
+        onClose={() => setConfirmarExclusaoAberto(false)}
+        PaperProps={{
+          sx: {
+            borderRadius: 3,
+            backgroundColor: '#FFFFFF',
+            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+          }
+        }}
+      >
+        <DialogTitle
+          sx={{
+            fontWeight: 'bold',
+            color: '#48673A',
+            borderBottom: '1px solid #E0E0E0',
+            backgroundColor: '#F5F5F5',
+          }}
+        >
+          Confirmar Exclusão
+        </DialogTitle>
+
+        <DialogContent sx={{ px: 3, pt: 2 }}>
+          <DialogContentText sx={{ color: '#565656' , mt: 2,}}>
+            Tem certeza que deseja excluir a dívida{' '}
+            <Box component="span" sx={{ fontWeight: 'bold', color: '#C0392B' }}>
+              {dividaParaExcluir?.nome}
+            </Box>
+            ?
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setConfirmarExclusaoAberto(false)}>Cancelar</Button>
-          <Button onClick={confirmarExclusao} color="error" variant="contained">Excluir</Button>
+
+        <DialogActions sx={{ px: 3, pb: 2, justifyContent: 'flex-end' }}>
+          <Button
+            onClick={() => setConfirmarExclusaoAberto(false)}
+            variant="outlined"
+            sx={{
+              borderColor: '#48673A',
+              color: '#48673A',
+              fontWeight: 'bold',
+              '&:hover': {
+                backgroundColor: '#E6F0E6',
+                borderColor: '#48673A'
+              }
+            }}
+          >
+            Cancelar
+          </Button>
+
+          <Button
+            onClick={confirmarExclusao}
+            variant="contained"
+            sx={{
+              backgroundColor: '#C0392B',
+              color: '#FFFFFF',
+              fontWeight: 'bold',
+              '&:hover': {
+                backgroundColor: '#A93226'
+              }
+            }}
+          >
+            Excluir
+          </Button>
         </DialogActions>
       </Dialog>
+
+
+
       <DividasPagarModalQuitarDivida
         aberto={modalQuitarAberto}
         onFechar={() => setModalQuitarAberto(false)}
