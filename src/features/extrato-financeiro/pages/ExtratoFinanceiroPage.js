@@ -208,7 +208,68 @@ const ExtratoFinanceiroPage = () => {
                     <Button onClick={() => setIdParaExcluir(null)}>Cancelar</Button>
                     <Button onClick={excluirLancamento} color="error">Excluir</Button>
                 </DialogActions>
+            </Dialog><Dialog
+                open={!!idParaExcluir}
+                onClose={() => setIdParaExcluir(null)}
+                PaperProps={{
+                    sx: {
+                        borderRadius: 3,
+                        backgroundColor: '#FFFFFF',
+                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                    }
+                }}
+            >
+                <DialogTitle
+                    sx={{
+                        fontWeight: 'bold',
+                        color: '#48673A',
+                        borderBottom: '1px solid #E0E0E0',
+                        backgroundColor: '#F5F5F5',
+                    }}
+                >
+                    Confirmar Exclusão
+                </DialogTitle>
+
+                <DialogContent sx={{ px: 3, pt: 2 }}>
+                    <Typography sx={{ color: '#565656' }}>
+                        Tem certeza que deseja excluir este lançamento?
+                    </Typography>
+                </DialogContent>
+
+                <DialogActions sx={{ px: 3, pb: 2, justifyContent: 'flex-end' }}>
+                    <Button
+                        onClick={() => setIdParaExcluir(null)}
+                        variant="outlined"
+                        sx={{
+                            borderColor: '#48673A',
+                            color: '#48673A',
+                            fontWeight: 'bold',
+                            '&:hover': {
+                                backgroundColor: '#E6F0E6',
+                                borderColor: '#48673A'
+                            }
+                        }}
+                    >
+                        Cancelar
+                    </Button>
+
+                    <Button
+                        onClick={excluirLancamento}
+                        variant="contained"
+                        sx={{
+                            backgroundColor: '#C0392B',
+                            color: '#FFFFFF',
+                            fontWeight: 'bold',
+                            '&:hover': {
+                                backgroundColor: '#A93226'
+                            }
+                        }}
+                    >
+                        Excluir
+                    </Button>
+                </DialogActions>
             </Dialog>
+
 
             {/* Filtros avançados */}
             <ExtratoFinanceiroFiltroSelecaoLancamentos
