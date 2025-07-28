@@ -230,7 +230,7 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
             {menuAberto && (
               <Typography
                 variant="body2"
-                sx={{ color: "white", fontSize: "0.9rem" }}
+                sx={{ color: "white", fontSize: "0.8rem" }}
               >
                 Configurações
               </Typography>
@@ -252,7 +252,7 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
             {menuAberto && (
               <Typography
                 variant="body2"
-                sx={{ color: "white", fontSize: "0.9rem" }}
+                sx={{ color: "white", fontSize: "0.8rem" }}
               >
                 Sair
               </Typography>
