@@ -15,6 +15,7 @@ import {
   ReceiptLong,
   Menu as MenuIcon,
   ChevronLeft,
+  Settings,
 } from "@mui/icons-material";
 import { Logout } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -205,32 +206,60 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
 
         {/* Ícone de sair alinhado à direita */}
         <Box
-          onClick={logout}
           sx={{
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             alignItems: "center",
             px: 1.5,
             mt: 2,
             mb: 1,
-            gap: 1,
-            cursor: "pointer",
-            '&:hover': {
-              opacity: 0.8
-            },
-            
           }}
         >
-          <Logout sx={{ fontSize: 20, color: "white" }} />
-          {menuAberto && (
-            <Typography
-              variant="body2"
-              sx={{ color: "white", fontSize: "0.9rem" }}
-            >
-              Sair
-            </Typography>
-          )}
+          {/* Ícone de engrenagem */}
+          <Box
+            onClick={() => navigate("/configuracoes")} // Ajuste a rota conforme necessário
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              cursor: "pointer",
+              '&:hover': { opacity: 0.8 },
+            }}
+          >
+            <Settings sx={{ fontSize: 20, color: "white" }} />
+            {menuAberto && (
+              <Typography
+                variant="body2"
+                sx={{ color: "white", fontSize: "0.9rem" }}
+              >
+                Configurações
+              </Typography>
+            )}
+          </Box>
+
+          {/* Ícone de sair */}
+          <Box
+            onClick={logout}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              cursor: "pointer",
+              '&:hover': { opacity: 0.8 },
+            }}
+          >
+            <Logout sx={{ fontSize: 20, color: "white" }} />
+            {menuAberto && (
+              <Typography
+                variant="body2"
+                sx={{ color: "white", fontSize: "0.9rem" }}
+              >
+                Sair
+              </Typography>
+            )}
+          </Box>
         </Box>
+
 
 
 
