@@ -206,59 +206,64 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
 
         {/* Ícone de sair alinhado à direita */}
         <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            px: 1.5,
-            mt: 2,
-            mb: 1,
-          }}
-        >
-          {/* Ícone de engrenagem */}
-          <Box
-            onClick={() => navigate("/configuracoes")} // Ajuste a rota conforme necessário
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              cursor: "pointer",
-              '&:hover': { opacity: 0.8 },
-            }}
-          >
-            <Settings sx={{ fontSize: 20, color: "white" }} />
-            {menuAberto && (
-              <Typography
-                variant="body2"
-                sx={{ color: "white", fontSize: "0.8rem" }}
-              >
-                Configurações
-              </Typography>
-            )}
-          </Box>
+  sx={{
+    display: "flex",
+    flexDirection: menuAberto ? "row" : "column",
+    justifyContent: menuAberto ? "space-between" : "center",
+    alignItems: "center",
+    px: 1.5,
+    mt: 2,
+    mb: 1,
+    gap: menuAberto ? 0 : 2, // espaçamento entre os ícones empilhados
+  }}
+>
+  {/* Configurações */}
+  <Box
+    onClick={() => navigate("/configuracoes")}
+    sx={{
+      display: "flex",
+      alignItems: "center",
+      gap: 1,
+      cursor: "pointer",
+      '&:hover': { opacity: 0.8 },
+      flexDirection: menuAberto ? "row" : "column",
+    }}
+  >
+    <Settings sx={{ fontSize: 20, color: "white" }} />
+    {menuAberto && (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: "0.8rem" }}
+      >
+        Configurações
+      </Typography>
+    )}
+  </Box>
 
-          {/* Ícone de sair */}
-          <Box
-            onClick={logout}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              cursor: "pointer",
-              '&:hover': { opacity: 0.8 },
-            }}
-          >
-            <Logout sx={{ fontSize: 20, color: "white" }} />
-            {menuAberto && (
-              <Typography
-                variant="body2"
-                sx={{ color: "white", fontSize: "0.8rem" }}
-              >
-                Sair
-              </Typography>
-            )}
-          </Box>
-        </Box>
+  {/* Sair */}
+  <Box
+    onClick={logout}
+    sx={{
+      display: "flex",
+      alignItems: "center",
+      gap: 1,
+      cursor: "pointer",
+      '&:hover': { opacity: 0.8 },
+      flexDirection: menuAberto ? "row" : "column",
+    }}
+  >
+    <Logout sx={{ fontSize: 20, color: "white" }} />
+    {menuAberto && (
+      <Typography
+        variant="body2"
+        sx={{ color: "white", fontSize: "0.8rem" }}
+      >
+        Sair
+      </Typography>
+    )}
+  </Box>
+</Box>
+
 
 
 
