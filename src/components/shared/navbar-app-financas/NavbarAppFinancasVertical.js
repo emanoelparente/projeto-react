@@ -131,7 +131,7 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
             <Typography
               sx={{ color: "white", fontWeight: "bold", fontSize: "1rem" }}
             >
-              R$ 152.500,75
+              R$ 152.500,755
             </Typography>
           )}
         </Box>
