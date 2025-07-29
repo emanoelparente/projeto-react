@@ -91,7 +91,11 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
       <Table>
         {!isMobile && (
           <TableHead>
-            <TableRow sx={{ backgroundColor: '#f1f1f1' }}>
+            <TableRow
+              sx={{
+                backgroundImage: 'linear-gradient(100deg, #77AF51, #BCCD5D)',
+              }}
+            >
               <TableCell sx={estiloHeader}>Nome</TableCell>
               <TableCell sx={estiloHeader}>Descrição</TableCell>
               <TableCell sx={estiloHeader}>Valor</TableCell>
