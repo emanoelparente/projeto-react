@@ -80,6 +80,7 @@ const DividasPagarTabelaLancamentos = ({ dados, onEditar, onExcluir, onQuitar })
   };
 
   const estiloHeader = {
+    color: '#FFFFFF',
     fontWeight: 'bold',
     textTransform: 'uppercase',
   };
