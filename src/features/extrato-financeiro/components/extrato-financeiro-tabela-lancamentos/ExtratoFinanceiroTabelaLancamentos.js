@@ -52,10 +52,10 @@ const DetalhesCollapseMobile = ({ item, tipo, onEditar, onExcluir, expanded, onT
     );
 };
 
-const ExtratoFinanceiroTabelaLancamentos = ({ dados, corHeader = '#000', tipo = '', onEditar, onExcluir }) => {
+const ExtratoFinanceiroTabelaLancamentos = ({ dados, tipo = '', onEditar, onExcluir }) => {
     const estiloHeader = {
         fontWeight: 'bold',
-        color: corHeader,
+        color: '#BCCD5D',
         textTransform: 'uppercase',
     };
 
@@ -71,7 +71,9 @@ const ExtratoFinanceiroTabelaLancamentos = ({ dados, corHeader = '#000', tipo = 
             <Table>
                 {!isMobile && (
                     <TableHead>
-                        <TableRow sx={{ backgroundColor: '#f1f1f1' }}>
+                        <TableRow sx={{
+                backgroundImage: 'linear-gradient(100deg, #77AF51, #BCCD5D)',
+              }}>
                             <TableCell sx={estiloHeader}>Data</TableCell>
                             <TableCell sx={estiloHeader}>Categoria</TableCell>
                             <TableCell sx={estiloHeader} className="col-forma">
