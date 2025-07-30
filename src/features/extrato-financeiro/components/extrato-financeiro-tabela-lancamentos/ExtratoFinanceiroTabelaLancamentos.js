@@ -55,7 +55,7 @@ const DetalhesCollapseMobile = ({ item, tipo, onEditar, onExcluir, expanded, onT
 const ExtratoFinanceiroTabelaLancamentos = ({ dados, tipo = '', onEditar, onExcluir }) => {
     const estiloHeader = {
         fontWeight: 'bold',
-        color: '#BCCD5D',
+        color: '#ffffffff',
         textTransform: 'uppercase',
     };
 
