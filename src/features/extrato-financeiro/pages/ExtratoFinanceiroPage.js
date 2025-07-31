@@ -129,12 +129,11 @@ const ExtratoFinanceiroPage = () => {
             {/* Receitas e Despesas */}
             <Box
                 sx={{
-                    width: '90%',
+                    width: '85%',
                     mx: 'auto',
-                    mt: { xs: 2, sm: 3, md: 4 },
                     backgroundColor: 'rgba(162, 0, 255, 0)',
-                    p: 2,
                     borderRadius: 2,
+                    padding: '0.5%',
                 }}
             >
                 <Typography
