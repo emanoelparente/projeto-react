@@ -68,7 +68,13 @@ const FiltroSelecaoDatas = ({
               onClick={handleBuscar}
               className="botao-pesquisar-btn"
               fullWidth
-            >
+            sx={{
+    backgroundImage: 'linear-gradient(#77AF51)',
+    '& td': {
+      color: '#ffffff',
+      fontWeight: 'bold',
+    },
+  }}>
               Pesquisar
             </Button>
           </Box>

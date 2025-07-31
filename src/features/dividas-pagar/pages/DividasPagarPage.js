@@ -151,7 +151,7 @@ const DividasPagarPage = () => {
         </Box>
 
         <Box>
-          <FiltroSelecaoDatas
+          <FiltroSelecaoDatas 
             filtroExpandido={filtroExpandido}
             setFiltroExpandido={setFiltroExpandido}
           />
