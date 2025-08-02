@@ -161,7 +161,7 @@ const ExtratoFinanceiroPage = () => {
                     onClick={() => setMostrarDespesas(!mostrarDespesas)}
                     sx={estiloTitulo('#E37373',)}
                 >
-                    DESPESASs {mostrarDespesas ? <ExpandLess /> : <ExpandMore />}
+                    DESPESAS {mostrarDespesas ? <ExpandLess /> : <ExpandMore />}
                 </Typography>
                 <Collapse in={mostrarDespesas}>
                     <ExtratoFinanceiroTabelaLancamentos
