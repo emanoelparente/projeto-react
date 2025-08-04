@@ -25,6 +25,7 @@ import RelatoriosFinanceirosPage from './features/relatorio-financeiro/pages/Rel
 import OrcamentoMensalPage from './features/orcamento-mensal/pages/OrcamentoMensalPage';
 import RecuperaSenhaPage from './features/auth/pages/RecuperaSenhaPage';
 import RedefinirSenhaPage from './features/auth/pages/RedefinirSenhaPage';
+import ConfiguracoesPage from './features/settings/pages/ConfiguracoesPage';
 
 function AppContent() {
     const { usuario } = useAuth();
@@ -75,7 +76,10 @@ function AppContent() {
                     <Route path="/valores-a-receber" element={<PrivateRoute><ValoresReceberPage /></PrivateRoute>} />
                     <Route path="/relatorios" element={<PrivateRoute><RelatoriosFinanceirosPage /></PrivateRoute>} />
                     <Route path="/orcamento-mensal" element={<PrivateRoute><OrcamentoMensalPage /></PrivateRoute>} />
+                    <Route path="/configuracoes" element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} />
+
                     <Route path="/" element={usuario ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+                    
                 </Routes>
             </Box>
         </>
