@@ -1,9 +1,21 @@
 import React from 'react';
-import { Box, Tabs, Tab, useMediaQuery, useTheme, Paper } from '@mui/material';
-import { Person, Notifications, SettingsBackupRestore, Shield } from '@mui/icons-material';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import {
+  Box,
+  Tabs,
+  Tab,
+  useMediaQuery,
+  useTheme,
+  Paper,
+  Typography
+} from '@mui/material';
+import {
+  Person,
+  Notifications,
+  SettingsBackupRestore,
+  Shield
+} from '@mui/icons-material';
+import { useSearchParams } from 'react-router-dom';
 
-// Importa os componentes de conteúdo
 import ConfigContaUsuario from './ConfigContaUsuario';
 import ConfigNotificacoes from './ConfigNotificacoes';
 import ConfigPreferenciasFinanceiras from './ConfigPreferenciasFinanceiras';
@@ -42,21 +54,23 @@ const ConfiguracoesIndex = () => {
 
   return (
     <Box sx={{ p: 2 }}>
-      <Paper elevation={3} sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', borderRadius: 2 }}>
-        
-        {/* Abas de navegação */}
+      <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
+        Configurações
+      </Typography>
+
+      <Paper elevation={3} sx={{ borderRadius: 2 }}>
+        {/* Abas horizontais */}
         <Tabs
-          orientation={isMobile ? 'horizontal' : 'vertical'}
+          orientation="horizontal"
           variant="scrollable"
           value={abaAtiva}
           onChange={handleChange}
           sx={{
-            borderRight: isMobile ? 'none' : '1px solid #ccc',
             backgroundColor: '#48673A',
             '& .MuiTab-root': {
               color: '#fff',
               fontWeight: 500,
-              alignItems: 'flex-start',
+              minHeight: '48px',
             },
             '& .Mui-selected': {
               backgroundColor: '#77AF51',
@@ -75,7 +89,6 @@ const ConfiguracoesIndex = () => {
               iconPosition="start"
               label={aba.label}
               sx={{
-                justifyContent: isMobile ? 'center' : 'flex-start',
                 textTransform: 'none',
                 fontSize: '0.875rem',
               }}
@@ -83,8 +96,8 @@ const ConfiguracoesIndex = () => {
           ))}
         </Tabs>
 
-        {/* Conteúdo da aba ativa */}
-        <Box sx={{ flexGrow: 1, p: 2 }}>
+        {/* Conteúdo abaixo das abas */}
+        <Box sx={{ p: 2 }}>
           {renderConteudo()}
         </Box>
       </Paper>
