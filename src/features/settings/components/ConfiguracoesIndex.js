@@ -53,10 +53,10 @@ const ConfiguracoesIndex = () => {
   };
 
   return (
-    <Box sx={{ p: 2 }}>
-      <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
-        Configurações
-      </Typography>
+    <Box sx={{ pt: 2.5, px: 2.5, pb: 0, backgroundColor: 'lightblue' }}>
+  <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
+    Configurações
+  </Typography>
 
       <Paper elevation={3} sx={{ borderRadius: 2 }}>
         {/* Abas horizontais */}
