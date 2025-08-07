@@ -53,10 +53,18 @@ const ConfiguracoesIndex = () => {
     };
 
     return (
-        <Box sx={{ pt: 10, px: 15, pb: 0, backgroundColor: 'lightblue' }}>
-            <Typography variant="h5" gutterBottom sx={{ fontWeight: 'bold' }}>
+        <Box sx={{ pt: 10, px: 15, pb: 0}}>
+            <Typography
+                variant="h5"
+                gutterBottom
+                sx={{
+                    fontWeight: 'bold',
+                    color: '#77AF51',
+                }}
+            >
                 Configurações
             </Typography>
+
 
             <Paper elevation={3} sx={{ borderRadius: 2 }}>
                 {/* Abas horizontais */}
@@ -66,7 +74,7 @@ const ConfiguracoesIndex = () => {
                     value={abaAtiva}
                     onChange={handleChange}
                     sx={{
-                        backgroundImage: 'linear-gradient(90deg, #77AF51 0%, #BCCD5D 100%)',
+                        backgroundImage: 'linear-gradient(135deg, #77AF51 0%, #BCCD5D 100%)',
                         '& .MuiTab-root': {
                             color: '#fff',
                             fontWeight: 500,
