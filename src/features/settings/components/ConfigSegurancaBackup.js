@@ -10,7 +10,8 @@ import {
     MenuItem,
     Divider,
     FormControl,
-    InputLabel
+    InputLabel,
+    TextField
 } from '@mui/material';
 
 export default function ConfigSegurancaBackup() {
@@ -34,11 +35,40 @@ export default function ConfigSegurancaBackup() {
                 label="Ativar autenticação em dois fatores (2FA)"
             />
             <Box mt={2}>
-                <Button variant="outlined" color="primary">
-                    Alterar Senha
-                </Button>
                 <Button variant="outlined" color="secondary" sx={{ ml: 2 }}>
                     Encerrar Todas as Sessões
+                </Button>
+            </Box>
+
+            {/* Segurança */}
+            <Box mt={3} mb={3}>
+                <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 'bold' }}>
+                    Segurança de Acesso
+                </Typography>
+                <TextField
+                    fullWidth
+                    label="Senha Atual"
+                    type="password"
+                    margin="normal"
+                />
+                <TextField
+                    fullWidth
+                    label="Nova Senha"
+                    type="password"
+                    margin="normal"
+                />
+                <TextField
+                    fullWidth
+                    label="Confirmar Nova Senha"
+                    type="password"
+                    margin="normal"
+                />
+
+                <Button
+                    variant="outlined"
+                    sx={{ mt: 2, borderColor: '#77AF51', color: '#77AF51' }}
+                >
+                    Ativar Autenticação em Dois Fatores
                 </Button>
             </Box>
 

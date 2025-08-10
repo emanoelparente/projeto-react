@@ -38,14 +38,6 @@ export default function ConfigPreferenciasFinanceiras() {
             </FormControl>
 
             <FormControl fullWidth variant="outlined" sx={{ mb: 2 }}>
-                <InputLabel shrink>Formato de Data</InputLabel>
-                <Select value={formatoData} onChange={(e) => setFormatoData(e.target.value)} label="Formato de Data">
-                    <MenuItem value="DD/MM/YYYY">DD/MM/YYYY</MenuItem>
-                    <MenuItem value="MM/DD/YYYY">MM/DD/YYYY</MenuItem>
-                </Select>
-            </FormControl>
-
-            <FormControl fullWidth variant="outlined" sx={{ mb: 2 }}>
                 <InputLabel shrink>Idioma</InputLabel>
                 <Select value={idioma} onChange={(e) => setIdioma(e.target.value)} label="Idioma">
                     <MenuItem value="pt-BR">Português</MenuItem>
@@ -53,8 +45,6 @@ export default function ConfigPreferenciasFinanceiras() {
                     <MenuItem value="es-ES">Espanhol</MenuItem>
                 </Select>
             </FormControl>
-
-            <Divider sx={{ my: 2 }} />
 
             {/* Seção: Financeiras */}
             <Typography variant="subtitle1" sx={{ fontWeight: 500, mb: 1 }}>
