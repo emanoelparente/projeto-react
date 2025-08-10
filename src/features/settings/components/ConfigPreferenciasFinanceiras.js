@@ -63,14 +63,7 @@ export default function ConfigPreferenciasFinanceiras() {
             <FormControlLabel control={<Switch defaultChecked />} label="Mostrar saldo acumulado no dashboard" />
             <FormControlLabel control={<Switch />} label="Ativar metas financeiras" />
 
-            <Divider sx={{ my: 2 }} />
-
-            {/* Seção: Notificações */}
-            <Typography variant="subtitle1" sx={{ fontWeight: 500, mb: 1 }}>
-                📩 Notificações
-            </Typography>
-            <FormControlLabel control={<Switch defaultChecked />} label="Avisar contas a pagar" />
-            <FormControlLabel control={<Switch />} label="Avisar contas a receber" />
+            
         </Box>
 
     );
