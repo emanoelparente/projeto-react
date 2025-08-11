@@ -190,14 +190,14 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
             <Typography
               variant="caption"
               sx={{ color: "white", cursor: "pointer", fontSize: "0.75rem" }}
-              onClick={() => navigate("/termos")}
+              onClick={() => navigate("/termos-de-uso")}
             >
               Termos de Uso
             </Typography>
             <Typography
               variant="caption"
               sx={{ color: "white", cursor: "pointer", fontSize: "0.75rem" }}
-              onClick={() => navigate("/privacidade")}
+              onClick={() => navigate("/politica-de-privacidade")}
             >
               Política de Privacidade
             </Typography>

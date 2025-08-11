@@ -27,6 +27,12 @@ import RecuperaSenhaPage from './features/auth/pages/RecuperaSenhaPage';
 import RedefinirSenhaPage from './features/auth/pages/RedefinirSenhaPage';
 import ConfiguracoesPage from './features/settings/pages/ConfiguracoesPage';
 
+import AjudaIndex from './features/pages/ajuda/AjudaIndex';
+import ContatoSuporte from './features/pages/ajuda/ContatoSuporte';
+import PerguntasFrequentes from './features/pages/ajuda/PerguntasFrequentes';
+import TermosDeUsoPage from './features/pages/TermosDeUsoPage';
+import PoliticaDePrivacidadePage from './features/pages/PoliticaDePrivacidadePage';
+
 function AppContent() {
     const { usuario } = useAuth();
     const location = useLocation();
@@ -78,8 +84,14 @@ function AppContent() {
                     <Route path="/orcamento-mensal" element={<PrivateRoute><OrcamentoMensalPage /></PrivateRoute>} />
                     <Route path="/configuracoes" element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} />
 
+                    <Route path="/ajuda" element={<AjudaIndex />} />
+                    <Route path="/ajuda/contato-suporte" element={<ContatoSuporte />} />
+                    <Route path="/ajuda/perguntas-frequentes" element={<PerguntasFrequentes />} />
+                    <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidadePage />} />
+                    <Route path="/termos-de-uso" element={<TermosDeUsoPage />} />
+
                     <Route path="/" element={usuario ? <Navigate to="/home" /> : <Navigate to="/login" />} />
-                    
+
                 </Routes>
             </Box>
         </>
