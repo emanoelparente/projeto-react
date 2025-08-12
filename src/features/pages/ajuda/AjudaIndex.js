@@ -18,9 +18,15 @@ export default function AjudaIndex() {
         <Button component={Link} to="/ajuda/faq" variant="outlined">
           Perguntas Frequentes
         </Button>
+        
+        <Button component={Link} to="/ajuda/contato" variant="outlined">
+          primeiros passos
+        </Button>
+
         <Button component={Link} to="/ajuda/contato" variant="outlined">
           Contato com Suporte
         </Button>
+        
       </Stack>
     </Box>
   );
