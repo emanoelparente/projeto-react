@@ -21,7 +21,15 @@ export default function TermoDeUsoPage() {
       </Paper>
 
       {/* Conteúdo dos termos */}
-      <Box mt={3}>
+      <Box
+        mt={3}
+        sx={{
+          p: { xs: 0, md: 4 },
+          '@media (min-width:1017px)': {
+            px: 10,
+          },
+        }}
+      >
         <Typography variant="h6" gutterBottom>1. Aceitação dos Termos</Typography>
         <Typography paragraph>
           Ao acessar e utilizar este aplicativo/website, você concorda em cumprir e estar legalmente vinculado a estes Termos de Uso. Caso não concorde com algum dos termos, recomendamos que não utilize nossos serviços.
