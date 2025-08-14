@@ -28,7 +28,23 @@ export default function TermoDeUsoPage() {
           '@media (min-width:1017px)': {
             px: 10,
           },
+
+          color: '#212529', // cor do texto
+          fontSize: '0.90rem', // tamanho padrão do texto
+
+          '& .MuiTypography-h6': {
+            fontSize: '1.1rem',
+            fontWeight: 'bold',
+            marginBottom: 2,
+            color: '#6a994e'
+          },
+
+          '& p': {
+            fontSize: '0.95rem',
+            lineHeight: 1.6,
+          }
         }}
+
       >
         <Typography variant="h6" gutterBottom>1. Aceitação dos Termos</Typography>
         <Typography paragraph>
