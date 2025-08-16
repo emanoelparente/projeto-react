@@ -32,6 +32,7 @@ import ContatoSuporte from './features/pages/ajuda/ContatoSuporte';
 import PerguntasFrequentes from './features/pages/ajuda/PerguntasFrequentes';
 import TermosDeUsoPage from './features/pages/TermosDeUsoPage';
 import PoliticaDePrivacidadePage from './features/pages/PoliticaDePrivacidadePage';
+import PrimeirosPassos from './features/pages/ajuda/PrimeirosPassos';
 
 function AppContent() {
     const { usuario } = useAuth();
@@ -85,8 +86,10 @@ function AppContent() {
                     <Route path="/configuracoes" element={<PrivateRoute><ConfiguracoesPage /></PrivateRoute>} />
 
                     <Route path="/ajuda" element={<AjudaIndex />} />
-                    <Route path="/ajuda/contato-suporte" element={<ContatoSuporte />} />
-                    <Route path="/ajuda/perguntas-frequentes" element={<PerguntasFrequentes />} />
+                    <Route path="/ajuda/contato" element={<ContatoSuporte />} />
+                    <Route path="/ajuda/faq" element={<PerguntasFrequentes />} />
+                    
+                    <Route path="/ajuda/primeiros-passos" element={<PrimeirosPassos />} />
                     <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidadePage />} />
                     <Route path="/termos-de-uso" element={<TermosDeUsoPage />} />
 
