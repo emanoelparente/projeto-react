@@ -1,33 +1,32 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
   IconButton,
-  Menu,
-  MenuItem,
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
   Box,
   useMediaQuery,
+  
 } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavbarAppFinancas.css";
 
 const NavbarAppFinancas = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const logoRef = useRef(null);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const location = useLocation();
   const isMobile = useMediaQuery("(max-width:600px)");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (logoRef.current) logoRef.current.blur();
-  }, []);
-
-  const handleMenu = (event) => setAnchorEl(event.currentTarget);
-  const handleClose = () => setAnchorEl(null);
+  const handleDrawerOpen = () => setOpenDrawer(true);
+  const handleDrawerClose = () => setOpenDrawer(false);
 
   const handleLogout = () => {
     localStorage.removeItem("usuario");
@@ -54,7 +53,6 @@ const NavbarAppFinancas = () => {
           {isHome ? (
             <Link to="/home">
               <img
-                ref={logoRef}
                 src="../images/logo-feasy-fb.svg"
                 alt="logo"
                 className="logo-esquerda"
@@ -87,17 +85,15 @@ const NavbarAppFinancas = () => {
               borderRadius: "4px",
               minWidth: "100px",
               boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
-              display: { xs: "none", sm: "block" }, // esconde em telas muito pequenas
+              display: { xs: "none", sm: "block" },
             }}
           >
-            {/* "Label" estilo shrink */}
             <Box
               component="span"
               sx={{
                 position: "absolute",
                 top: "-10px",
                 left: "8px",
-
                 color: "white",
                 fontSize: "0.65rem",
                 padding: "0 4px",
@@ -106,39 +102,189 @@ const NavbarAppFinancas = () => {
             >
               Saldo
             </Box>
-
-            <Box sx={{ fontSize: "0.9rem" }}>
-              R$ 1.234,56
-            </Box>
+            <Box sx={{ fontSize: "0.9rem" }}>R$ 1.234,56</Box>
           </Box>
 
-          {/* Ícone de perfil/menu */}
-          <IconButton
-            onClick={handleMenu}
-            className="perfil-icon"
-          >
-
-            {isMobile ? (
-              <MenuIcon/>
-            ) : (
-              <AccountCircle className="icone" />
-            )}
+          {/* Botão que abre Drawer */}
+          <IconButton onClick={handleDrawerOpen} className="perfil-icon">
+            {isMobile ? <MenuIcon /> : <AccountCircle className="icone" />}
           </IconButton>
-
-          {/* Menu dropdown */}
-          <Menu
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            anchorOrigin={{ vertical: "top", horizontal: "right" }}
-            transformOrigin={{ vertical: "top", horizontal: "right" }}
-          >
-            <MenuItem onClick={handleClose}>Configurações</MenuItem>
-            <MenuItem onClick={handleClose}>Perfil</MenuItem>
-            <MenuItem onClick={handleLogout}>Sair</MenuItem>
-          </Menu>
         </Box>
       </Toolbar>
+
+      {/* Drawer lateral */}
+      {/* Drawer lateral */}
+      <Drawer
+        anchor="right"
+        open={openDrawer}
+        onClose={handleDrawerClose}
+        PaperProps={{
+          sx: {
+            backgroundColor: "#2e7d32", // verde
+            color: "white",
+            borderTopLeftRadius: "16px",
+            borderBottomLeftRadius: "16px",
+            width: 260,
+          },
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+          }}
+        >
+          {/* Botão fechar */}
+          <IconButton onClick={handleDrawerClose} sx={{ alignSelf: "flex-end", color: "white" }}>
+            <ChevronLeftIcon />
+          </IconButton>
+
+          {/* Itens principais */}
+          <List>
+            <ListItem
+              button
+              component={Link}
+              to="/novo-lancamento"
+              onClick={handleDrawerClose}
+              sx={{
+                bgcolor: location.pathname === "/novo-lancamento" ? "white" : "transparent",
+                color: location.pathname === "/novo-lancamento" ? "green" : "white",
+                borderRadius: "12px",
+                mb: 1,
+              }}
+            >
+              <HomeIcon sx={{ mr: 1 }} />
+              <ListItemText primary="Novo Lançamento" />
+            </ListItem>
+
+            <ListItem
+              button
+              component={Link}
+              to="/orcamento-mensal"
+              onClick={handleDrawerClose}
+              sx={{
+                bgcolor: location.pathname === "/orcamento-mensal" ? "white" : "transparent",
+                color: location.pathname === "/orcamento-mensal" ? "green" : "white",
+                borderRadius: "12px",
+                mb: 1,
+              }}
+            >
+              <HomeIcon sx={{ mr: 1 }} />
+              <ListItemText primary="Orçamento Mensal" />
+            </ListItem>
+
+            <ListItem
+              button
+              component={Link}
+              to="/dividas-pagar"
+              onClick={handleDrawerClose}
+              sx={{
+                bgcolor: location.pathname === "/dividas-pagar" ? "white" : "transparent",
+                color: location.pathname === "/dividas-pagar" ? "green" : "white",
+                borderRadius: "12px",
+                mb: 1,
+              }}
+            >
+              <HomeIcon sx={{ mr: 1 }} />
+              <ListItemText primary="Dívidas a Pagar" />
+            </ListItem>
+
+            <ListItem
+              button
+              component={Link}
+              to="/valores-a-receber"
+              onClick={handleDrawerClose}
+              sx={{
+                bgcolor: location.pathname === "/valores-a-receber" ? "white" : "transparent",
+                color: location.pathname === "/valores-a-receber" ? "green" : "white",
+                borderRadius: "12px",
+                mb: 1,
+              }}
+            >
+              <HomeIcon sx={{ mr: 1 }} />
+              <ListItemText primary="Valores a Receber" />
+            </ListItem>
+
+            <ListItem
+              button
+              component={Link}
+              to="/extrato-financeiro"
+              onClick={handleDrawerClose}
+              sx={{
+                bgcolor: location.pathname === "/extrato-financeiro" ? "white" : "transparent",
+                color: location.pathname === "/extrato-financeiro" ? "green" : "white",
+                borderRadius: "12px",
+                mb: 1,
+              }}
+            >
+              <HomeIcon sx={{ mr: 1 }} />
+              <ListItemText primary="Extrato Financeiro" />
+            </ListItem>
+
+            <ListItem
+              button
+              component={Link}
+              to="/relatorios"
+              onClick={handleDrawerClose}
+              sx={{
+                bgcolor: location.pathname === "/relatorios" ? "white" : "transparent",
+                color: location.pathname === "/relatorios" ? "green" : "white",
+                borderRadius: "12px",
+                mb: 1,
+              }}
+            >
+              <HomeIcon sx={{ mr: 1 }} />
+              <ListItemText primary="Relatórios" />
+            </ListItem>
+          </List>
+
+          {/* Divider */}
+          <Box sx={{ flexGrow: 1 }} />
+          <Divider sx={{ bgcolor: "rgba(255,255,255,0.3)" }} />
+
+          {/* Links secundários */}
+          <List sx={{ fontSize: "0.85rem" }}>
+            <ListItem button component={Link} to="/ajuda" onClick={handleDrawerClose}>
+              <ListItemText primary="Ajuda" />
+            </ListItem>
+            <ListItem button component={Link} to="/termos-uso" onClick={handleDrawerClose}>
+              <ListItemText primary="Termos de Uso" />
+            </ListItem>
+            <ListItem button component={Link} to="/politica-privacidade" onClick={handleDrawerClose}>
+              <ListItemText primary="Política de Privacidade" />
+            </ListItem>
+            <ListItem button component={Link} to="/educacao-financeira" onClick={handleDrawerClose}>
+              <ListItemText primary="Educação Financeira" />
+            </ListItem>
+          </List>
+
+          {/* Configurações e Sair */}
+          <List>
+            <ListItem
+              button
+              component={Link}
+              to="/configuracoes"
+              onClick={handleDrawerClose}
+              sx={{
+                borderRadius: "12px",
+                mb: 1,
+                bgcolor: location.pathname === "/configuracoes" ? "white" : "transparent",
+                color: location.pathname === "/configuracoes" ? "green" : "white",
+              }}
+            >
+              <HomeIcon sx={{ mr: 1 }} />
+              <ListItemText primary="Configurações" />
+            </ListItem>
+            <ListItem button onClick={handleLogout} sx={{ borderRadius: "12px" }}>
+              <HomeIcon sx={{ mr: 1 }} />
+              <ListItemText primary="Sair" />
+            </ListItem>
+          </List>
+        </Box>
+      </Drawer>
+
+
     </AppBar>
   );
 };
