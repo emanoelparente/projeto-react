@@ -201,6 +201,14 @@ const NavbarAppFinancasVertical = ({ menuAberto, setMenuAberto }) => {
             >
               Política de Privacidade
             </Typography>
+
+            <Typography
+              variant="caption"
+              sx={{ color: "white", cursor: "pointer", fontSize: "0.75rem" }}
+              onClick={() => navigate("/politica-de-privacidade")}
+            >
+              Educação financeira
+            </Typography>
           </Box>
         )}
 

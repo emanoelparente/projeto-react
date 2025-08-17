@@ -37,7 +37,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 7px 6px;
   color: white;
   cursor: pointer;
   position: relative;
@@ -83,4 +82,23 @@
 .menu-item.ativo::after {
   bottom: -9px;
   border-top-right-radius: 100px;
+}
+
+
+.menu-item {
+  padding: 7px 4px; /* valor padrão */
+}
+
+/* Para telas menores em ALTURA */
+@media (max-height: 711px) {
+  .menu-item {
+    padding: 5.5px 4px;
+  }
+}
+
+/* Para telas maiores em ALTURA */
+@media (min-height: 712px) {
+  .menu-item {
+    padding: 13px 4px;
+  }
 }
