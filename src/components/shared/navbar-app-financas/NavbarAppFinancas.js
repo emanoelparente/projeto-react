@@ -120,11 +120,11 @@ const NavbarAppFinancas = () => {
         onClose={handleDrawerClose}
         PaperProps={{
           sx: {
-            backgroundColor: "#2e7d32", // verde
+            backgroundColor: "#77AF51",
             color: "white",
             borderTopLeftRadius: "16px",
             borderBottomLeftRadius: "16px",
-            width: 260,
+            width: 250,
           },
         }}
       >
@@ -150,7 +150,7 @@ const NavbarAppFinancas = () => {
               sx={{
                 bgcolor: location.pathname === "/novo-lancamento" ? "white" : "transparent",
                 color: location.pathname === "/novo-lancamento" ? "green" : "white",
-                borderRadius: "12px",
+                borderRadius: "50px",
                 mb: 1,
               }}
             >
@@ -166,7 +166,7 @@ const NavbarAppFinancas = () => {
               sx={{
                 bgcolor: location.pathname === "/orcamento-mensal" ? "white" : "transparent",
                 color: location.pathname === "/orcamento-mensal" ? "green" : "white",
-                borderRadius: "12px",
+                borderRadius: "50px",
                 mb: 1,
               }}
             >
@@ -182,7 +182,7 @@ const NavbarAppFinancas = () => {
               sx={{
                 bgcolor: location.pathname === "/dividas-pagar" ? "white" : "transparent",
                 color: location.pathname === "/dividas-pagar" ? "green" : "white",
-                borderRadius: "12px",
+                borderRadius: "50px",
                 mb: 1,
               }}
             >
@@ -198,7 +198,7 @@ const NavbarAppFinancas = () => {
               sx={{
                 bgcolor: location.pathname === "/valores-a-receber" ? "white" : "transparent",
                 color: location.pathname === "/valores-a-receber" ? "green" : "white",
-                borderRadius: "12px",
+                borderRadius: "50px",
                 mb: 1,
               }}
             >
@@ -214,7 +214,7 @@ const NavbarAppFinancas = () => {
               sx={{
                 bgcolor: location.pathname === "/extrato-financeiro" ? "white" : "transparent",
                 color: location.pathname === "/extrato-financeiro" ? "green" : "white",
-                borderRadius: "12px",
+                borderRadius: "50px",
                 mb: 1,
               }}
             >
@@ -230,7 +230,7 @@ const NavbarAppFinancas = () => {
               sx={{
                 bgcolor: location.pathname === "/relatorios" ? "white" : "transparent",
                 color: location.pathname === "/relatorios" ? "green" : "white",
-                borderRadius: "12px",
+                borderRadius: "50px",
                 mb: 1,
               }}
             >
