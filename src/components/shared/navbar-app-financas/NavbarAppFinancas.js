@@ -46,8 +46,8 @@ const menuItems = [
 
 const extraItems = [
   { label: "Ajuda", icon: <HelpOutline />, path: "/ajuda" },
-  { label: "Termos de uso", icon: <Description />, path: "/termos" },
-  { label: "Política de privacidade", icon: <Policy />, path: "/privacidade" },
+  { label: "Termos de uso", icon: <Description />, path: "/termos-de-uso" },
+  { label: "Política de privacidade", icon: <Policy />, path: "/politica-de-privacidade" },
   { label: "Educação financeira", icon: <School />, path: "/educacao" },
 ];
 
@@ -136,7 +136,8 @@ const NavbarAppFinancas = () => {
                 key={index}
                 onClick={() => handleItemClick(item)}
                 sx={{
-                  borderRadius: "50px",
+                  borderTopLeftRadius: "50px",
+                  borderBottomLeftRadius: "50px",
                   mx: 1,
                   mb: 1,
                   bgcolor: isActive(item.path) ? "white" : "transparent",
