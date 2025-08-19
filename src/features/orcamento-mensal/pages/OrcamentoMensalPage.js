@@ -4,7 +4,6 @@ const OrcamentoMensalPage = () => {
   return (
     <div>
       Orçamento Mensal
-      <FiltroSelecaoDatas></FiltroSelecaoDatas>
     </div>
   );
 };

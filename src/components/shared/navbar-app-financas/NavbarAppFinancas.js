@@ -56,7 +56,7 @@ const NavbarAppFinancas = () => {
   const location = useLocation();
   const isMobile = useMediaQuery("(max-width:600px)");
   const navigate = useNavigate();
-  const { openModal } = useModal();
+  const { abrirModal } = useModal();
   const { logout } = useAuth();
 
   const handleDrawerOpen = () => setOpenDrawer(true);
@@ -69,7 +69,7 @@ const NavbarAppFinancas = () => {
 
   const handleItemClick = (item) => {
     if (item.action === "abrirModal") {
-      openModal("novoLancamento");
+      abrirModal("novoLancamento");
     } else if (item.path) {
       navigate(item.path);
     }
@@ -77,6 +77,9 @@ const NavbarAppFinancas = () => {
   };
 
   const isActive = (path) => location.pathname === path;
+
+
+  
 
   return (
     <AppBar position="static">
