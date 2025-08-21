@@ -61,6 +61,7 @@ export default function AjudaIndex() {
                             borderRadius: 2,
                             textTransform: "none",
                             fontWeight: "bold",
+                            textAlign: "center",
                             p: 1.5,
                             "&:hover": {
                                 background: "linear-gradient(135deg, #6a994e, #a9c34c)",
@@ -80,6 +81,7 @@ export default function AjudaIndex() {
                             borderRadius: 2,
                             textTransform: "none",
                             fontWeight: "bold",
+                            textAlign: "center",
                             p: 1.5,
                             "&:hover": {
                                 background: "linear-gradient(135deg, #3ba5c0, #3f9185)",
@@ -99,6 +101,7 @@ export default function AjudaIndex() {
                             borderRadius: 2,
                             textTransform: "none",
                             fontWeight: "bold",
+                            textAlign: "center",
                             p: 1.5,
                             "&:hover": {
                                 background: "linear-gradient(135deg, #d55c3f, #c94c22)",
