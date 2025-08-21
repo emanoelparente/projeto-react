@@ -53,7 +53,19 @@ const ConfiguracoesIndex = () => {
     };
 
     return (
-        <Box sx={{ pt: 10, px: 15, pb: 0}}>
+        <Box
+            sx={{
+                pt: 10,
+                px: {
+                    xs: 2,   // bem compacto em mobile
+                    sm: 4,   // um pouco maior em tablets pequenos
+                    md: 8,   // médio em tablets grandes
+                    lg: 12,  // quase o padding cheio
+                    xl: 15,  // padding cheio em telas grandes (>= 1536px por padrão)
+                },
+                pb: 0,
+            }}
+        >
             <Typography
                 variant="h5"
                 gutterBottom
@@ -64,7 +76,6 @@ const ConfiguracoesIndex = () => {
             >
                 Configurações
             </Typography>
-
 
             <Paper elevation={3} sx={{ borderRadius: 2 }}>
                 {/* Abas horizontais */}
@@ -81,14 +92,13 @@ const ConfiguracoesIndex = () => {
                             minHeight: '48px',
                         },
                         '& .Mui-selected': {
-                            backgroundColor: '#0000001a', // leve destaque para a aba ativa
+                            backgroundColor: '#0000001a',
                             color: '#fff',
                         },
                         '& .MuiTabs-indicator': {
                             backgroundColor: '#fff',
                         },
                     }}
-
                 >
                     {abas.map((aba) => (
                         <Tab
@@ -111,6 +121,7 @@ const ConfiguracoesIndex = () => {
                 </Box>
             </Paper>
         </Box>
+
     );
 };
 
