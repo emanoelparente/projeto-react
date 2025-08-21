@@ -104,7 +104,7 @@ const ConfiguracoesIndex = () => {
                   minHeight: '48px',
                 },
                 '& .Mui-selected': {
-                  backgroundColor: '#0000001a',
+                  backgroundColor: '#729c11ff',
                   color: '#fff',
                 },
                 '& .MuiTabs-indicator': {
