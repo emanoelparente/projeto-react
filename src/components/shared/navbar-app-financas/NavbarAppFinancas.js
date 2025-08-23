@@ -79,7 +79,7 @@ const NavbarAppFinancas = () => {
   const isActive = (path) => location.pathname === path;
 
 
-  
+
 
   return (
     <AppBar position="static">
@@ -99,7 +99,9 @@ const NavbarAppFinancas = () => {
         {/* lado direito */}
         <Box className="right-box">
           <IconButton onClick={handleDrawerOpen} className="perfil-icon">
-            {isMobile ? <MenuIcon /> : <AccountCircle />}
+            {isMobile
+              ? <MenuIcon sx={{ color: "#ffffffff" }} />
+              : <AccountCircle sx={{ color: "#ffffffff" }} />}
           </IconButton>
         </Box>
       </Toolbar>
