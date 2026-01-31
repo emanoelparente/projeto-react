@@ -105,7 +105,7 @@ const ConfiguracoesIndex = () => {
                 },
                 '& .Mui-selected': {
                   backgroundColor: '#729c11ff',
-                  color: '#fff',
+                  color: 'ebf2fa',
                 },
                 '& .MuiTabs-indicator': {
                   backgroundColor: '#fff',
