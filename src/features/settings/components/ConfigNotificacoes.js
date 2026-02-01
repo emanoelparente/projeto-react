@@ -4,7 +4,13 @@ import { Box, Typography, Divider, FormControlLabel, Switch } from '@mui/materia
 
 export default function ConfigNotificacoes() {
   return (
-    <Box>
+    <Box
+      mt={3}
+      sx={{
+        p: 2,
+        pl: { xs: 0, md: 5 },
+      }}
+    >
       <Divider sx={{ my: 2 }} />
 
       {/* Seção: Notificações */}

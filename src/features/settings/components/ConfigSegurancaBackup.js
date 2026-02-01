@@ -21,7 +21,13 @@ export default function ConfigSegurancaBackup() {
     const [backupInterval, setBackupInterval] = useState('semanal');
 
     return (
-        <Box>
+        <Box
+            mt={3}
+            sx={{
+                p: 2,
+                pl: { xs: 0, md: 5 },
+            }}
+        >
             {/* Segurança da Conta */}
             <Typography variant="h6" gutterBottom>Segurança da Conta</Typography>
             <FormControlLabel

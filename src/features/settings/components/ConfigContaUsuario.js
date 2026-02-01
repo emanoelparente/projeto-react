@@ -13,14 +13,20 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
 export default function ConfigContaUsuario() {
   return (
-    <Box>
+    <Box sx={{
+      p: 2,
+      pl: { xs: 0, md: 5 },
+    }}>
       {/* Título */}
       <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#77AF51' }}>
         Informações da Conta
       </Typography>
 
       {/* Informações Pessoais */}
-      <Box mb={3}>
+      <Box
+        mt={3}
+
+      >
         <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 'bold' }}>
           Informações Pessoais
         </Typography>
@@ -48,10 +54,13 @@ export default function ConfigContaUsuario() {
 
       <Divider />
 
-      
+
 
       {/* Ações Administrativas */}
-      <Box mt={3}>
+      <Box
+        mt={3}
+
+      >
         <Typography variant="subtitle1" gutterBottom sx={{ fontWeight: 'bold', color: '#d32f2f' }}>
           Ações da Conta
         </Typography>
